@@ -26,12 +26,29 @@ import Web3 from "web3/dist/web3.min";
 
 ===================================================================
 
+### Connecting with Infura API
+
 ```
 const Web3Module = require('web3'); // import module
 const web3 = new Web3Module('{link to node'}); // create instance
 ```
 
 The node link is most like the link you get from infura ethereum node
+
+### Connecting with Metamask Walllet
+
+```
+const Web3Module = require('web3'); // import module
+
+async function init() {
+  let web3 = new Web3Module(window.ethereum); // create instance
+  await ethereum.enable(); //enable ethereum
+
+  // ... more init function below
+}
+
+init();
+```
 
 # **Interacting with Contracts**
 
@@ -74,7 +91,7 @@ Put this in a async function. or follow the code above. you can put in the same 
 usually read only function calls don't need gas
 
 ```
-const result = await contact.methods.{MethodName}(arg1, arg2).call();
+const result = await contract.methods.{MethodName}(arg1, arg2).call();
 ```
 
 ### Transacting with contracts (read&write)
@@ -82,26 +99,30 @@ const result = await contact.methods.{MethodName}(arg1, arg2).call();
 use the send method to call fucntions with gas. meaning that it can modify data and call operations on the smart contract.
 
 ```
-contract.methods.{MethodName}(arg1, arg2).send({
-  from: {
-    address, // from which wallet?
-    value // the price of transaction
-  }
-});
+await contract.methods.SetOwner(nameInput.value)
+  .send(
+    {
+      from: selectedAccount,
+      value: 394924431210087
+	}
+  );
 ```
 
 ##### Getting at transaction receipt
 
 ```
-contract.methods.{MethodName}(arg1, arg2).send({
-  from: {
-    address, // from which wallet?
-    value // the price of transaction
-  }
-});
+const receipt = await contract.methods.SetOwner(nameInput.value)
+  .send(
+    {
+      from: selectedAccount,
+      value: 394924431210087
+	}
+  );
 ```
 
 it's returned from the send function call
+
+### Converting to wei
 
 # **Getting Metamask Wallets**
 
@@ -121,17 +142,18 @@ export const init = () => {
   if (typeof provider !== 'undefined'){
     // get account from metamask
     provider
-    .request({method: eth_requestAccounts});
+    .request({method: 'eth_requestAccounts'})
     .then((accounts) => {
       selectedAccount = accounts[0]
     })
     .catch((err) => {
       console.log(err)
     });
+  }
     
     //subscribe to account change events
-    window.ethereum.on('accountsChanged', functions (account) {
-      selected accounts = account[0];
+    window.ethereum.on('accountsChanged', function (account) {
+      selectedAccounts = account[0];
     })
   }
 };

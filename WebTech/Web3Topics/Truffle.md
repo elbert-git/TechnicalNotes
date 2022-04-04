@@ -33,6 +33,20 @@ will create 3 folders, constracts, migration, tests and one truffle-config.js fi
 * tests are where you write your testing files in javascript.
 * truffle config. are your deployment settings. you can control which network you deploy to here or which compiler you are using.
 
+### Open zeppelin Contracts
+
+you need to install them into node before you can import
+
+```
+npm install @openzeppelin/contracts
+```
+
+import by using the code below in you .sol contracts
+
+```
+import "@openzeppelin/contracts/path/to/contract";
+```
+
 # **Compilation**
 
 ===================================================================
@@ -126,7 +140,7 @@ you need migration files to instruct how to deploy the contract
 
 in the migrations folder, the files are numbered. they are executed sequencially.
 
-you can ignore the number 1. it's boiler plate.
+you can ignore the number 1. it's part of the project boiler plate.
 
 second file onward are your contracts migration.
 

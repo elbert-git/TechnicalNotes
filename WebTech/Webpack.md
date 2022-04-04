@@ -98,7 +98,7 @@ module.exports = {
   },
   output: { // handles final js bundle output settings
     filename: '[name].bundle.js',
-    path: path.resolve(__direname, 'dist');
+    path: path.resolve(__dirname, 'dist');
   },
 }
 ```
@@ -193,14 +193,12 @@ defaults
 
 that's it.
 
-### Plan A: Importing and setting core-js **❗❗❗ (not working)**
-
-**❗❗❗ Please note we currently cant get option A to work**
+### 1) Importing and setting core-js
 
 these are the core javascript functionalities.
 
 ```
-npm install -save-dev core-js
+npm install --save-dev core-js
 ```
 
 **.babelrc setup**
@@ -218,9 +216,7 @@ just copy below. Remember the double square brackets. Because... just because
 }
 ```
 
-**❗❗❗ Please note we currently cant get option A to work**
-
-### Plan B: Fuck it and polyfill the shit out of this
+### 2) enable polyfill
 
 Use this package
 

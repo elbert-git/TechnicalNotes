@@ -256,3 +256,15 @@ fucntionHere(); // this will run first
 ```
 
 * this async function will pause but rest of the app rill run.
+
+### They are also useful for timeouts
+
+letting code wait before executing
+
+```
+async function sleep() {
+    // code here
+    await timeout(3000);  // wait for 3s (3000ms)
+    // more code here
+}
+```

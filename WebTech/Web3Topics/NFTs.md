@@ -80,13 +80,44 @@ You can customize a boiler plate to create your smart contracts
 
 How to map other data to tokens.
 
-It's just the using the \`\``_setTokenURI()`\`\` method in erc-721.
+It's just the using the \`\``setTokenURI()`\`\` method in erc-721.
 
 ```
-_setTokenURI(tokenID, {uri link});
+setTokenURI(tokenID, {uri link});
 ```
 
-you can put this function in the safeMint function to associate the uri during minting. 
+you can put this function in the safeMint function to associate the uri during minting.
+
+### Steps to create URI
+
+1. upload content to ipfs or internet in general
+2. create metadata json according to opensea and open zepellin standards
+3. upload json to ipfs(use pinata)
+4. mint token and set uri to the link of json ipfs url. 
+
+##### metadata example
+
+[sauce](https://docs.opensea.io/docs/metadata-standards)
+
+```
+{
+  "description": "Friendly OpenSea Creature that enjoys long swims in the ocean.", 
+  "external_url": "https://openseacreatures.io/3", 
+  "image": "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png", 
+  "name": "Dave Starbelly",
+  "attributes": [ ... ], 
+}
+```
+
+##### Exact URL to mint 
+
+when linking the uri in setURI() method. put  the full https link found in pinata
+
+```
+setTokenURI({tokenIndex}, "gateway.pinata.cloud/ipfs/QmTHeo5mVRpREWvTAE7oen9oxcrtRLp5iP6iGTa3yCWQiW");
+```
+
+* note that we excluded the https:// header becasue that is set in the contract's base URI variable
 
 # **Money Matters**
 
