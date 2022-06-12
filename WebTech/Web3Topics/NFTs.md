@@ -93,7 +93,7 @@ you can put this function in the safeMint function to associate the uri during m
 1. upload content to ipfs or internet in general
 2. create metadata json according to opensea and open zepellin standards
 3. upload json to ipfs(use pinata)
-4. mint token and set uri to the link of json ipfs url. 
+4. mint token and set uri to the link of json ipfs url.
 
 ##### metadata example
 
@@ -109,9 +109,9 @@ you can put this function in the safeMint function to associate the uri during m
 }
 ```
 
-##### Exact URL to mint 
+##### Exact URL to mint
 
-when linking the uri in setURI() method. put  the full https link found in pinata
+when linking the uri in setURI() method. put the full https link found in pinata
 
 ```
 setTokenURI({tokenIndex}, "gateway.pinata.cloud/ipfs/QmTHeo5mVRpREWvTAE7oen9oxcrtRLp5iP6iGTa3yCWQiW");
@@ -137,3 +137,57 @@ This will make the function require ether to be sent to the smart contract.
 you can put an operation to send ether automatically on paid function calls.
 
 or create a withdraw() function that requires owner
+
+# **ERC-721A**
+
+===================================================================
+
+### In general
+
+An improved implementation of the ERC-721 standard. Saves gas on minting multiple nfts. Doesn't save gas on an individual nft creation though
+
+##### How is this achieved?
+
+Instead of mapping every token to owner. They assign sequential IDs into owners. Effectively only writing to the mapping once per n number of tokens.
+
+### Contract Template
+
+```
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.4;
+
+import "erc721a/contracts/ERC721A.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract inverted_mfers is ERC721A, Ownable {
+    uint256 MAX_MINTS = 69;
+    uint256 MAX_SUPPLY = 10021;
+    uint256 public mintRate = 0.0069 ether;
+
+    string public baseURI = "ipfs://{hash}/";
+
+    constructor() ERC721A("CollectionName", "SYMBOL") {}
+
+    function mint(uint256 quantity) external payable {
+        // _safeMint's second argument now takes in a quantity, not a tokenId.
+        require(quantity + _numberMinted(msg.sender) <= MAX_MINTS, "Exceeded the limit");
+        require(totalSupply() + quantity <= MAX_SUPPLY, "Not enough tokens left");
+        require(msg.value >= (mintRate * quantity), "Not enough ether sent");
+        _safeMint(msg.sender, quantity);
+    }
+
+    function withdraw() external payable onlyOwner {
+        payable(owner()).transfer(address(this).balance);
+    }
+
+    function _baseURI() internal view override returns (string memory) {
+        return baseURI;
+    }
+
+    function setMintRate(uint256 _mintRate) public onlyOwner {
+        mintRate = _mintRate;
+    }
+}
+```
+
+### Important links for ERC-721A

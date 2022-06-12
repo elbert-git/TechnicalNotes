@@ -2,7 +2,7 @@
 
 ---
 
-# In General
+# **In General**
 
 ===================================================================
 
@@ -10,9 +10,9 @@ It's a high level language to code smart contracts on the ethereum blockchain. N
 
 **Smart Contracts**
 
-think of them as a public c# object in the blockchain(or the cloud). they can hold variables(state) and functions.
+think of them as a public public javascript object in the blockchain(or the cloud). they have properties and functions that users can call
 
-# Basic Structure
+# **Basic Structure**
 
 ===================================================================
 
@@ -29,10 +29,10 @@ contract BasicContract{
 ```
 
 * **Version number**: every solidity file needs a version number to tell what compiler to use
-* **contract object:** the contract itself. behaves like a public and cloud c# object
+* **contract object:** the contract itself. behaves like a public and cloud javascript object
 * **constructor**: a fucntion that is called at the the deployment of the contract. and only then. effectively a fucntion that runs on start();
 
-### Scoping
+### **Variable visibilty/scoping**
 
 ```
 pragma solidity ^0.8.4;
@@ -47,11 +47,11 @@ contract BasicContract{
 
 by default variables and functions are private. used only in the class privately. but you can expose them by the **public** keyword.
 
-# Variables
+# **Variables**
 
 ===================================================================
 
-### Ints
+### **Ints**
 
 **unsigned vs normal integers**
 
@@ -84,7 +84,7 @@ uint16
 uint256
 ```
 
-### Strings
+### **Strings**
 
 just a normal string.
 
@@ -92,7 +92,7 @@ just a normal string.
 string basicString = "hello world";
 ```
 
-### Addresses
+### **Addresses**
 
 every ethereum wallet and smart contract has an address.
 
@@ -102,7 +102,7 @@ an address is just a hyperlink/reference to a wallet or smart contract in the bl
 address smartContractOwner = 0xpowie0923sdfg23;
 ```
 
-### Arrays
+### **Arrays**
 
 like c# arrays. just an array that can dynamically resize. but accepts one type of object
 
@@ -110,7 +110,7 @@ like c# arrays. just an array that can dynamically resize. but accepts one type 
 int[] numberArray = [1,2,3]
 ```
 
-### Mapping
+### **Mapping**
 
 basically python dictionaries but weirder
 
@@ -123,7 +123,7 @@ This dict doesn't only hold strings as keys. it can by any data type. just denot
 
 then use it like a python dictionary
 
-### Structs
+### **Structs**
 
 basically javascript objects
 
@@ -138,7 +138,15 @@ struct Person {
     }
 ```
 
-### Memory Vs Storage
+### **Events**
+
+```
+event LogDepositMade(address accountAddress, uint amount);
+```
+
+Make logs that other programs can listen for.
+
+### **Memory Vs Storage**
 
 You can mark a variable as memory or storage. whether it only exists in the run time of the function or persists throughout the life time of the contract.
 
@@ -149,7 +157,7 @@ string memory tempString public = "temp";
 string storage permanentString public = "permanent";
 ```
 
-### MSG object
+### **MSG object**
 
 This is is how you identify who is interacting with the smart contract.
 
@@ -161,7 +169,7 @@ but other people can also interact with this contract. so when they call the fuc
 address currentUser = msg.sender;
 ```
 
-# Functions
+# **Functions**
 
 ===================================================================
 
@@ -185,8 +193,20 @@ function FunctionName(datatype varName) [public, pure, view] returns(datatype, d
 
 * declare the function keyword
 * followed by arguments it requires
-* then public, pure, view modfiers
+* then public, pure, view permissions
 * then declare the returning data type
+
+### Fucntion permissions
+
+The one that goes in square brackets above. They label and enable what a functionc can do
+
+* public: accessable to everyone. Inside of contract and outside. **default for functions**
+* private: accessible to be called within contract only. not accessible to children derivative contracts
+* external: accessible to called outside of contract only
+* internal: accessible to be called in contract and it's derivative children contracts
+* view: read only. Doesn't require gas. Can't change state/write variables
+* pure: does not read and write. almost useless
+* Payable: allow to fucntion to receive ether
 
 ### Error Handling
 
@@ -247,22 +267,16 @@ modifier preventOverlappingCalls (){
 }
 ```
 
-# Events
+# **Events**
 
 ===================================================================
 
-A way to to set up a signal that other contracts, objects, fucntions etc. can subscribe to.
+A way to to set up a signal that other contracts, objects, fucntions etc. can subscribe to. But can also function like a console.log into the blockchain log
 
-This allows one code to call an arbitrary amount of functions
-
-like emitting signals on trades to track who owns who
-
-##### Declaring an event
+##### Creating an event
 
 ```
-event newEvent(){
-  uint data = value;
-}
+event EventName(dataType varName, datatype varname);
 ```
 
 they look like structs. this is so that events can also carry data to further describe the event.
@@ -270,7 +284,7 @@ they look like structs. this is so that events can also carry data to further de
 ##### Emitting an event
 
 ```
-emit newEvent(2);
+emit eventName(argName, argName);
 ```
 
 just call emit, then event name followed by the variables to make up that data.

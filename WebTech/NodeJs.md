@@ -2,7 +2,7 @@
 
 ===================================================================
 
-### In general 
+### In general
 
 A runtime development for javascript. Allows javascript to run on an OS like windows/linux/mac
 
@@ -62,6 +62,14 @@ nvm install [version.number]
 npm init -y
 ```
 
+### When receiving an exisiting project
+
+```
+npm install
+```
+
+this will install the dependencies needed to run the project.
+
 # **Project Structure**
 
 ===================================================================
@@ -74,7 +82,7 @@ this is where all the node modules are stored for the project.
 
 this is the config file. you can put quick npm scripts here.
 
-this also contains a roster of project and development dependencies. 
+this also contains a roster of project and development dependencies.
 
 # **Node modules installation**
 
@@ -94,4 +102,24 @@ These are modules that help develop or compile the project. not needed on the pr
 
 ```
 npm install {module name} --save-dev
+```
+
+# **Custom Node modules**
+
+===================================================================
+
+every js file to node is a module.
+
+### Exporting stuff in node.
+
+```
+modules.export = {objects you want to export}
+```
+
+### Importing stuff in node.
+
+```
+import {object} from '/path/to/file';
+// or
+const varName = require('path/to/file'); 
 ```

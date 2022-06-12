@@ -164,3 +164,13 @@ export const init = () => {
 ===================================================================
 
 <https://www.youtube.com/watch?v=C4F3Qo6qvGI>
+
+=================================
+
+# new notes
+
+* general
+* setup
+* get wallet
+* contracts
+* get contract instance

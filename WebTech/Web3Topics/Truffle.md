@@ -70,16 +70,13 @@ usually you just write a js file that references the smart contract then interac
 below is an example test js file
 
 ```
-const SimpleContract = artifacts.require('SimpleContract'); //in the require is the name of the smart contract object
-
-contract('SimpleStorage' () => {
-  it('Should Update Data', async () => {
-    const storage = await SimpleStorage.new();
-	await storage(10);
-	const data = await storage.readData();
-	assert(data.toString() === '10')
-  })
-});
+const contract = artifacts.require("ContractFile");
+contract("ContractName", async ()=> {
+  it("name of test", async () => {
+    const instance = await MetaCoin.deployed();
+    const data = await instance.getData.call();
+    assert(data === someSpecifiedData);
+  });
 ```
 
 * Import the contract
@@ -93,6 +90,15 @@ run tests by
 
 ```
 truffle test
+```
+
+```
+contract("2nd MetaCoin test", async accounts => {
+  it("should put 10000 MetaCoin in the first account", async () => {
+    const instance = await MetaCoin.deployed();
+    const balance = await instance.getBalance.call(accounts[0]);
+    assert.equal(balance.valueOf(), 10000);
+  });
 ```
 
 ##### Common tests over the top of my head

@@ -98,7 +98,7 @@ module.exports = {
   },
   output: { // handles final js bundle output settings
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist');
+    path: path.resolve(__dirname, 'dist')
   },
 }
 ```
@@ -239,5 +239,89 @@ module.exports = {
 	plugins: [
 		new NodePolyfillPlugin()
 	]
+}
+```
+
+# Quick boilerplate
+
+===================================================================
+
+##### node project setup
+
+```
+npm init -y
+```
+
+```
+mkdir src public
+touch src/index.js
+touch public/index.html
+```
+
+##### Installs
+
+```
+npm install --save-dev webpack webpack-cli @babel/core @babel/preset-env babel-loader core-js node-polyfill-webpack-plugin
+```
+
+##### package.json
+
+add scripts
+
+```
+"scripts": {
+  "build": "webpack",
+  "dev": "webpack --mode development",
+  "start": "webpack serve"
+}
+```
+
+##### webpack.config.js
+
+```
+const path = require('path');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+module.exports = {
+  mode: 'development', // switch to 'production' for production build
+  entry:{ // handles entry point javascript
+    main: path.resolve(__dirname, './src/index.js')
+  },
+  output: { // handles final js bundle output settings
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'public')
+  },
+  devtool: "source-map",
+module:{
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          // without additional settings this will reference .babelrc
+          loader: 'babel-loader'
+        }
+      }
+    ]
+  },
+	plugins: [
+		new NodePolyfillPlugin()
+	]
+}
+```
+
+##### .babelrc setup
+
+create .babelrc file
+
+just copy below. Remember the double square brackets. Because... just because
+
+```
+{
+  "presets" : [
+    [
+      "@babel/preset-env",
+      {"debug": true, "useBuiltIns": "usage", "corejs": 3}
+    ]
+  ]
 }
 ```

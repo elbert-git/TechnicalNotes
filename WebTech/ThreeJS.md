@@ -4,13 +4,15 @@
 
 \- interatctions and input
 
-\- post processing 
+\- post processing
 
 \- ThreeJS and react
 
 \- Miscellaneous
 
-	- 3D Assets folder duplication. Need to be in same place as script.
+```
+- 3D Assets folder duplication. Need to be in same place as script.
+```
 
 # **-|- ThreeJS**
 
@@ -54,20 +56,23 @@ import { Scene } from 'three';
 
 ===================================================================
 
+create new div id in html
+
 ```
-// --- create scene
+// imports
+import * as THREE from 'three';
+
+let canvas; // create canvas variable;
+
+// - - - initialise THREE
 const scene = new THREE.Scene();
 // create camera, need fovAngle, aspect ratio and near/far clip planes
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+const camera = new THREE.PerspectiveCamera( 75, 1, 0.1, 1000 );
 // move cam so we can what is in center
 camera.position.z = 5;
 
 // --- create renderer
 const renderer = new THREE.WebGLRenderer();
-// set renderer canvas size
-renderer.setSize( window.innerWidth, window.innerHeight );
-// Attach renderer to body
-document.body.appendChild( renderer.domElement );
 
 // --- Creatingh a basic mesh object
 // you need a Geometry object and material
@@ -80,18 +85,41 @@ scene.add( cube );
 
 // --- create update loop
 function Update() {
-  // queuenew frame to render
-  requestAnimationFrame( animate );
+	// queue new frame to render
+	requestAnimationFrame( Update );
 
-  // update logic goes here
-  // code.....
+	// update logic goes here
+	// code.....
 
-  // render this current frame
-  renderer.render( scene, camera );
+	// render this current frame
+	renderer.render( scene, camera );
 };
 
 // Start update loop
 Update();
+
+
+function resizeCanvas(){
+	// set renderer canvas size
+	renderer.setSize( canvas.clientWidth, canvas.clientHeight );
+	//camera settings
+	camera.aspect = canvas.clientWidth/canvas.clientHeight;
+	camera.updateProjectionMatrix();
+}
+
+// load in canvas after page has loaded
+window.addEventListener('load', (event) => {
+	//get canvas
+	canvas = document.getElementById("canvas");
+	// Attach renderer to body
+	document.getElementById("canvas").appendChild(renderer.domElement);
+	resizeCanvas();
+});
+ 
+// --- dynamic screen size
+window.addEventListener('resize', ()=>{
+	resizeCanvas();
+});
 ```
 
 # **How objects are structured**
@@ -119,7 +147,7 @@ Update();
 
 ===================================================================
 
-This is the core update loop boiler plate. every fram this fucntion runs. 
+This is the core update loop boiler plate. every fram this fucntion runs.
 
 anything you need to update. put it here
 
@@ -177,11 +205,11 @@ For some reason THREE js wont load outside of src folder
 
 but during deployment you will need the 3DAssets folder in the public folder
 
-put in src for development then copy to public for deployment to server. 
+put in src for development then copy to public for deployment to server.
 
 **During production/deployment/delivery**
 
-of if you just want to put it on a server. 
+of if you just want to put it on a server.
 
 * Copy 3DAssets folder to public folder
 
@@ -189,8 +217,86 @@ Because you will only upload the public folder
 
 no need to rewrite file paths in .js scripts
 
+# **Handling objects**
+
+===================================================================
+
+### Creating objects
+
+you need a geometry object and a material object form a mesh object.
+
+```
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const cube = new THREE.Mesh( geometry, material );
+```
+
+### Handling transforms
+
+**Set by individual channels and axes**
+
+```
+cube.position.x = 1;
+cube.rotation.y = 1;
+cube.scale.z = 1; 
+```
+
+**Set by channels**
+
+```
+camera.position.set(0,0,0);
+```
+
+### Handling materials.
+
+```
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+```
+
 # **Interactions**
 
 ===================================================================
 
-# 
+### Orbit Controls
+
+* import
+
+```
+import {OrbitControls} from 'three/exampols/jsm/controls/OrbitControls';
+```
+
+* turn a camera into an orbit camera
+
+```
+const orbitControl = new OrbitControls(camera, renderer,domElement);
+orbitControls.update();
+```
+
+### Ray-cast
+
+<https://www.youtube.com/watch?v=3SGdxk7HMGw&list=PLhr9tY51Nydcik-u5dKFfEHLxdbtdxB1-&index=3> **<--- import source**
+
+### [ ] Pick-up Items
+
+### [ ] Scrolling
+
+### [ ] Mouse/Keyboard Input
+
+# [ ] Animations
+
+===================================================================
+
+# **Helper GUIs**
+
+===================================================================
+
+GUIs for help debugging.
+
+### Grid-Helper
+
+```
+const gridHelper = new THREE.GridHelper({grid length},{no of grid divisions});
+scene.add(gridHelper);
+```
+
+### Light-Helper

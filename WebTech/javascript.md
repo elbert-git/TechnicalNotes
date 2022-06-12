@@ -1,12 +1,12 @@
-# **Javascript**
+# **-|- Advanced Javascript**
 
----
+===================================================================
 
-# **Basics**
+This covers everything above the basic syntax, variables, loops. Will cover stuff like ES6, events and polymorphism/object-based-programming.
 
-===========
+# **Objects**
 
-# Objects
+===================================================================
 
 JSONs basically or a python dictionary
 
@@ -49,9 +49,9 @@ console.log(val); // will return yes
 
 ---
 
-# let var const
+# let var const variables
 
-=====================
+===================================================================
 
 * ignore var
 * just use let to declare variables
@@ -112,7 +112,7 @@ essentially object creators. they allow the code to create an object with specif
 
 ```
 class person{
-  constructior(name){
+  constructor(name){
   this.name = name;
   }
 
@@ -268,3 +268,14 @@ async function sleep() {
     // more code here
 }
 ```
+
+# Events
+
+===================================================================
+
+<https://www.youtube.com/watch?v=DzZXRvk3EGg>
+
+* it's like automatic function calls
+* creating an event.
+* Create event listener
+* dispatch event.

@@ -10,9 +10,9 @@ A way to build reactive web UI with components(like prefabs in unity)
 
 ---
 
-# Intuition of a ReactJS web-app
+# **Intuition of a ReactJS web-app**
 
-===================================================
+===================================================================
 
 When calling the npx create-react-app. It creates an html and a bunch of scripts that connect to it.
 
@@ -45,49 +45,9 @@ function Comment(props) {
 }
 ```
 
-# Node stuff
+# **Setup**
 
-==================
-
-### Installing node
-
-```
-sudo apt-get install nodejs
-```
-
-This is just the js engine. you still need to install the package manager (like pip for python)
-
-### Installing NPM (node package manager)
-
-```
-sudo apt-get install npm
-```
-
-### Installing NVM(node version manager)
-
-to handle Node version
-
-```
-sudo apt-get install nvm
-```
-
-* To list down all available version
-
-```
-nvm ls-remote
-```
-
-* to install one particular version
-
-```
-nvm install [version.number]
-```
-
----
-
-# Setup
-
-==========
+===================================================================
 
 Make sure node is installed in the terminal
 
@@ -116,9 +76,9 @@ npm start
 
 ---
 
-# Components
+# **Components**
 
-========================
+===================================================================
 
 Below is a basic react-component.js file
 
@@ -205,9 +165,9 @@ class ComponentName extends React.Component {
 }
 ```
 
-# Styling
+# **Styling**
 
-===========
+===================================================================
 
 you have global styling like you normally do.
 
@@ -225,9 +185,9 @@ function App(){
 }
 ```
 
-# Props
+# **Props**
 
-==========
+===================================================================
 
 props are like onStart() variables.
 
@@ -268,9 +228,9 @@ you define the state as high into the component tree as you need.
 
 but pass the props down component to component.
 
-# useState()
+# **useState**()
 
-================
+===================================================================
 
 #### what are states
 
@@ -309,9 +269,13 @@ export default function customReactComponent () {
 
 * don't edit a state directly. create a new data then set that data
 
-# useEffect()
+### setState() is an async function!
 
-=================
+by the time you console.log() after a setState the data probably isn't updated. To check data updates. useEffect to log the state every time the chat Data changes
+
+# **useEffect**()
+
+===================================================================
 
 allows functions to run. when an state array is changed
 
@@ -335,9 +299,9 @@ useEffect(() => {
 
 you can put an empty array (meaning that it will never change/update). so that it will only run once on start and never again.
 
-# useRef()
+# **useRef**()
 
-================
+===================================================================
 
 this is how you reference other elements in the dom
 
@@ -398,9 +362,9 @@ export default function customReactComponent (prop) {
 }
 ```
 
-# useContext()
+# **useContext**()
 
-========================
+===================================================================
 
 Instead of passing one prop from one child to the other.
 
@@ -415,9 +379,9 @@ export const ContextData = React.createContext();
 export default function ContextProvider ({children}) {
   // put context handling code here
   return m
-    <Context.Provider value={props to pass down}>
+    <ContextData.Provider value={props to pass down}>
       {children}
-    </Context.Provider>
+    </ContextData.Provider>
   )
 }
 ```
@@ -450,12 +414,12 @@ This is literally just declutter and streamline how contexts are written
 ```
 import React from 'react';
 import ReactDom from 'react-dom';
-import {useContext()} from 'react';
+import {useContext} from 'react';
 
-export const context = React.createContext();
+export const Context = React.createContext();
 
-export fucntion useCreatedContext(){
-  return useContext(context);
+export function useCreatedContext(){
+  return useContext(Context);
 }
 
 export default function ContextProvider ({children}) {
@@ -473,9 +437,39 @@ export default function ContextProvider ({children}) {
 * use this component to handle setting/updating the theme
 * create new public/exported function to allow other js files to get context data.
 
-# List
+### Updating context data
 
-=======
+use useState and pass the data and setData functions through the context.
+
+* in parent component
+
+```
+export default function ParentComponent() {
+  const [val, setVal] = useState();
+
+  return (
+    <Context.Provider value={[val, setVal]}>
+      <childComponent/>
+    </Context.Provider>
+  );
+}
+```
+
+* in child component
+
+```
+export default function childComponent(){
+  const [val, setVal] = useContext(Context);
+
+  return (
+    <div></div>
+  );
+};
+```
+
+# **List**
+
+===================================================================
 
 you can loop over a json/array to display a lot of data.
 
@@ -517,71 +511,17 @@ return(
 )
 ```
 
-# Events
+# **Events**
 
-===============
+===================================================================
 
-### In essence
+You need to create your own custom react hooks to use events outside of React
 
-1. create function in class
-2. add function to state
-3. set event to call functions
+### Creating your own hook for your custom events
 
-```
-class Toggle extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {isToggleOn: true};
+# **Routing**
 
-    // add function to props/state
-    this.handleClick = this.handleClick.bind(this);
-  }
-  // declare function
-  handleClick() {
-    this.setState(prevState => ({
-      isToggleOn: !prevState.isToggleOn
-    }));
-  }
-
-  render() {
-    return (
-      <button onClick={this.handleClick}> //set function to html event
-        {this.state.isToggleOn ? 'ON' : 'OFF'}
-      </button>
-    );
-  }
-}
-
-ReactDOM.render(
-  <Toggle />,
-  document.getElementById('root')
-);
-```
-
-### The weird 'E' in function components
-
-```
-function Form() {
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log('You clicked submit.');
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-```
-
-need to add e to argument
-
-and first line is prevent default
-
-# Routing
-
-===============
+===================================================================
 
 source
 
@@ -615,8 +555,8 @@ export default function ParentComponent (prop) {
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="*" element={<MissingPage/>}/>
-      <Routes>
-    <BrowserRouter>
+      </Routes>
+    </BrowserRouter>
   )
 }
 ```
@@ -773,8 +713,8 @@ export default function ParentComponent (prop) {
         <Route element={<ProtectedRoutes/>}>
           <Route path="book-title" element={<bookTitlePage>}/>
         </Route>
-      <Routes>
-    <BrowserRouter>
+      </Routes>
+    </BrowserRouter>
   )
 }
 ```
@@ -804,16 +744,24 @@ export default function ProtectedRoutes(){
 * use react context hook to get authorisation parameters
 * use the auth parameters to conditionally render the outlet
 
+### ❗ Relative resource path issues with routers
+
+set a basename for the BrowserRouter element. set it as the domain's subdirectory.
+
+```
+<BrowserRouter basename="/{subdirectory}/"></BrowserRouter>
+```
+
 # Other misc links
 
-=============================
+===================================================================
 
 * deploying to github pages
   * [https://www.youtube.com/watch?v=2hM5viLMJp](https://www.youtube.com/watch?v=2hM5viLMJpA&t=274s)A
 
 # Sources
 
-==============
+===================================================================
 
 A lot of this is from the webdev simplified tutorial.
 
