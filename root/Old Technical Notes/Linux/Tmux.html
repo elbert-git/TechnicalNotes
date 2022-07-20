@@ -1,0 +1,159 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>Tmux</h1>
+
+    
+<h2><strong>-|- TMUX</strong></h2>
+
+    <p>===================================================================</p>
+    <p>In short, it just allows you to create multiple panes and windows in linux
+      terminals.</p>
+    
+<h2><strong>Structure of tmux</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h5><strong>sessions &gt; windows &gt; panes</strong></h5>
+
+    <p>That's the general structure.</p>
+    <p><strong>Sessions</strong>
+    </p>
+    <p>A group of windows</p>
+    <p><strong>Windows</strong>
+    </p>
+    <p>a single group of panes</p>
+    <p><strong>Panes</strong>
+    </p>
+    <p>This is a single terminal window division of the screen.</p>
+    
+<h2><strong>Config</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h2><strong>Handling Sessions</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>In bash</h3>
+
+<pre><code># create new session
+tmux 
+tmux new -s {sessionName} # new session with name
+
+# list sessions
+tmux ls 
+
+# kill session 
+tmux kill-session -t {session name}
+
+# attacking sessions
+tmux a # attach to last session
+tmux a -t {sessionName} # attach to specific session
+</code></pre>
+
+    
+<h3>in Tmux</h3>
+
+<pre><code># list session
+c-b w
+
+# navigating between sessions
+c-b (
+c-b )
+
+
+# detach from session
+c-b d
+
+# rename session
+c-b $
+</code></pre>
+
+    
+<h2><strong>Handling Windows</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>In tmux</h3>
+
+<pre><code># create new window
+c-b c
+
+# rename window
+c-b ,
+
+# close window
+c-b &amp;
+
+# navigating windowss
+c-b p
+c-b n
+c-b {number} # navigate by index
+</code></pre>
+
+    
+<h3>In tmux command prompt</h3>
+
+<pre><code># swapping windows
+:swap-windows -s {index} -t {index} # swap by specific  indeces
+:swap-windows -t {-1/1} # swap currentwindow to by number of movement
+</code></pre>
+
+    
+<h2><strong>Handling Panes</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>In tmux</h3>
+
+<pre><code># creating panes
+c-b % # split vertically
+c-b " # split horizontally
+
+# navigating panes
+c-b {arrowkeys}
+c-b ; # like alt-tab
+c-b q {number} # switch by index
+
+# closing panes
+c-b x
+
+# promote pane to window
+c-b !
+
+# zooming
+c-b z
+</code></pre>
+
+    
+<h2><strong>Copying and Pasting in tmux</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>config</h3>
+
+    <p>put this in the config</p>
+<pre><code>setw -g mode-keys vi
+</code></pre>
+
+    
+<h3>usage</h3>
+
+<pre><code>c-b [ # enter selection mode; navigate by vim keys
+
+space # start selection
+
+enter # copy to tmux buffer
+</code></pre>
+
+  </body>
+
+</html>

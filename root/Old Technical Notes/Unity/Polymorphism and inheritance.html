@@ -1,0 +1,93 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>Polymorphism and inheritance</h1>
+
+    <ul>
+      <li>using parent or child version of variables and fucntiosn</li>
+    </ul>
+    <blockquote>
+      
+<h2>Unity polymorphism/inheritance</h2>
+
+    </blockquote>
+    
+<h2>what?</h2>
+
+    <p>Basically you can create classes that derives functions and behaviours
+      from the parent.</p>
+    <p>like creating a base interactable class then, creating puzzle interactable
+      class, pickup interactble class.</p>
+    <p>or creating an animal class then creating dog, cat, ant class.</p>
+    
+<h2>How?</h2>
+
+<pre><code>public class ClassName : ParentClassName
+{
+    public Start()
+    {
+        // code
+    }
+}
+</code></pre>
+
+    <p>that's it. just mark the parent class after the declaring the class.</p>
+    
+<h2>Accessing parent/child version of data or functions</h2>
+
+    <p>usually only the child class is accessed by default when you refer to
+      the class instance.</p>
+    <p>but sometimes you cant to access the parent's instead;</p>
+    <p>to access the parent's version. just use base</p>
+<pre><code>base.FunctionName();
+base.variableName();
+</code></pre>
+
+    
+<h2>Inheriting MonoBehaviour</h2>
+
+    <p>most of the time in unity projects you just want to inherit monobehaviors</p>
+    <p>including the parent's start and update functions.</p>
+    <p>you can do that by</p>
+<pre><code>public class ClassName : ParentClassName
+{
+    public Start()
+    {
+        base.Start(); //this executes parent's start func
+    }
+
+    public Update()
+    {
+        base.Update(); //this executes parent's Update func
+    }
+}
+</code></pre>
+
+    
+<h2>Overriding functions</h2>
+
+    <p>maybe you want a function derived in the parent class. to be called different
+      in all the children.</p>
+    <p>first you need to make the parent function overridable</p>
+<pre><code>public virtual void FunctionName(){
+  // code here
+}
+</code></pre>
+
+    <p>just make it public and virtual in the function declaration.</p>
+    <p>in the child class, to override do this</p>
+<pre><code>public override void FunctionName(){
+  // code here this overrides the parent's function.
+}
+</code></pre>
+
+  </body>
+
+</html>

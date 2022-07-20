@@ -1,0 +1,153 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>Typescript</h1>
+
+    <ul>
+      <li>sources
+        <ul>
+          <li>fireship quicks:
+            <ul>
+              <li>100 seconds: <a href="https://www.youtube.com/watch?v=zQnBQ4tB3ZA&amp;t=14s">https://www.youtube.com/watch?v=zQnBQ4tB3ZA&amp;t=14s</a>
+              </li>
+              <li>basics: <a href="https://www.youtube.com/watch?v=ahCwqrYpIuM&amp;t=36s">https://www.youtube.com/watch?v=ahCwqrYpIuM&amp;t=36s</a>
+              </li>
+            </ul>
+          </li>
+          <li>basic: <a href="https://www.youtube.com/watch?v=d56mG7DezGs">https://www.youtube.com/watch?v=d56mG7DezGs</a>
+          </li>
+          <li>typescript with ui frameworks
+            <ul>
+              <li>react: <a href="https://www.youtube.com/watch?v=ydkQlJhodio">https://www.youtube.com/watch?v=ydkQlJhodio</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <hr />
+    
+<h2><strong>-|- TypeScript</strong></h2>
+
+    <p>===================================================================</p>
+    <p>Basically Javascript with types. It's a variant of the language. Removing
+      any unknown variables and only allows them to be of one type</p>
+    
+<h5>Why?</h5>
+
+    <p>Better intellisense(does a lot of the documentation legwork) and catches
+      dumb bugs more often.</p>
+    
+<h4><strong>Installation and setup</strong></h4>
+
+    <p>After npm init</p>
+<pre><code>npm install typescript // or -g to globally install
+</code></pre>
+
+    <p>then creating the config file</p>
+<pre><code>tsc --init
+</code></pre>
+
+    <p>in the config, most common configs are:</p>
+    <ul>
+      <li>rootDir: ./src</li>
+      <li>outDir: ./dist</li>
+      <li>removeComments: true</li>
+      <li>noEmitOnError: true</li>
+      <li>watch: true</li>
+    </ul>
+    
+<h4><strong>Basics</strong></h4>
+
+    <p>Typecasting a variable</p>
+<pre><code>let varName:typeName = {value};
+let array:Array&lt;typeof&gt; = [a, b, c];
+</code></pre>
+
+    <p>Allowing any type</p>
+<pre><code>let varName:any = {anyTypeOfValue};
+</code></pre>
+
+    <p>You can also infer types</p>
+<pre><code>let num = 1; // will automically cast it as number
+</code></pre>
+
+    <p>That's pretty much it. It just allows you to strictly typecast variables</p>
+    
+<h4><strong>Functions in typescript</strong></h4>
+
+    <p>Typecasting return variables</p>
+<pre><code>function GetNumber():number{
+  // code that will return a number
+}
+
+function ThisWillReturnNone():void{
+  // code that will not return any value
+}
+</code></pre>
+
+    <p>Typecasting function arguments</p>
+<pre><code>let someFunc = function (i: number): number { return i * i; }
+</code></pre>
+
+    
+<h4><strong>Creating 'interfaces'</strong></h4>
+
+    <p>Creates an object with known properties types and slots</p>
+<pre><code>interface Person {
+  name: string;
+  // Optional properties, marked with a "?"
+  age?: number;
+  // And of course functions
+  move(): void;
+} 
+</code></pre>
+
+    <hr />
+    <p>❗ you put the notes below in the react notes document. Not here</p>
+    <p>from fireship typescritp basics</p>
+    <ul>
+      <li>installation
+        <ul>
+          <li>npm install typescript</li>
+          <li>tsc is the typsecript compiler. this will make the index.js</li>
+          <li>use tsconfig.json to configure the compiler.</li>
+          <li>get default config.json</li>
+        </ul>
+      </li>
+    </ul>
+    <p>typescript with react(put this int he react doucmentationp)</p>
+    <p><a href="https://www.youtube.com/watch?v=ydkQlJhodio">https://www.youtube.com/watch?v=ydkQlJhodio</a>
+    </p>
+    <ul>
+      <li>create typescriopt react project;</li>
+      <li>general things to keep in mind.
+        <ul>
+          <li>fc type</li>
+          <li>prop interfaces</li>
+          <li>typing use state</li>
+          <li></li>
+        </ul>
+      </li>
+    </ul>
+    <p>from mosh</p>
+    <ul>
+      <li>tsc init
+        <ul>
+          <li>common configurations</li>
+        </ul>
+      </li>
+    </ul>
+    
+<h3></h3>
+
+  </body>
+
+</html>

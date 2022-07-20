@@ -1,0 +1,227 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>CSS</h1>
+
+    
+<h2><strong>-|- CSS</strong></h2>
+
+    <p>===================================================================</p>
+    <p>My common css classes</p>
+<pre><code>/* -------------  My css Stuff */
+/* debug */
+.debugRedLine              {outline: solid 3px rgba(255, 0, 0, 0.3);}
+
+/* removing default spacings */
+*                          {padding: 0;margin: 0;}
+
+/* flex Classes */
+.flex                      {display: flex}
+.flexColumn                {flex-direction: column;}
+/* justify */
+.flexJustifyCenter         {justify-content: center;}
+.flexJustifyStart          {justify-content: flex-start;}
+.flexJustifyEnd            {justify-content: flex-end;}
+.flexJustifyBetween        {justify-content: space-between;}
+.flexJustifyAround         {justify-content: space-around;}
+.flexJustifyEvenly         {justify-content: space-evenly;}
+/* alignment */
+.flexAlignCenter           {align-items: center;}
+.flexAlignStart            {align-items: flex-start;}
+.flexAlignEnd              {align-items: flex-end;}
+.flexAlignStretch          {align-items: stretch;}
+.flexAlignBaseline         {align-items: baseline;}
+/* flex-grow */
+.flexGrow                  {flex-grow: 1;}
+
+/* sizing divs */
+.fillWidth                 {width: 100%;}
+.fillHeight                {height: 100%;}
+.hugHeight                 {height: fit-content;}
+.hugWidth                  {width: fit-content;}
+
+/* spacings */
+.padding                   {padding: 1em;}
+.paddingHalf               {padding: 0.5em;}
+.margin                    {margin: 1em;}
+
+/* visibility */
+.hide                      {display: none;}
+.fadeOut                   {opacity: 0;}
+
+/* layering over */
+.overlay                   {position: absolute;top: 0;left: 0;}
+</code></pre>
+
+    
+<h2><strong>Selectors</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4>Basics</h4>
+
+<pre><code>#idName            // by id
+.className         // by class
+div                // by element name
+*                  // everything
+</code></pre>
+
+    
+<h4>By hierachy</h4>
+
+<pre><code>selector &gt; selector              // by any children
+selector selector                // any children/grandchildren
+selector, selector               // and
+</code></pre>
+
+    
+<h4>By relation</h4>
+
+<pre><code>selector.selector         // any element that fulfills all selectors
+selector+selector         // element that follows first element
+selector~selector         // element that precedes first element
+</code></pre>
+
+    
+<h4>By states</h4>
+
+<pre><code>div :: hover
+div :: active
+div :: focus
+</code></pre>
+
+    
+<h4>By attributes</h4>
+
+<pre><code>selector[attribute=value]  //selects by html attribute
+</code></pre>
+
+    
+<h2><strong>CSS Grid</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4><strong>Generally</strong></h4>
+
+    <p>Dividing a</p>
+    <div>into a grid to place it's children
+      <p></p>
+      <p>🌐 <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">https://css-tricks.com/snippets/css/complete-guide-grid/</a>
+      </p>
+      
+<h4>Grid vs flexbox</h4>
+
+      <p>flexbox is more <em>flex</em>ible. The layout reacts to number of children
+        and their sizes. Think of the pinterest laytout. Grid is a lot more static
+        and defined. The parent div defines the layout rather than the children</p>
+      
+<h5>Using grid and flexbox</h5>
+
+      <p>Most of the time you layout sections of a site with grid. Then inside
+        each section is laid out by flex box.</p>
+      
+<h4><strong>Usage</strong></h4>
+
+      
+<h5>Making a grid</h5>
+
+      <p>in html</p>
+<pre><code>&lt;div class="parentContainer"&gt;
+  &lt;div class="childElement"/&gt;
+  &lt;div class="childElement"/&gt;
+  &lt;div class="childElement"/&gt;
+&lt;/div&gt;
+</code></pre>
+
+      <p>in css put below</p>
+<pre><code>.parentContainer{
+  display: grid;
+}
+</code></pre>
+
+      
+<h5>Setting rows and columns</h5>
+
+      <p>every measurement is one extra cell</p>
+<pre><code>.parentContainer{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr; //defines width of columns
+  grid template rows: 50px auto 70px; // define heigth of rows
+}
+</code></pre>
+
+      <p>Handling gaps between grid cells</p>
+<pre><code>.parentContainer{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr; //defines width of columns
+  grid template rows: 50px auto 70px; // define heigth of rows
+ 
+  /*setting grid*/
+  gap: {row-gap} {column gap}
+  column-gap: 10px;
+  row-gap: 1em;
+}
+</code></pre>
+
+      
+<h5>Placing children in the the rows and columns</h5>
+
+<pre><code>/*define where grid children goes*/
+.parentContainer{
+  display: grid;
+  grid-template-areas: 
+  "topbar  topbar   topbar"
+  "ads     content  sidebar"
+  "footer  footer   footer"
+}
+
+/*label children classes*/
+.header{grid-area: topbar;}
+.aside{grid-area: ads;}
+.article{grid-area: content;}
+.nav{grid-area: footer;}
+.footer{grid-area: footer;}
+</code></pre>
+
+      
+<h4><strong>Aligning and Justify children</strong></h4>
+
+      <ul>
+        <li>in parent (applies to all cells)</li>
+      </ul>
+<pre><code>.parentContainer{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr; //defines width of columns
+  grid template rows: 50px auto 70px; // define heigth of rows
+ 
+  align-content: /*works just like flexbox but in children class*/
+  justify-content: /*works just like flexbox but in children class*/
+}
+</code></pre>
+
+      <ul>
+        <li>in children (applies to one children class)</li>
+      </ul>
+<pre><code>.childrenClass{
+  align-self: /*works just like flexbox but in children class*/
+  justify-self: /*works just like flexbox but in children class*/
+}
+</code></pre>
+
+      
+<h4><strong>📒 Handling sub-grids</strong></h4>
+
+      
+<h3>Reliability notes</h3>
+
+    </div>
+  </body>
+
+</html>

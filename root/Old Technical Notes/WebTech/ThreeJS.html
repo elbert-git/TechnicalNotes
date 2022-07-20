@@ -1,0 +1,338 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>ThreeJS</h1>
+
+    
+<h3>What next to learn</h3>
+
+    <p>- Handling Animations</p>
+    <p>- interatctions and input</p>
+    <p>- post processing</p>
+    <p>- ThreeJS and react</p>
+    <p>- Miscellaneous</p>
+<pre><code>- 3D Assets folder duplication. Need to be in same place as script.
+</code></pre>
+
+    
+<h2><strong>-|- ThreeJS</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4>In general</h4>
+
+    <p>A Javascript wrapper for webGL. Easily render 3d Objects in the scene.</p>
+    
+<h2><strong>Installation</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4>Script tag</h4>
+
+<pre><code>&lt;script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"&gt;&lt;/script&gt;
+</code></pre>
+
+    
+<h4>NPM</h4>
+
+<pre><code>npm install --save three
+</code></pre>
+
+    <p>then import by</p>
+<pre><code>// Option 1: Import the entire three.js core library.
+import * as THREE from 'three';
+</code></pre>
+
+    <p>or</p>
+<pre><code>// Option 2: Import just the parts you need.
+import { Scene } from 'three';
+</code></pre>
+
+    
+<h2><strong>Basic Setup</strong></h2>
+
+    <p>===================================================================</p>
+    <p>create new div id in html</p>
+<pre><code>// imports
+import * as THREE from 'three';
+
+let canvas; // create canvas variable;
+
+// - - - initialise THREE
+const scene = new THREE.Scene();
+// create camera, need fovAngle, aspect ratio and near/far clip planes
+const camera = new THREE.PerspectiveCamera( 75, 1, 0.1, 1000 );
+// move cam so we can what is in center
+camera.position.z = 5;
+
+// --- create renderer
+const renderer = new THREE.WebGLRenderer();
+
+// --- Creatingh a basic mesh object
+// you need a Geometry object and material
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const cube = new THREE.Mesh( geometry, material );
+// add cube to scene
+scene.add( cube );
+
+
+// --- create update loop
+function Update() {
+	// queue new frame to render
+	requestAnimationFrame( Update );
+
+	// update logic goes here
+	// code.....
+
+	// render this current frame
+	renderer.render( scene, camera );
+};
+
+// Start update loop
+Update();
+
+
+function resizeCanvas(){
+	// set renderer canvas size
+	renderer.setSize( canvas.clientWidth, canvas.clientHeight );
+	//camera settings
+	camera.aspect = canvas.clientWidth/canvas.clientHeight;
+	camera.updateProjectionMatrix();
+}
+
+// load in canvas after page has loaded
+window.addEventListener('load', (event) =&gt; {
+	//get canvas
+	canvas = document.getElementById("canvas");
+	// Attach renderer to body
+	document.getElementById("canvas").appendChild(renderer.domElement);
+	resizeCanvas();
+});
+ 
+// --- dynamic screen size
+window.addEventListener('resize', ()=&gt;{
+	resizeCanvas();
+});
+</code></pre>
+
+    
+<h2><strong>How objects are structured</strong></h2>
+
+    <p>===================================================================</p>
+    <ul>
+      <li><strong>Root</strong>
+
+        <ul>
+          <li><strong>Render</strong>
+
+            <ul>
+              <li>render scene into dom element</li>
+            </ul>
+          </li>
+          <li><strong>Camera</strong>
+
+            <ul>
+              <li>perspective of render</li>
+            </ul>
+          </li>
+          <li><strong>Scene</strong>
+
+            <ul>
+              <li>The root Transform/GameObject</li>
+              <li><strong>Group</strong>
+
+                <ul>
+                  <li>a group of transforms</li>
+                </ul>
+              </li>
+              <li><strong>Mesh</strong>
+
+                <ul>
+                  <li>a single mesh object</li>
+                  <li>contains geometry and material data</li>
+                </ul>
+              </li>
+              <li><strong>Object3D</strong>
+
+                <ul>
+                  <li>tranform node</li>
+                </ul>
+              </li>
+              <li><strong>Light</strong>
+
+                <ul>
+                  <li>light object</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    
+<h2><strong>Update loop</strong></h2>
+
+    <p>===================================================================</p>
+    <p>This is the core update loop boiler plate. every fram this fucntion runs.</p>
+    <p>anything you need to update. put it here</p>
+<pre><code>// --- create update loop
+function Update() {
+  // queuenew frame to render
+  requestAnimationFrame( animate );
+
+  // update logic goes here
+  // code.....
+
+  // render this current frame
+  renderer.render( scene, camera );
+};
+
+// Start update loop
+Update();
+</code></pre>
+
+    
+<h2><strong>Loading in GLTFs</strong></h2>
+
+    <p>===================================================================</p>
+    <ul>
+      <li>import loader</li>
+    </ul>
+<pre><code>import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+</code></pre>
+
+    <ul>
+      <li>load the file</li>
+    </ul>
+<pre><code>const loader = new GLTFLoader();
+
+loader.load( 'path/to/model.gltf', ( gltf ) =&gt; {
+    scene.add( gltf.scene );
+  }
+  undefined,
+  ( error ) =&gt; {
+    console.error( error );
+  }
+);
+</code></pre>
+
+    
+<h4>Regarding file paths and deployment</h4>
+
+    <p><strong>During development</strong>
+    </p>
+    <ul>
+      <li>Create a 3DAssets folder for loading</li>
+    </ul>
+    <p>put all files that THREEJs loaders have to load here. put the folder into
+      src folder</p>
+    <p>For some reason THREE js wont load outside of src folder</p>
+    <p>but during deployment you will need the 3DAssets folder in the public
+      folder</p>
+    <p>put in src for development then copy to public for deployment to server.</p>
+    <p><strong>During production/deployment/delivery</strong>
+    </p>
+    <p>of if you just want to put it on a server.</p>
+    <ul>
+      <li>Copy 3DAssets folder to public folder</li>
+    </ul>
+    <p>Because you will only upload the public folder</p>
+    <p>no need to rewrite file paths in .js scripts</p>
+    
+<h2><strong>Handling objects</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4>Creating objects</h4>
+
+    <p>you need a geometry object and a material object form a mesh object.</p>
+<pre><code>const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const cube = new THREE.Mesh( geometry, material );
+</code></pre>
+
+    
+<h4>Handling transforms</h4>
+
+    <p><strong>Set by individual channels and axes</strong>
+    </p>
+<pre><code>cube.position.x = 1;
+cube.rotation.y = 1;
+cube.scale.z = 1; 
+</code></pre>
+
+    <p><strong>Set by channels</strong>
+    </p>
+<pre><code>camera.position.set(0,0,0);
+</code></pre>
+
+    
+<h4>Handling materials.</h4>
+
+<pre><code>const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+</code></pre>
+
+    
+<h2><strong>Interactions</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4>Orbit Controls</h4>
+
+    <ul>
+      <li>import</li>
+    </ul>
+<pre><code>import {OrbitControls} from 'three/exampols/jsm/controls/OrbitControls';
+</code></pre>
+
+    <ul>
+      <li>turn a camera into an orbit camera</li>
+    </ul>
+<pre><code>const orbitControl = new OrbitControls(camera, renderer,domElement);
+orbitControls.update();
+</code></pre>
+
+    
+<h4>Ray-cast</h4>
+
+    <p><a href="https://www.youtube.com/watch?v=3SGdxk7HMGw&amp;list=PLhr9tY51Nydcik-u5dKFfEHLxdbtdxB1-&amp;index=3">https://www.youtube.com/watch?v=3SGdxk7HMGw&amp;list=PLhr9tY51Nydcik-u5dKFfEHLxdbtdxB1-&amp;index=3</a>  <strong>&lt;--- import source</strong>
+    </p>
+    
+<h4>[ ] Pick-up Items</h4>
+
+    
+<h4>[ ] Scrolling</h4>
+
+    
+<h4>[ ] Mouse/Keyboard Input</h4>
+
+    
+<h3>[ ] Animations</h3>
+
+    <p>===================================================================</p>
+    
+<h2><strong>Helper GUIs</strong></h2>
+
+    <p>===================================================================</p>
+    <p>GUIs for help debugging.</p>
+    
+<h4>Grid-Helper</h4>
+
+<pre><code>const gridHelper = new THREE.GridHelper({grid length},{no of grid divisions});
+scene.add(gridHelper);
+</code></pre>
+
+    
+<h4>Light-Helper</h4>
+
+  </body>
+
+</html>

@@ -1,0 +1,2691 @@
+{
+	"formatVersion": 1,
+	"appVersion": "0.53.2",
+	"files": [
+		{
+			"isClone": false,
+			"noteId": "root",
+			"notePath": [
+				"root"
+			],
+			"title": "root",
+			"notePosition": 10,
+			"prefix": null,
+			"isExpanded": true,
+			"type": "text",
+			"mime": "text/html",
+			"attributes": [],
+			"format": "html",
+			"dirFileName": "root",
+			"children": [
+				{
+					"isClone": false,
+					"noteId": "ytkAALq5c3pE",
+					"notePath": [
+						"root",
+						"ytkAALq5c3pE"
+					],
+					"title": "FirstBin",
+					"notePosition": 40,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dirFileName": "FirstBin",
+					"children": [
+						{
+							"isClone": false,
+							"noteId": "zOdqRTXR4EGO",
+							"notePath": [
+								"root",
+								"ytkAALq5c3pE",
+								"zOdqRTXR4EGO"
+							],
+							"title": "Zettelkasten",
+							"notePosition": 10,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [
+								{
+									"type": "relation",
+									"name": "imageLink",
+									"value": "griKYdA6gT5A",
+									"isInheritable": false,
+									"position": 1
+								}
+							],
+							"format": "html",
+							"dataFileName": "Zettelkasten.html",
+							"dirFileName": "Zettelkasten",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "griKYdA6gT5A",
+									"notePath": [
+										"root",
+										"ytkAALq5c3pE",
+										"zOdqRTXR4EGO",
+										"griKYdA6gT5A"
+									],
+									"title": "zettelkasten-schema.png",
+									"notePosition": 10,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "image",
+									"mime": "image/png",
+									"attributes": [
+										{
+											"type": "label",
+											"name": "originalFileName",
+											"value": "zettelkasten-schema.png",
+											"isInheritable": false,
+											"position": 1000
+										},
+										{
+											"type": "label",
+											"name": "imageUrl",
+											"value": "https://x28newblog.files.wordpress.com/2016/12/zettelkasten-schema.png",
+											"isInheritable": false,
+											"position": 1000
+										}
+									],
+									"dataFileName": "zettelkasten-schema.png"
+								}
+							]
+						}
+					]
+				},
+				{
+					"isClone": false,
+					"noteId": "ppXUUjl570zv",
+					"notePath": [
+						"root",
+						"ppXUUjl570zv"
+					],
+					"title": "Blender",
+					"notePosition": 50,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dirFileName": "Blender",
+					"children": [
+						{
+							"isClone": false,
+							"noteId": "RnlVTX2eExH9",
+							"notePath": [
+								"root",
+								"ppXUUjl570zv",
+								"RnlVTX2eExH9"
+							],
+							"title": "GeometryNodes",
+							"notePosition": 10,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dirFileName": "GeometryNodes",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "hBCHnQSwiPdl",
+									"notePath": [
+										"root",
+										"ppXUUjl570zv",
+										"RnlVTX2eExH9",
+										"hBCHnQSwiPdl"
+									],
+									"title": "Documentation",
+									"notePosition": 20,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Documentation.html",
+									"dirFileName": "Documentation",
+									"children": [
+										{
+											"isClone": false,
+											"noteId": "6ehqIA7LDng0",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"RnlVTX2eExH9",
+												"hBCHnQSwiPdl",
+												"6ehqIA7LDng0"
+											],
+											"title": "Common Tricks",
+											"notePosition": 20,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [],
+											"format": "html",
+											"dataFileName": "Common Tricks.html"
+										},
+										{
+											"isClone": false,
+											"noteId": "pWJObZ6NTmXN",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"RnlVTX2eExH9",
+												"hBCHnQSwiPdl",
+												"pWJObZ6NTmXN"
+											],
+											"title": "Basics",
+											"notePosition": 10,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [],
+											"format": "html",
+											"dataFileName": "Basics.html"
+										},
+										{
+											"isClone": false,
+											"noteId": "oGYB5hF0CyF4",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"RnlVTX2eExH9",
+												"hBCHnQSwiPdl",
+												"oGYB5hF0CyF4"
+											],
+											"title": "Instancing and Scattering",
+											"notePosition": 30,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [],
+											"format": "html",
+											"dataFileName": "Instancing and Scattering.html"
+										},
+										{
+											"isClone": false,
+											"noteId": "0ICQfIIu4SXM",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"RnlVTX2eExH9",
+												"hBCHnQSwiPdl",
+												"0ICQfIIu4SXM"
+											],
+											"title": "Curve Tricks",
+											"notePosition": 40,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [],
+											"format": "html",
+											"dataFileName": "Curve Tricks.html"
+										},
+										{
+											"isClone": false,
+											"noteId": "Q4Qot50tXcOl",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"RnlVTX2eExH9",
+												"hBCHnQSwiPdl",
+												"Q4Qot50tXcOl"
+											],
+											"title": "Mesh Manipulation",
+											"notePosition": 50,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [],
+											"format": "html",
+											"dataFileName": "Mesh Manipulation.html"
+										},
+										{
+											"isClone": false,
+											"noteId": "NJjCsusd7kGd",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"RnlVTX2eExH9",
+												"hBCHnQSwiPdl",
+												"NJjCsusd7kGd"
+											],
+											"title": "Selection",
+											"notePosition": 60,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [],
+											"format": "html",
+											"dataFileName": "Selection.html"
+										},
+										{
+											"isClone": false,
+											"noteId": "nDuat2RAOzxc",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"RnlVTX2eExH9",
+												"hBCHnQSwiPdl",
+												"nDuat2RAOzxc"
+											],
+											"title": "Texture Manipulation",
+											"notePosition": 70,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [],
+											"format": "html",
+											"dataFileName": "Texture Manipulation.html"
+										}
+									]
+								}
+							]
+						},
+						{
+							"isClone": false,
+							"noteId": "yFACIUvCQOqk",
+							"notePath": [
+								"root",
+								"ppXUUjl570zv",
+								"yFACIUvCQOqk"
+							],
+							"title": "Tutorials",
+							"notePosition": 20,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dirFileName": "Tutorials",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "px7Jg7Izq3Mj",
+									"notePath": [
+										"root",
+										"ppXUUjl570zv",
+										"yFACIUvCQOqk",
+										"px7Jg7Izq3Mj"
+									],
+									"title": "Watchlist",
+									"notePosition": 10,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "mLc1PjccwNOb",
+											"isInheritable": false,
+											"position": 1
+										},
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "eKnQUwYG6X8A",
+											"isInheritable": false,
+											"position": 2
+										},
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "1JoyedsjyTrb",
+											"isInheritable": false,
+											"position": 3
+										},
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "J0ijxNCL0X3h",
+											"isInheritable": false,
+											"position": 4
+										},
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "KtwYZ0aqPvKk",
+											"isInheritable": false,
+											"position": 5
+										},
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "LQ8UxMMIgVWM",
+											"isInheritable": false,
+											"position": 6
+										},
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "dV2JgwH7S27l",
+											"isInheritable": false,
+											"position": 7
+										},
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "3TIUp3w0a1vf",
+											"isInheritable": false,
+											"position": 8
+										},
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "TUEJxPRZqvW9",
+											"isInheritable": false,
+											"position": 9
+										},
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "PmrEVjimPtc7",
+											"isInheritable": false,
+											"position": 10
+										},
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "At2YPoMqKg6e",
+											"isInheritable": false,
+											"position": 11
+										},
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "jRwXaHCN6H7R",
+											"isInheritable": false,
+											"position": 13
+										},
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "T06HMh7zj5Bd",
+											"isInheritable": false,
+											"position": 15
+										}
+									],
+									"format": "html",
+									"dataFileName": "Watchlist.html",
+									"dirFileName": "Watchlist",
+									"children": [
+										{
+											"isClone": false,
+											"noteId": "mLc1PjccwNOb",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"px7Jg7Izq3Mj",
+												"mLc1PjccwNOb"
+											],
+											"title": "image.png",
+											"notePosition": 10,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "image.png"
+										},
+										{
+											"isClone": false,
+											"noteId": "eKnQUwYG6X8A",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"px7Jg7Izq3Mj",
+												"eKnQUwYG6X8A"
+											],
+											"title": "image.png",
+											"notePosition": 20,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "1_image.png"
+										},
+										{
+											"isClone": false,
+											"noteId": "1JoyedsjyTrb",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"px7Jg7Izq3Mj",
+												"1JoyedsjyTrb"
+											],
+											"title": "image.png",
+											"notePosition": 30,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "2_image.png"
+										},
+										{
+											"isClone": false,
+											"noteId": "J0ijxNCL0X3h",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"px7Jg7Izq3Mj",
+												"J0ijxNCL0X3h"
+											],
+											"title": "image.png",
+											"notePosition": 40,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "3_image.png"
+										},
+										{
+											"isClone": false,
+											"noteId": "KtwYZ0aqPvKk",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"px7Jg7Izq3Mj",
+												"KtwYZ0aqPvKk"
+											],
+											"title": "image.png",
+											"notePosition": 50,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "4_image.png"
+										},
+										{
+											"isClone": false,
+											"noteId": "LQ8UxMMIgVWM",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"px7Jg7Izq3Mj",
+												"LQ8UxMMIgVWM"
+											],
+											"title": "image.png",
+											"notePosition": 60,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "5_image.png"
+										},
+										{
+											"isClone": false,
+											"noteId": "dV2JgwH7S27l",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"px7Jg7Izq3Mj",
+												"dV2JgwH7S27l"
+											],
+											"title": "image.png",
+											"notePosition": 70,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "6_image.png"
+										},
+										{
+											"isClone": false,
+											"noteId": "3TIUp3w0a1vf",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"px7Jg7Izq3Mj",
+												"3TIUp3w0a1vf"
+											],
+											"title": "image.png",
+											"notePosition": 80,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "7_image.png"
+										},
+										{
+											"isClone": false,
+											"noteId": "TUEJxPRZqvW9",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"px7Jg7Izq3Mj",
+												"TUEJxPRZqvW9"
+											],
+											"title": "image.png",
+											"notePosition": 90,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "8_image.png"
+										},
+										{
+											"isClone": false,
+											"noteId": "PmrEVjimPtc7",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"px7Jg7Izq3Mj",
+												"PmrEVjimPtc7"
+											],
+											"title": "image.png",
+											"notePosition": 100,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "9_image.png"
+										},
+										{
+											"isClone": false,
+											"noteId": "At2YPoMqKg6e",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"px7Jg7Izq3Mj",
+												"At2YPoMqKg6e"
+											],
+											"title": "image.png",
+											"notePosition": 110,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "10_image.png"
+										},
+										{
+											"isClone": false,
+											"noteId": "jRwXaHCN6H7R",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"px7Jg7Izq3Mj",
+												"jRwXaHCN6H7R"
+											],
+											"title": "image.png",
+											"notePosition": 130,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "11_image.png"
+										},
+										{
+											"isClone": false,
+											"noteId": "T06HMh7zj5Bd",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"px7Jg7Izq3Mj",
+												"T06HMh7zj5Bd"
+											],
+											"title": "image.png",
+											"notePosition": 140,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "12_image.png"
+										}
+									]
+								},
+								{
+									"isClone": false,
+									"noteId": "8gQ0UNtIEm40",
+									"notePath": [
+										"root",
+										"ppXUUjl570zv",
+										"yFACIUvCQOqk",
+										"8gQ0UNtIEm40"
+									],
+									"title": "Tutorial notes",
+									"notePosition": 20,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [],
+									"format": "html",
+									"dirFileName": "Tutorial notes",
+									"children": [
+										{
+											"isClone": false,
+											"noteId": "87n9cb26yxOe",
+											"notePath": [
+												"root",
+												"ppXUUjl570zv",
+												"yFACIUvCQOqk",
+												"8gQ0UNtIEm40",
+												"87n9cb26yxOe"
+											],
+											"title": "Drawn curve flowers",
+											"notePosition": 10,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [
+												{
+													"type": "relation",
+													"name": "imageLink",
+													"value": "0JG4TWgK5evp",
+													"isInheritable": false,
+													"position": 4
+												}
+											],
+											"format": "html",
+											"dataFileName": "Drawn curve flowers.html",
+											"dirFileName": "Drawn curve flowers",
+											"children": [
+												{
+													"isClone": false,
+													"noteId": "blRn4LtIDQpa",
+													"notePath": [
+														"root",
+														"ppXUUjl570zv",
+														"yFACIUvCQOqk",
+														"8gQ0UNtIEm40",
+														"87n9cb26yxOe",
+														"blRn4LtIDQpa"
+													],
+													"title": "image.png",
+													"notePosition": 10,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "image",
+													"mime": "image/jpg",
+													"attributes": [
+														{
+															"type": "label",
+															"name": "originalFileName",
+															"value": "image.png",
+															"isInheritable": false,
+															"position": 1000
+														}
+													],
+													"dataFileName": "image.png"
+												},
+												{
+													"isClone": false,
+													"noteId": "8QfaH2oI99jJ",
+													"notePath": [
+														"root",
+														"ppXUUjl570zv",
+														"yFACIUvCQOqk",
+														"8gQ0UNtIEm40",
+														"87n9cb26yxOe",
+														"8QfaH2oI99jJ"
+													],
+													"title": "Instancing on cuves",
+													"notePosition": 20,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "text",
+													"mime": "text/html",
+													"attributes": [],
+													"format": "html",
+													"dataFileName": "Instancing on cuves.html"
+												},
+												{
+													"isClone": false,
+													"noteId": "xHDj8PQA46dh",
+													"notePath": [
+														"root",
+														"ppXUUjl570zv",
+														"yFACIUvCQOqk",
+														"8gQ0UNtIEm40",
+														"87n9cb26yxOe",
+														"xHDj8PQA46dh"
+													],
+													"title": "image.png",
+													"notePosition": 30,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "image",
+													"mime": "image/jpg",
+													"attributes": [
+														{
+															"type": "label",
+															"name": "originalFileName",
+															"value": "image.png",
+															"isInheritable": false,
+															"position": 1000
+														}
+													],
+													"dataFileName": "1_image.png"
+												},
+												{
+													"isClone": false,
+													"noteId": "0JG4TWgK5evp",
+													"notePath": [
+														"root",
+														"ppXUUjl570zv",
+														"yFACIUvCQOqk",
+														"8gQ0UNtIEm40",
+														"87n9cb26yxOe",
+														"0JG4TWgK5evp"
+													],
+													"title": "image.png",
+													"notePosition": 40,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "image",
+													"mime": "image/jpg",
+													"attributes": [
+														{
+															"type": "label",
+															"name": "originalFileName",
+															"value": "image.png",
+															"isInheritable": false,
+															"position": 1000
+														}
+													],
+													"dataFileName": "2_image.png"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"isClone": false,
+					"noteId": "n6iRE2zsKdrw",
+					"notePath": [
+						"root",
+						"n6iRE2zsKdrw"
+					],
+					"title": "Technical Notes",
+					"notePosition": 60,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "mapType",
+							"value": "link",
+							"isInheritable": false,
+							"position": 1
+						},
+						{
+							"type": "label",
+							"name": "readOnly",
+							"value": "",
+							"isInheritable": false,
+							"position": 2
+						}
+					],
+					"format": "html",
+					"dirFileName": "Technical Notes",
+					"children": [
+						{
+							"isClone": false,
+							"noteId": "hFTRpBUVwuI4",
+							"notePath": [
+								"root",
+								"n6iRE2zsKdrw",
+								"hFTRpBUVwuI4"
+							],
+							"title": "Web-Development",
+							"notePosition": 10,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dirFileName": "Web-Development",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "wxBd9oXuzZOD",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"hFTRpBUVwuI4",
+										"wxBd9oXuzZOD"
+									],
+									"title": "Testing",
+									"notePosition": 10,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [],
+									"format": "html",
+									"dirFileName": "Testing",
+									"children": [
+										{
+											"isClone": false,
+											"noteId": "HRhRliXxk2bm",
+											"notePath": [
+												"root",
+												"n6iRE2zsKdrw",
+												"hFTRpBUVwuI4",
+												"wxBd9oXuzZOD",
+												"HRhRliXxk2bm"
+											],
+											"title": "Jest",
+											"notePosition": 10,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [
+												{
+													"type": "relation",
+													"name": "imageLink",
+													"value": "0oCt7CokgZff",
+													"isInheritable": false,
+													"position": 2
+												}
+											],
+											"format": "html",
+											"dataFileName": "Jest.html",
+											"dirFileName": "Jest",
+											"children": [
+												{
+													"isClone": false,
+													"noteId": "0oCt7CokgZff",
+													"notePath": [
+														"root",
+														"n6iRE2zsKdrw",
+														"hFTRpBUVwuI4",
+														"wxBd9oXuzZOD",
+														"HRhRliXxk2bm",
+														"0oCt7CokgZff"
+													],
+													"title": "jest-logo-F9901EBBF7-seeklogo.com.png",
+													"notePosition": 10,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "image",
+													"mime": "image/jpg",
+													"attributes": [
+														{
+															"type": "label",
+															"name": "originalFileName",
+															"value": "jest-logo-F9901EBBF7-seeklogo.com.png",
+															"isInheritable": false,
+															"position": 1000
+														},
+														{
+															"type": "label",
+															"name": "imageUrl",
+															"value": "https://seeklogo.com/images/J/jest-logo-F9901EBBF7-seeklogo.com.png",
+															"isInheritable": false,
+															"position": 1000
+														}
+													],
+													"dataFileName": "jest-logo-F9901EBBF7-seeklogo."
+												}
+											]
+										}
+									]
+								},
+								{
+									"isClone": false,
+									"noteId": "5N5zsLNo3cbc",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"hFTRpBUVwuI4",
+										"5N5zsLNo3cbc"
+									],
+									"title": "Vite",
+									"notePosition": 20,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "CREFmDs3FAF8",
+											"isInheritable": false,
+											"position": 1
+										}
+									],
+									"format": "html",
+									"dataFileName": "Vite.html",
+									"dirFileName": "Vite",
+									"children": [
+										{
+											"isClone": false,
+											"noteId": "CREFmDs3FAF8",
+											"notePath": [
+												"root",
+												"n6iRE2zsKdrw",
+												"hFTRpBUVwuI4",
+												"5N5zsLNo3cbc",
+												"CREFmDs3FAF8"
+											],
+											"title": "logo.svg",
+											"notePosition": 10,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/svg+xml",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "logo.svg",
+													"isInheritable": false,
+													"position": 1000
+												},
+												{
+													"type": "label",
+													"name": "imageUrl",
+													"value": "https://vitejs.dev/logo.svg",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "logo.svg"
+										}
+									]
+								},
+								{
+									"isClone": false,
+									"noteId": "uLqrdUpqhkX5",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"hFTRpBUVwuI4",
+										"uLqrdUpqhkX5"
+									],
+									"title": "ReactJS",
+									"notePosition": 30,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "mrzPUpXahR7d",
+											"isInheritable": false,
+											"position": 1
+										}
+									],
+									"format": "html",
+									"dataFileName": "ReactJS.html",
+									"dirFileName": "ReactJS",
+									"children": [
+										{
+											"isClone": false,
+											"noteId": "mrzPUpXahR7d",
+											"notePath": [
+												"root",
+												"n6iRE2zsKdrw",
+												"hFTRpBUVwuI4",
+												"uLqrdUpqhkX5",
+												"mrzPUpXahR7d"
+											],
+											"title": "image.png",
+											"notePosition": 10,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/png",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "image.png"
+										}
+									]
+								},
+								{
+									"isClone": false,
+									"noteId": "kfovyJkPyMP0",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"hFTRpBUVwuI4",
+										"kfovyJkPyMP0"
+									],
+									"title": "Javascript",
+									"notePosition": 40,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [],
+									"format": "html",
+									"dirFileName": "Javascript",
+									"children": [
+										{
+											"isClone": false,
+											"noteId": "MkPUGNJ7ILmq",
+											"notePath": [
+												"root",
+												"n6iRE2zsKdrw",
+												"hFTRpBUVwuI4",
+												"kfovyJkPyMP0",
+												"MkPUGNJ7ILmq"
+											],
+											"title": "Array Methods",
+											"notePosition": 10,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [],
+											"format": "html",
+											"dataFileName": "Array Methods.html"
+										}
+									]
+								}
+							]
+						},
+						{
+							"isClone": false,
+							"noteId": "3SOIJAUwnVcp",
+							"notePath": [
+								"root",
+								"n6iRE2zsKdrw",
+								"3SOIJAUwnVcp"
+							],
+							"title": "Crypto and Blockchains",
+							"notePosition": 20,
+							"prefix": null,
+							"isExpanded": true,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [
+								{
+									"type": "relation",
+									"name": "imageLink",
+									"value": "laqsC7QH2AQe",
+									"isInheritable": false,
+									"position": 1
+								},
+								{
+									"type": "relation",
+									"name": "internalLink",
+									"value": "4Q5c3V9Sdtv3",
+									"isInheritable": false,
+									"position": 2
+								},
+								{
+									"type": "relation",
+									"name": "internalLink",
+									"value": "YerbShyugA06",
+									"isInheritable": false,
+									"position": 4
+								},
+								{
+									"type": "relation",
+									"name": "internalLink",
+									"value": "dUnVnntezj3Y",
+									"isInheritable": false,
+									"position": 5
+								},
+								{
+									"type": "relation",
+									"name": "internalLink",
+									"value": "P409Lj6Fe6h9",
+									"isInheritable": false,
+									"position": 6
+								}
+							],
+							"format": "html",
+							"dataFileName": "Crypto and Blockchains.html",
+							"dirFileName": "Crypto and Blockchains",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "4Q5c3V9Sdtv3",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"3SOIJAUwnVcp",
+										"4Q5c3V9Sdtv3"
+									],
+									"title": "RemixIDE",
+									"notePosition": 10,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "gCeP73akU644",
+											"isInheritable": false,
+											"position": 2
+										}
+									],
+									"format": "html",
+									"dataFileName": "RemixIDE.html",
+									"dirFileName": "RemixIDE",
+									"children": [
+										{
+											"isClone": false,
+											"noteId": "gCeP73akU644",
+											"notePath": [
+												"root",
+												"n6iRE2zsKdrw",
+												"3SOIJAUwnVcp",
+												"4Q5c3V9Sdtv3",
+												"gCeP73akU644"
+											],
+											"title": "image.png",
+											"notePosition": 10,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/png",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "image.png",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "image.png"
+										},
+										{
+											"isClone": false,
+											"noteId": "x36EHqtGvybR",
+											"notePath": [
+												"root",
+												"n6iRE2zsKdrw",
+												"3SOIJAUwnVcp",
+												"4Q5c3V9Sdtv3",
+												"x36EHqtGvybR"
+											],
+											"title": "Testing in Remix",
+											"notePosition": 20,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [],
+											"format": "html",
+											"dataFileName": "Testing in Remix.html"
+										}
+									]
+								},
+								{
+									"isClone": false,
+									"noteId": "cq1vaCtahZB4",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"3SOIJAUwnVcp",
+										"cq1vaCtahZB4"
+									],
+									"title": "web3 first research",
+									"notePosition": 30,
+									"isExpanded": true,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "web3 first research.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "laqsC7QH2AQe",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"3SOIJAUwnVcp",
+										"laqsC7QH2AQe"
+									],
+									"title": "blockchain1a.png",
+									"notePosition": 60,
+									"isExpanded": false,
+									"type": "image",
+									"mime": "image/jpg",
+									"attributes": [
+										{
+											"type": "label",
+											"name": "originalFileName",
+											"value": "blockchain1a.png",
+											"isInheritable": false,
+											"position": 1000
+										},
+										{
+											"type": "label",
+											"name": "imageUrl",
+											"value": "https://101blockchains.com/wp-content/uploads/2021/03/blockchain1a.png",
+											"isInheritable": false,
+											"position": 1000
+										}
+									],
+									"dataFileName": "blockchain1a.png"
+								},
+								{
+									"isClone": false,
+									"noteId": "lY3nM8AUV37o",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"3SOIJAUwnVcp",
+										"lY3nM8AUV37o"
+									],
+									"title": "NFTs",
+									"notePosition": 70,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "NFTs.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "P409Lj6Fe6h9",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"3SOIJAUwnVcp",
+										"P409Lj6Fe6h9"
+									],
+									"title": "Truffle",
+									"notePosition": 80,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Truffle.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "YerbShyugA06",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"3SOIJAUwnVcp",
+										"YerbShyugA06"
+									],
+									"title": "Solidity",
+									"notePosition": 90,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Solidity.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "dUnVnntezj3Y",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"3SOIJAUwnVcp",
+										"dUnVnntezj3Y"
+									],
+									"title": "Web3js",
+									"notePosition": 100,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Web3js.html"
+								}
+							]
+						},
+						{
+							"isClone": false,
+							"noteId": "emJo3gvb2ngn",
+							"notePath": [
+								"root",
+								"n6iRE2zsKdrw",
+								"emJo3gvb2ngn"
+							],
+							"title": "Linux",
+							"notePosition": 30,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dirFileName": "Linux",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "C2TEcl5fgwdO",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"emJo3gvb2ngn",
+										"C2TEcl5fgwdO"
+									],
+									"title": "Awesome Window Manager",
+									"notePosition": 10,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "jjdM3QQCzCgd",
+											"isInheritable": false,
+											"position": 3
+										}
+									],
+									"format": "html",
+									"dataFileName": "Awesome Window Manager.html",
+									"dirFileName": "Awesome Window Manager",
+									"children": [
+										{
+											"isClone": false,
+											"noteId": "up1nXndX78Ql",
+											"notePath": [
+												"root",
+												"n6iRE2zsKdrw",
+												"emJo3gvb2ngn",
+												"C2TEcl5fgwdO",
+												"up1nXndX78Ql"
+											],
+											"title": "Sources",
+											"notePosition": 20,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [],
+											"format": "html",
+											"dirFileName": "Sources",
+											"children": [
+												{
+													"isClone": false,
+													"noteId": "Ob768JmYJDcK",
+													"notePath": [
+														"root",
+														"n6iRE2zsKdrw",
+														"emJo3gvb2ngn",
+														"C2TEcl5fgwdO",
+														"up1nXndX78Ql",
+														"Ob768JmYJDcK"
+													],
+													"title": "Getting Started With Awesome Window Manager",
+													"notePosition": 10,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "text",
+													"mime": "text/html",
+													"attributes": [],
+													"format": "html",
+													"dataFileName": "Getting Started With Awesome W.html"
+												},
+												{
+													"isClone": false,
+													"noteId": "4Z4z2Mf5yWKT",
+													"notePath": [
+														"root",
+														"n6iRE2zsKdrw",
+														"emJo3gvb2ngn",
+														"C2TEcl5fgwdO",
+														"up1nXndX78Ql",
+														"4Z4z2Mf5yWKT"
+													],
+													"title": "My AwesomeWM Configuration",
+													"notePosition": 20,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "text",
+													"mime": "text/html",
+													"attributes": [],
+													"format": "html",
+													"dataFileName": "My AwesomeWM Configuration.html"
+												},
+												{
+													"isClone": false,
+													"noteId": "yJpTrQAN5T2L",
+													"notePath": [
+														"root",
+														"n6iRE2zsKdrw",
+														"emJo3gvb2ngn",
+														"C2TEcl5fgwdO",
+														"up1nXndX78Ql",
+														"yJpTrQAN5T2L"
+													],
+													"title": "AwesomeWM Made My Workflow Even More Awesome",
+													"notePosition": 30,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "text",
+													"mime": "text/html",
+													"attributes": [],
+													"format": "html",
+													"dataFileName": "AwesomeWM Made My Workflow Eve.html"
+												},
+												{
+													"isClone": false,
+													"noteId": "NWu9fELxiHLZ",
+													"notePath": [
+														"root",
+														"n6iRE2zsKdrw",
+														"emJo3gvb2ngn",
+														"C2TEcl5fgwdO",
+														"up1nXndX78Ql",
+														"NWu9fELxiHLZ"
+													],
+													"title": "From awesome",
+													"notePosition": 80,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "text",
+													"mime": "text/html",
+													"attributes": [],
+													"format": "html",
+													"dirFileName": "From awesome",
+													"children": [
+														{
+															"isClone": false,
+															"noteId": "OWIUZS6xRTIg",
+															"notePath": [
+																"root",
+																"n6iRE2zsKdrw",
+																"emJo3gvb2ngn",
+																"C2TEcl5fgwdO",
+																"up1nXndX78Ql",
+																"NWu9fELxiHLZ",
+																"OWIUZS6xRTIg"
+															],
+															"title": "Official AWM website recipes",
+															"notePosition": 0,
+															"prefix": null,
+															"isExpanded": false,
+															"type": "text",
+															"mime": "text/html",
+															"attributes": [],
+															"format": "html",
+															"dataFileName": "Official AWM website recipes.html"
+														},
+														{
+															"isClone": false,
+															"noteId": "naQRzK7eMGZp",
+															"notePath": [
+																"root",
+																"n6iRE2zsKdrw",
+																"emJo3gvb2ngn",
+																"C2TEcl5fgwdO",
+																"up1nXndX78Ql",
+																"NWu9fELxiHLZ",
+																"naQRzK7eMGZp"
+															],
+															"title": "epsi step by step guide for configuring lua",
+															"notePosition": 10,
+															"prefix": null,
+															"isExpanded": false,
+															"type": "text",
+															"mime": "text/html",
+															"attributes": [],
+															"format": "html",
+															"dataFileName": "epsi step by step guide for co.html"
+														},
+														{
+															"isClone": false,
+															"noteId": "8oBJXSiMp8xU",
+															"notePath": [
+																"root",
+																"n6iRE2zsKdrw",
+																"emJo3gvb2ngn",
+																"C2TEcl5fgwdO",
+																"up1nXndX78Ql",
+																"NWu9fELxiHLZ",
+																"8oBJXSiMp8xU"
+															],
+															"title": "Configuring your first rc.lua",
+															"notePosition": 20,
+															"prefix": null,
+															"isExpanded": false,
+															"type": "text",
+															"mime": "text/html",
+															"attributes": [],
+															"format": "html",
+															"dataFileName": "Configuring your first rc.lua.html"
+														},
+														{
+															"isClone": false,
+															"noteId": "XJjMncflqPSr",
+															"notePath": [
+																"root",
+																"n6iRE2zsKdrw",
+																"emJo3gvb2ngn",
+																"C2TEcl5fgwdO",
+																"up1nXndX78Ql",
+																"NWu9fELxiHLZ",
+																"XJjMncflqPSr"
+															],
+															"title": "Understanding the default configs",
+															"notePosition": 30,
+															"prefix": null,
+															"isExpanded": false,
+															"type": "text",
+															"mime": "text/html",
+															"attributes": [],
+															"format": "html",
+															"dataFileName": "Understanding the default conf.html"
+														}
+													]
+												}
+											]
+										},
+										{
+											"isClone": false,
+											"noteId": "jjdM3QQCzCgd",
+											"notePath": [
+												"root",
+												"n6iRE2zsKdrw",
+												"emJo3gvb2ngn",
+												"C2TEcl5fgwdO",
+												"jjdM3QQCzCgd"
+											],
+											"title": "awesome-logo.svg",
+											"notePosition": 40,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/svg+xml",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "awesome-logo.svg",
+													"isInheritable": false,
+													"position": 1000
+												},
+												{
+													"type": "label",
+													"name": "imageUrl",
+													"value": "https://awesomewm.org/images/awesome-logo.svg",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "awesome-logo.svg"
+										},
+										{
+											"isClone": false,
+											"noteId": "lB9MdMW6gQPQ",
+											"notePath": [
+												"root",
+												"n6iRE2zsKdrw",
+												"emJo3gvb2ngn",
+												"C2TEcl5fgwdO",
+												"lB9MdMW6gQPQ"
+											],
+											"title": "notes on creating my setup",
+											"notePosition": 50,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [],
+											"format": "html",
+											"dataFileName": "notes on creating my setup.html"
+										},
+										{
+											"isClone": false,
+											"noteId": "T5ScHr9Hbh86",
+											"notePath": [
+												"root",
+												"n6iRE2zsKdrw",
+												"emJo3gvb2ngn",
+												"C2TEcl5fgwdO",
+												"T5ScHr9Hbh86"
+											],
+											"title": "Configuring Awesome Window Manager",
+											"notePosition": 10,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [],
+											"format": "html",
+											"dataFileName": "Configuring Awesome Window Man.html"
+										}
+									]
+								}
+							]
+						},
+						{
+							"isClone": false,
+							"noteId": "ZwloeVTBS41v",
+							"notePath": [
+								"root",
+								"n6iRE2zsKdrw",
+								"ZwloeVTBS41v"
+							],
+							"title": "General",
+							"notePosition": 40,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dirFileName": "General",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "dhk3wWPt0eMC",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"ZwloeVTBS41v",
+										"dhk3wWPt0eMC"
+									],
+									"title": "Test Driven Development",
+									"notePosition": 10,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [
+										{
+											"type": "relation",
+											"name": "internalLink",
+											"value": "HRhRliXxk2bm",
+											"isInheritable": false,
+											"position": 1
+										},
+										{
+											"type": "relation",
+											"name": "internalLink",
+											"value": "x36EHqtGvybR",
+											"isInheritable": false,
+											"position": 2
+										}
+									],
+									"format": "html",
+									"dataFileName": "Test Driven Development.html"
+								}
+							]
+						},
+						{
+							"isClone": false,
+							"noteId": "uTByF78LVcNr",
+							"notePath": [
+								"root",
+								"n6iRE2zsKdrw",
+								"uTByF78LVcNr"
+							],
+							"title": " Lua",
+							"notePosition": 50,
+							"isExpanded": true,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [
+								{
+									"type": "relation",
+									"name": "imageLink",
+									"value": "YzCQhRQkR0Dv",
+									"isInheritable": false,
+									"position": 1
+								}
+							],
+							"format": "html",
+							"dataFileName": " Lua.html",
+							"dirFileName": " Lua",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "YzCQhRQkR0Dv",
+									"notePath": [
+										"root",
+										"n6iRE2zsKdrw",
+										"uTByF78LVcNr",
+										"YzCQhRQkR0Dv"
+									],
+									"title": "image.png",
+									"notePosition": 10,
+									"isExpanded": false,
+									"type": "image",
+									"mime": "image/png",
+									"attributes": [
+										{
+											"type": "label",
+											"name": "originalFileName",
+											"value": "image.png",
+											"isInheritable": false,
+											"position": 1000
+										}
+									],
+									"dataFileName": "image.png"
+								}
+							]
+						}
+					]
+				},
+				{
+					"isClone": false,
+					"noteId": "ZYGkAvSLdkL5",
+					"notePath": [
+						"root",
+						"ZYGkAvSLdkL5"
+					],
+					"title": "Old Technical Notes",
+					"notePosition": 80,
+					"prefix": "",
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dirFileName": "Old Technical Notes",
+					"children": [
+						{
+							"isClone": false,
+							"noteId": "ZW8u4z0tKxeE",
+							"notePath": [
+								"root",
+								"ZYGkAvSLdkL5",
+								"ZW8u4z0tKxeE"
+							],
+							"title": "Automation",
+							"notePosition": 10,
+							"prefix": "",
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dirFileName": "Automation",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "v1ttpvJfqUuB",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"ZW8u4z0tKxeE",
+										"v1ttpvJfqUuB"
+									],
+									"title": "AfterEffects",
+									"notePosition": 20,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [
+										{
+											"type": "relation",
+											"name": "imageLink",
+											"value": "PbGdGg3bWtC4",
+											"isInheritable": false,
+											"position": 2
+										}
+									],
+									"format": "html",
+									"dataFileName": "AfterEffects.html",
+									"dirFileName": "AfterEffects",
+									"children": [
+										{
+											"isClone": false,
+											"noteId": "PbGdGg3bWtC4",
+											"notePath": [
+												"root",
+												"ZYGkAvSLdkL5",
+												"ZW8u4z0tKxeE",
+												"v1ttpvJfqUuB",
+												"PbGdGg3bWtC4"
+											],
+											"title": "3d-7.png",
+											"notePosition": 10,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "image",
+											"mime": "image/jpg",
+											"attributes": [
+												{
+													"type": "label",
+													"name": "originalFileName",
+													"value": "3d-7.png",
+													"isInheritable": false,
+													"position": 1000
+												},
+												{
+													"type": "label",
+													"name": "imageUrl",
+													"value": "https://extraordinarytv.files.wordpress.com/2020/11/3d-7.png?w=871",
+													"isInheritable": false,
+													"position": 1000
+												}
+											],
+											"dataFileName": "3d-7.png"
+										}
+									]
+								},
+								{
+									"isClone": false,
+									"noteId": "PsXgsULPDiaT",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"ZW8u4z0tKxeE",
+										"PsXgsULPDiaT"
+									],
+									"title": "DiscordJS",
+									"notePosition": 30,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "DiscordJS.html"
+								}
+							]
+						},
+						{
+							"isClone": false,
+							"noteId": "Li0iW3gNIzXw",
+							"notePath": [
+								"root",
+								"ZYGkAvSLdkL5",
+								"Li0iW3gNIzXw"
+							],
+							"title": "General",
+							"notePosition": 20,
+							"prefix": "",
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dirFileName": "General",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "weN8GXi9rZKI",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"Li0iW3gNIzXw",
+										"weN8GXi9rZKI"
+									],
+									"title": "SOLID principles",
+									"notePosition": 10,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "SOLID principles.html"
+								}
+							]
+						},
+						{
+							"isClone": false,
+							"noteId": "Ztdfhf01x7vv",
+							"notePath": [
+								"root",
+								"ZYGkAvSLdkL5",
+								"Ztdfhf01x7vv"
+							],
+							"title": "Linux",
+							"notePosition": 30,
+							"prefix": "",
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dirFileName": "Linux",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "9fvpArzgIbOM",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"Ztdfhf01x7vv",
+										"9fvpArzgIbOM"
+									],
+									"title": "Git",
+									"notePosition": 20,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Git.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "TFsPym7GyHGc",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"Ztdfhf01x7vv",
+										"TFsPym7GyHGc"
+									],
+									"title": "Tmux",
+									"notePosition": 30,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Tmux.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "XVPHdbOx6vZY",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"Ztdfhf01x7vv",
+										"XVPHdbOx6vZY"
+									],
+									"title": "awesomeWM",
+									"notePosition": 10,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "awesomeWM.html"
+								}
+							]
+						},
+						{
+							"isClone": false,
+							"noteId": "cYaVX7zvptdC",
+							"notePath": [
+								"root",
+								"ZYGkAvSLdkL5",
+								"cYaVX7zvptdC"
+							],
+							"title": "Uncategorized",
+							"notePosition": 40,
+							"prefix": "",
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dirFileName": "Uncategorized",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "d26BsMVN2jew",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"cYaVX7zvptdC",
+										"d26BsMVN2jew"
+									],
+									"title": "Lua",
+									"notePosition": 10,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Lua.html"
+								}
+							]
+						},
+						{
+							"isClone": false,
+							"noteId": "FAUZVxMsRoGZ",
+							"notePath": [
+								"root",
+								"ZYGkAvSLdkL5",
+								"FAUZVxMsRoGZ"
+							],
+							"title": "Unity",
+							"notePosition": 50,
+							"prefix": "",
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dirFileName": "Unity",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "aX9MfUXEvU6c",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"FAUZVxMsRoGZ",
+										"aX9MfUXEvU6c"
+									],
+									"title": "NOT DONE Events",
+									"notePosition": 10,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "NOT DONE Events.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "VYUXKDQwkgk1",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"FAUZVxMsRoGZ",
+										"VYUXKDQwkgk1"
+									],
+									"title": "Polymorphism and inheritance",
+									"notePosition": 20,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Polymorphism and inheritance.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "D6muhBB2Vhky",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"FAUZVxMsRoGZ",
+										"D6muhBB2Vhky"
+									],
+									"title": "UnityC#Notes",
+									"notePosition": 30,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "UnityC#Notes.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "lImima7XfXn9",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"FAUZVxMsRoGZ",
+										"lImima7XfXn9"
+									],
+									"title": "UnityShaders",
+									"notePosition": 40,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "UnityShaders.html"
+								}
+							]
+						},
+						{
+							"isClone": false,
+							"noteId": "AtGPxFrynICM",
+							"notePath": [
+								"root",
+								"ZYGkAvSLdkL5",
+								"AtGPxFrynICM"
+							],
+							"title": "WebTech",
+							"notePosition": 60,
+							"prefix": "",
+							"isExpanded": true,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dirFileName": "WebTech",
+							"children": [
+								{
+									"isClone": false,
+									"noteId": "CbSlJ1Pk7zhN",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"CbSlJ1Pk7zhN"
+									],
+									"title": "CSS",
+									"notePosition": 30,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "CSS.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "XGINIJ6QwEHV",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"XGINIJ6QwEHV"
+									],
+									"title": "ExpressJS",
+									"notePosition": 40,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "ExpressJS.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "Y3pPpohIOn7b",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"Y3pPpohIOn7b"
+									],
+									"title": "Firebase",
+									"notePosition": 50,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Firebase.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "9Xvec3iKSrNv",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"9Xvec3iKSrNv"
+									],
+									"title": "Mixed Realities",
+									"notePosition": 10,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [],
+									"format": "html",
+									"dirFileName": "Mixed Realities",
+									"children": [
+										{
+											"isClone": false,
+											"noteId": "rsm95qt5nzim",
+											"notePath": [
+												"root",
+												"ZYGkAvSLdkL5",
+												"AtGPxFrynICM",
+												"9Xvec3iKSrNv",
+												"rsm95qt5nzim"
+											],
+											"title": "A-frame and WebXR AR implementaion",
+											"notePosition": 10,
+											"prefix": "",
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/markdown",
+											"attributes": [],
+											"format": "html",
+											"dataFileName": "A-frame and WebXR AR implement.html"
+										}
+									]
+								},
+								{
+									"isClone": false,
+									"noteId": "Efyexj30Mu6F",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"Efyexj30Mu6F"
+									],
+									"title": "NodeJs",
+									"notePosition": 80,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "NodeJs.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "s6L2rc6es1kc",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"s6L2rc6es1kc"
+									],
+									"title": "React-Router",
+									"notePosition": 90,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "React-Router.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "v8joVFtWu3cp",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"v8joVFtWu3cp"
+									],
+									"title": "ReactJS",
+									"notePosition": 100,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "ReactJS.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "TE08lWLNus3b",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"TE08lWLNus3b"
+									],
+									"title": "Readme",
+									"notePosition": 110,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Readme.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "Yaow9A9viW2B",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"Yaow9A9viW2B"
+									],
+									"title": "RestfulAPIs",
+									"notePosition": 120,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "RestfulAPIs.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "dCyuIf4bt826",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"dCyuIf4bt826"
+									],
+									"title": "ThreeJS",
+									"notePosition": 130,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "ThreeJS.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "qWJEnZn3jHQG",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"qWJEnZn3jHQG"
+									],
+									"title": "Typescript",
+									"notePosition": 140,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Typescript.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "ujoqYxM7h3cD",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"ujoqYxM7h3cD"
+									],
+									"title": "Vue",
+									"notePosition": 150,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Vue.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "gU1q869aqpOq",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"gU1q869aqpOq"
+									],
+									"title": "Web3Topics",
+									"notePosition": 20,
+									"prefix": "",
+									"isExpanded": true,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [],
+									"format": "html",
+									"dirFileName": "Web3Topics",
+									"children": [
+										{
+											"isClone": false,
+											"noteId": "vQybgEX5Uufu",
+											"notePath": [
+												"root",
+												"ZYGkAvSLdkL5",
+												"AtGPxFrynICM",
+												"gU1q869aqpOq",
+												"vQybgEX5Uufu"
+											],
+											"title": "BlockchainAndWeb3InGeneral",
+											"notePosition": 10,
+											"prefix": "",
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/markdown",
+											"attributes": [],
+											"format": "html",
+											"dataFileName": "BlockchainAndWeb3InGeneral.html"
+										}
+									]
+								},
+								{
+									"isClone": false,
+									"noteId": "GNUnWq0PgAyN",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"GNUnWq0PgAyN"
+									],
+									"title": "Webpack",
+									"notePosition": 160,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Webpack.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "wYvDO60EoSO2",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"wYvDO60EoSO2"
+									],
+									"title": "framerMotion",
+									"notePosition": 60,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "framerMotion.html"
+								},
+								{
+									"isClone": false,
+									"noteId": "YvsVccqnEKMl",
+									"notePath": [
+										"root",
+										"ZYGkAvSLdkL5",
+										"AtGPxFrynICM",
+										"YvsVccqnEKMl"
+									],
+									"title": "javascript",
+									"notePosition": 70,
+									"prefix": "",
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/markdown",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "javascript.html"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"noImport": true,
+			"dataFileName": "navigation.html"
+		},
+		{
+			"noImport": true,
+			"dataFileName": "index.html"
+		},
+		{
+			"noImport": true,
+			"dataFileName": "style.css"
+		}
+	]
+}

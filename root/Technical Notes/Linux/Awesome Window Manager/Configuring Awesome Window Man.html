@@ -1,0 +1,121 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>Configuring Awesome Window Manager</h1>
+
+    
+<h2>General intuition</h2>
+    <p>It's all in the rc.lua file. Most of the the configs are handled through
+      6 major classes(seen in the table below). The file can be further extended
+      with lua and the right bash programs</p>
+    <figure class="table">
+      <table>
+        <tbody>
+          <tr>
+            <td style="background-color:hsl(0, 0%, 90%);text-align:center;">Gears</td>
+            <td>utilities module. like for converting values</td>
+          </tr>
+          <tr>
+            <td style="background-color:hsl(0, 0%, 90%);text-align:center;">wibox</td>
+            <td>widgets framework</td>
+          </tr>
+          <tr>
+            <td style="background-color:hsl(0, 0%, 90%);text-align:center;">awful</td>
+            <td>window management</td>
+          </tr>
+          <tr>
+            <td style="background-color:hsl(0, 0%, 90%);text-align:center;">naughty</td>
+            <td>notifications</td>
+          </tr>
+          <tr>
+            <td style="background-color:hsl(0, 0%, 90%);text-align:center;">ruled</td>
+            <td>events listener</td>
+          </tr>
+          <tr>
+            <td style="background-color:hsl(0, 0%, 90%);text-align:center;">menubar</td>
+            <td><span style="background-color:hsl(60,75%,60%);">menuss??? what this ethis mean</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <figcaption>The 6 core classes that shape the whole AWM experience</figcaption>
+    </figure>
+    <h2>Creating a config file</h2>
+    <p>There is a default config in <code>/etc/xdg/awesome</code>. You shouldn't
+      edit the config there. Copy an instance of to <code>~/.config/awesome</code>&nbsp;</p><pre><code class="language-text-plain">cp /etc/xdg/awesome/rc.lua ~/.config/awesome/rc.lua</code></pre>
+    <h2>Parsing the default config file</h2>
+    <p>The file can be divided into these subsections</p>
+    <figure class="table">
+      <table>
+        <tbody>
+          <tr>
+            <td>Importing the core classes</td>
+            <td>Imports core classes to configure rc.lua</td>
+          </tr>
+          <tr>
+            <td>Error handling</td>
+            <td>Handle displaying errors&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Variables</td>
+            <td>Default editors, terminals and programs. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp;&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Menus</td>
+            <td>Handle the start menu (Top left icon of screen)</td>
+          </tr>
+          <tr>
+            <td>Tag layouts</td>
+            <td>Layouts for every window (tags are windows)</td>
+          </tr>
+          <tr>
+            <td>Wallpaper</td>
+            <td>set wallpaper lol</td>
+          </tr>
+          <tr>
+            <td>Wibar</td>
+            <td>widgets on the top barjjj</td>
+          </tr>
+          <tr>
+            <td>Mouse-Bindings</td>
+            <td>self explanatory</td>
+          </tr>
+          <tr>
+            <td>Key-Bindings</td>
+            <td>self explanatory</td>
+          </tr>
+          <tr>
+            <td>Rules</td>
+            <td>specific layouts for specific programs</td>
+          </tr>
+          <tr>
+            <td>Title bars</td>
+            <td>window title bars</td>
+          </tr>
+          <tr>
+            <td>Notifications</td>
+            <td>self explanatory</td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+    <h2>Extending awesome window manager further</h2>
+    <p>With lua in the rc.lua. you can create more functionalities to extend
+      AWM. By using the default classes it should be more than enough to reflect
+      the functions in the desktop front end.&nbsp;</p>
+    <h2>Officially recommended extensions</h2>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  </body>
+
+</html>

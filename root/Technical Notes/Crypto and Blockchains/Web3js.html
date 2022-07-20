@@ -1,0 +1,187 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>Web3js</h1>
+
+    
+<h2><strong>Web3js</strong></h2>
+
+    <p>===================================================================</p>
+    <p>Simplified api to interact with the blockchain. whether it's interacting
+      with smart contracts or other wallets</p>
+    
+<h2><strong>Installation</strong></h2>
+
+    <p>===================================================================</p>
+<pre><code>npm install web3
+</code></pre>
+
+    
+<h4>Dealing with Webpack issues</h4>
+
+    <p>Don't understand the issue but it's just that you can transpile web3 with
+      the new webpack normally. you need to import a front-end build.</p>
+    <p>use the code below to use the Web3 object</p>
+<pre><code>import Web3 from "web3/dist/web3.min";
+</code></pre>
+
+    
+<h2><strong>Setup</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4>Connecting with Infura API</h4>
+
+<pre><code>const Web3Module = require('web3'); // import module
+const web3 = new Web3Module('{link to node'}); // create instance
+</code></pre>
+
+    <p>The node link is most like the link you get from infura ethereum node</p>
+    
+<h4>Connecting with Metamask Walllet</h4>
+
+<pre><code>const Web3Module = require('web3'); // import module
+
+async function init() {
+  let web3 = new Web3Module(window.ethereum); // create instance
+  await ethereum.enable(); //enable ethereum
+
+  // ... more init function below
+}
+
+init();
+</code></pre>
+
+    
+<h2><strong>Interacting with Contracts</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4>Creating a contract instance</h4>
+
+<pre><code>const Web3Module = require('web3'); // import module
+const myContractJson = require('..path/to/json');
+
+// this is the whole initialization function
+const init = async () =&gt; {
+  // create web 3 instance 
+  const web3 = new Web3Module('{link to node}'); 
+  
+  // get network id
+  const id = await web3.eth.net.getId();
+  // get network 
+  const deployedNetwork = myContractJson.networks[id];
+   
+  //create contract instance
+  contract = new web3.eth.Contract(
+    myContractJson.abi,
+    deployedNetwork.address
+  );
+};
+</code></pre>
+
+    <p>Looks complicated but too put simply. You just need a contract abi and
+      address to create a new contract instance.</p>
+    <p>The contract abi is simple. just get from the compiled and deployed truffle
+      build folder. There should be a json there somewhere.</p>
+    <p>The contract address is a bit complicated. just look at the code above.</p>
+    
+<h4>Calling Contract functions (read-only)</h4>
+
+    <p>Put this in a async function. or follow the code above. you can put in
+      the same async func.</p>
+    <p>usually read only function calls don't need gas</p>
+<pre><code>const result = await contract.methods.{MethodName}(arg1, arg2).call();
+</code></pre>
+
+    
+<h4>Transacting with contracts (read&amp;write)</h4>
+
+    <p>use the send method to call fucntions with gas. meaning that it can modify
+      data and call operations on the smart contract.</p>
+<pre><code>await contract.methods.SetOwner(nameInput.value)
+  .send(
+    {
+      from: selectedAccount,
+      value: 394924431210087
+	}
+  );
+</code></pre>
+
+    
+<h5>Getting at transaction receipt</h5>
+
+<pre><code>const receipt = await contract.methods.SetOwner(nameInput.value)
+  .send(
+    {
+      from: selectedAccount,
+      value: 394924431210087
+	}
+  );
+</code></pre>
+
+    <p>it's returned from the send function call</p>
+    
+<h4>Converting to wei</h4>
+
+    
+<h2><strong>Getting Metamask Wallets</strong></h2>
+
+    <p>===================================================================</p>
+<pre><code>import Web3 from 'web3';
+
+//create account variable
+let selectedAccount;
+
+// get account from metamask
+export const init = () =&gt; {
+  let provider = window.ethereum;
+   
+  // check if metamask provider exists
+  if (typeof provider !== 'undefined'){
+    // get account from metamask
+    provider
+    .request({method: 'eth_requestAccounts'})
+    .then((accounts) =&gt; {
+      selectedAccount = accounts[0]
+    })
+    .catch((err) =&gt; {
+      console.log(err)
+    });
+  }
+    
+    //subscribe to account change events
+    window.ethereum.on('accountsChanged', function (account) {
+      selectedAccounts = account[0];
+    })
+  }
+};
+</code></pre>
+
+    
+<h2><strong>Calculating gas fees</strong></h2>
+
+    <p>===================================================================</p>
+    <p><a href="https://www.youtube.com/watch?v=C4F3Qo6qvGI">https://www.youtube.com/watch?v=C4F3Qo6qvGI</a>
+    </p>
+    <p>=================================</p>
+    
+<h3>new notes</h3>
+
+    <ul>
+      <li>general</li>
+      <li>setup</li>
+      <li>get wallet</li>
+      <li>contracts</li>
+      <li>get contract instance</li>
+    </ul>
+  </body>
+
+</html>

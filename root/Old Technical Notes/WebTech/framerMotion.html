@@ -1,0 +1,234 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>framerMotion</h1>
+
+    
+<h2><strong>-|- Motion (from Framer)</strong></h2>
+
+    <p>===================================================================</p>
+    <p>Module to help animating html elements that works well with react and
+      react-three-fiber (for 3D stuff).</p>
+    
+<h2><strong>Installation and setup</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h5>Installing module into node project</h5>
+
+<pre><code>npm i framer-motion -save
+</code></pre>
+
+    
+<h5>Importing module into .js file</h5>
+
+<pre><code>import {motion} from "framer-motion"
+</code></pre>
+
+    
+<h2><strong>Basic intuition</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h5>Creating a motion component</h5>
+
+    <p>Instead of using default html divs, use motion's elements</p>
+<pre><code>&lt;motion.div/&gt; // not &lt;div/&gt;
+</code></pre>
+
+    
+<h5>The "animate" property</h5>
+
+    <p>at it's simplest you can just put an entrance animation like so</p>
+<pre><code>&lt;motion.div
+animate={{x: 100}} // will move element by 100px on enter
+&gt;
+  {children}
+&lt;/motion.div&gt;
+</code></pre>
+
+    <p>The animate property will be like the current animation state. You can
+      put different css style objects in there to change it's state</p>
+    <p>You can also useState() to sync the div's animation state to property</p>
+    
+<h5>Mental model</h5>
+
+    <p>It's not keyframe animation. It's all about changing div animation states</p>
+    
+<h2><strong>Motion Animation Properties</strong></h2>
+
+    <p>===================================================================</p>
+    <p>Theres are the html attributes you put in the motion elements</p>
+    
+<h3><strong>Initial</strong></h3>
+
+    <p>Creates an initial on mount state that you can transition into your default
+      position</p>
+<pre><code>&lt;motion.div
+intial={{y: -10}} // start element 10 px up on start
+animate={{y: 0}} // will animate element to default position start
+&gt;
+  {children}
+&lt;/motion.div&gt;
+</code></pre>
+
+    
+<h3><strong>whileHover, whileTap</strong></h3>
+
+    <p>Just like .className:hover. A hovering/click animation state</p>
+<pre><code>&lt;motion.div
+whileHover={{scale: 1.1}} // :hover
+whileTap={{scale: 0.9}} // :tap/click
+&gt;
+  {children}
+&lt;/motion.div&gt;
+</code></pre>
+
+    
+<h3><strong>Transition</strong></h3>
+
+    <p>this handles all the css timing variables. Like duration, delays and animation
+      curves</p>
+<pre><code>&lt;motion.div
+intial={{y: -10}} // start element 10 px up on start
+animate={{y: 0}} // will animate element to default position start
+transition={{
+  delay: 1, //delays anim by 1 second
+  type: "spring", // anim curve type
+  duration: 2 // length of animation
+}}
+&gt;
+  {children}
+&lt;/motion.div&gt;
+</code></pre>
+
+    
+<h5>Controlling children timings</h5>
+
+    <ul>
+      <li>delaying children</li>
+    </ul>
+<pre><code>&lt;motion.div
+intial={{y: -10}}
+animate={{y: 0}} 
+transition={{
+  delayChildren: 1, //delays children animations
+  staggerDirection: -1 // 1 ascending order, -1 descending
+}}
+&gt;
+  {children}
+&lt;/motion.div&gt;
+</code></pre>
+
+    <ul>
+      <li>staggering children</li>
+    </ul>
+<pre><code>&lt;motion.div
+intial={{y: -10}}
+animate={{y: 0}} 
+transition={{
+  staggerChildren: 0.1, //staggers children animations
+}}
+&gt;
+  {children}
+&lt;/motion.div&gt;
+</code></pre>
+
+    <ul>
+      <li>When?</li>
+    </ul>
+<pre><code>&lt;motion.div
+intial={{y: -10}}
+animate={{y: 0}} 
+transition={{
+  when: "afterChildren" // animations happen after children
+  // "beforeChildren" is the opposite
+}}
+&gt;
+  {children}
+&lt;/motion.div&gt;
+</code></pre>
+
+    
+<h2><strong>Variants</strong></h2>
+
+    <p>==================================================================</p>
+    <p>Essentially re-useable animation sets. It's a object collection of css
+      states. These states can be plugged in to elements to re-use animation
+      sets throughout code base.</p>
+    
+<h5>Creating variants</h5>
+
+    <p>Just creat an object. Each sub-object is an animation state.</p>
+<pre><code>const variantCollection = {
+  hidden: {
+    y: -1
+  }
+  visible: {
+    y: 0
+    transition: {transition variables}
+  }
+  exit: {
+    y:1
+  }
+}
+</code></pre>
+
+    
+<h5>Setting variants</h5>
+
+    <p>Set the variants html attribute. Then pass in animation states as strings
+      the correspond to the variant's sub-object.</p>
+<pre><code>&lt;motion.div
+variants={variantCollection}
+intial="hidden"
+animate="visible"
+&gt;
+  {children}
+&lt;/motion.div&gt;
+</code></pre>
+
+    
+<h2><strong>📒Keyframes</strong></h2>
+
+    <p>==================================================================</p>
+    <ul>
+      <li>setting keyframes</li>
+    </ul>
+<pre><code>&lt;motion.div
+  animate={{ x: [0, 100, 0] }} // just have an array of keyframes
+/&gt;
+</code></pre>
+
+    <ul>
+      <li>looping controls</li>
+    </ul>
+    <p>Change it in the transition object</p>
+<pre><code></code></pre>
+
+    
+<h2><strong>📒Enter/Exit animations</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h2><strong>📒Transitioning between routes</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h2><strong>📒useCycle</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h2><strong>📒Dragging</strong></h2>
+
+    <p>===================================================================</p>
+  </body>
+
+</html>

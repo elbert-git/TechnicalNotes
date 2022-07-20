@@ -1,0 +1,202 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1> Lua</h1>
+
+    
+<h2><strong>Basic</strong></h2>
+    <p><strong>Commenting</strong>
+      <img class="image-style-align-right" src="%20Lua/image.png"
+      alt="Lua (programming language) - Wikipedia">
+    </p>
+    <p>Add a double dash</p><pre><code class="language-text-plain">-- comments go like this</code></pre>
+    <p>For multi-lines, add the double brackets and close them with the same</p><pre><code class="language-text-plain">--[[
+	this is a multi
+	line comment
+]]--</code></pre>
+    <p><strong>Printing to console</strong>
+    </p><pre><code class="language-text-plain">print({stuff to print})</code></pre>
+    <h2><strong>Variables&nbsp;</strong></h2>
+    <p>Just define them like python</p><pre><code class="language-text-plain">varName = value</code></pre>
+    <p>Nil is null</p><pre><code class="language-text-plain">nullValue = nil</code></pre>
+    <p><strong>Strings</strong>
+    </p>
+    <p>String concatenation uses <code>..</code>
+    </p><pre><code class="language-text-plain">"string combines" .. "with this string"</code></pre>
+    <p><strong>Data types</strong>
+    </p>
+    <ul>
+      <li>nil</li>
+      <li>boolean</li>
+      <li>number: floating point numbers</li>
+      <li>string</li>
+      <li>function</li>
+      <li>userdata: arbitrary C data</li>
+      <li>thread: coroutines</li>
+      <li>table: a dictionary basically (I think)</li>
+    </ul>
+    <p><strong>Getting Data-type</strong>
+    </p><pre><code class="language-text-plain"> type(var) -- will return type as string;</code></pre>
+    <p><strong>Scoping</strong>
+    </p>
+    <p>Variables are global by default. use <code>local</code> to scope them as
+      private.</p><pre><code class="language-text-plain">local varName = val;</code></pre>
+    <h2><strong>Control Flow</strong></h2>
+    <p><strong>While loop</strong>
+    </p><pre><code class="language-text-plain">while {truthy bool} do
+  -- code here
+end</code></pre>
+    <p><strong>If statements</strong>
+    </p>
+    <p>Basic if statement</p><pre><code class="language-text-plain">if {bool} then
+	-- code
+end</code></pre>
+    <p>You can do them in one line as well</p><pre><code class="language-text-plain">if {boo} then --code end</code></pre>
+    <p><strong>else and else if</strong>
+    </p><pre><code class="language-text-plain">if {bool} then
+	--code
+elseif {bool} then
+	--code
+else
+	--code
+end</code></pre>
+    <h2><strong>Functions</strong></h2>
+    <p><strong>Basic functions</strong>
+    </p><pre><code class="language-text-plain">function add(arg1,arg2)
+	return arg1+arg2
+end</code></pre>
+    <p>They can be the same line as well</p>
+    <p><strong>Functions can be variables</strong>
+    </p><pre><code class="language-text-plain">someFunc = function(arg1) return arg1^2 end
+someFunc(2)</code></pre>
+    <h2><strong>Tables</strong></h2>
+    <p>Just like JS objects and python dictionaries…. and more. Basically it's
+      an array where the value's keys can be anything. Numbers, strings.</p><pre><code class="language-text-plain">tableExample = {['someKey'] = 'someString', [23] = someValue, [6.28] = 'tau'}</code></pre>
+    <p><strong>Iterating over tables</strong>
+    </p><pre><code class="language-text-plain">for key, val in pairs({someTable}) do  -- Table iteration.
+  print(key, val)
+end</code></pre>
+    <p><strong>Tables as arrays</strong>
+    </p><pre><code class="language-text-plain">v = {'value1', 'value2', 1.21, 'gigawatts'}
+for i = 1, #v do  -- #v is the size of v for lists.
+  print(v[i])  -- Indices start at 1 !! SO CRAZY!
+end</code></pre>
+    <p>Bruh indices start at one.</p>
+    <h2><strong>Metatables and Metamethods</strong></h2>
+    <p><strong>(overriding lua syntax)</strong>
+    </p>
+    <p>Bruv… this is complicated. To put simply, <strong>it's extend a table's functionality by overriding lua's syntax</strong>.
+      For example if you have a table representing a vector2. You can't add/sub/print
+      them easily. They are just an array of numbers. &nbsp;But you can set a
+      metatable and override lua's syntax in context of using the table. So you
+      can do <code>vectorA + vectorB</code> operations.</p>
+    <p>Creating a metatable and it's metafunctions</p><pre><code class="language-text-plain">-- create table with data
+f1 = {a = 1, b = 2}  -- Represents the fraction a/b.
+
+
+
+-- create metatable for fraction and overried add operation
+metafraction = {}
+function metafraction.__add(f1, f2)
+  sum = {}
+  sum.b = f1.b * f2.b
+  sum.a = f1.a * f2.b + f2.a * f1.b
+  return sum
+end
+
+-- set metatable for each fraction
+setmetatable(f1, metafraction);</code></pre>
+    <p><strong>List of over-writable methods</strong>
+    </p><pre><code class="language-text-plain">-- Full list. Here a is a table with the metamethod.
+
+-- __add(a, b)                     for a + b
+-- __sub(a, b)                     for a - b
+-- __mul(a, b)                     for a * b
+-- __div(a, b)                     for a / b
+-- __mod(a, b)                     for a % b
+-- __pow(a, b)                     for a ^ b
+-- __unm(a)                        for -a
+-- __concat(a, b)                  for a .. b
+-- __len(a)                        for #a
+-- __eq(a, b)                      for a == b
+-- __lt(a, b)                      for a &lt; b
+-- __le(a, b)                      for a &lt;= b
+-- __index(a, b)  &lt;fn or a table&gt;  for a.b
+-- __newindex(a, b, c)             for a.b = c
+-- __call(a, ...)                  for a(...)        
+</code></pre>
+    <h2><strong>Class-like Tables and inheritance&nbsp;</strong></h2>
+    <p>There are not classes… just tables. It's all tables. But you can make
+      them behave like classes</p>
+    <p><strong>Creating a class</strong>
+    </p>
+    <p>It's just creating a function that returns a table</p><pre><code class="language-text-plain">local function Person(_name, _age)
+	local t = {
+		name = _name,
+		age = _age
+		work = function(self)  -- need self to refer to this object
+			print(self.name -- " is working")
+		end
+	}
+	
+	return t
+end</code></pre>
+    <p><strong>Creating a class instance</strong>
+    </p><pre><code class="language-text-plain">-- creating a new person instance
+johnPerson = Person("John", 23)</code></pre>
+    <p><strong>Accessing properties and methods</strong>
+    </p><pre><code class="language-text-plain">class:methodName()
+class:propertyName</code></pre>
+    <p>Inheritance</p>
+    <p>&nbsp;</p>
+    <h2><strong>Modules</strong></h2>
+    <p><strong>Importing</strong>
+    </p>
+    <p>Allowing lua to import other lua files</p><pre><code class="language-text-plain">local module = require('path/to/module');</code></pre>
+    <p>Above will work as <code>require</code> like in javascript</p>
+    <p><strong>Running a file</strong>
+    </p>
+    <p>Just running the file without importing</p><pre><code class="language-text-plain">dofile('mod.lua') </code></pre>
+    <p><strong>Evaluating a string</strong>
+    </p><pre><code class="language-text-plain">string = load('string code')
+string()</code></pre>
+    <h2><strong>Routines (threads)</strong></h2>
+    <p>It's a single thread that allows you to stop a program in its tracks and
+      allow other programs to run.
+      <br>To put it simply it's a async function that you have to manually call
+      resume and pause. &nbsp;</p>
+    <p><strong>Creating a routine</strong>
+    </p><pre><code class="language-text-plain">co = coroutine.create(function ()
+	for i=1,10 do
+		kprint("co", i)
+		coroutine.yield()
+	end
+end)</code></pre>
+    <p><strong>Running a routine</strong>
+    </p><pre><code class="language-text-plain">coroutine.resume(co)</code></pre>
+    <p><strong>Pausing a routine</strong>
+    </p>
+    <p>Call this line in the routine.</p><pre><code class="language-text-plain">coroutine.yield()</code></pre>
+    <p><strong>Resuming a routine</strong>
+    </p>
+    <p>Same as starting it</p><pre><code class="language-text-plain">coroutine.resume(co)</code></pre>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  </body>
+
+</html>

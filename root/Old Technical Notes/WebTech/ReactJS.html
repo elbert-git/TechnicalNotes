@@ -1,0 +1,465 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>ReactJS</h1>
+
+    <ul>
+      <li>topics i wa want to learn next
+        <ul>
+          <li>global state managers like redux</li>
+        </ul>
+      </li>
+    </ul>
+    <hr />
+    
+<h2><strong>-|- React-JS</strong></h2>
+
+    <p>===================================================================</p>
+    <p>A way to build reactive web UI with components(like prefabs in unity).</p>
+    
+<h4>Basic intuition</h4>
+
+    <p>A react component is basically a fucntion that return html. You can add
+      js functionality to this html. Allowing code-reusability and scoping</p>
+    
+<h2><strong>Setup</strong></h2>
+
+    <p>===================================================================</p>
+<pre><code>npx create-react-app &lt;name-of-react-app&gt;
+</code></pre>
+
+    <p>The above will create a basic react folder with boilerplate</p>
+    
+<h5>Starting a dev server</h5>
+
+<pre><code>npm start
+</code></pre>
+
+    
+<h5>Building the final deployment files</h5>
+
+<pre><code>npm build
+</code></pre>
+
+    
+<h4>Recommended directory structure</h4>
+
+    <p>Inside the ./src</p>
+    <p>- components: for re-usable single components throughout diff pages
+      <br
+      />- pages: page root and page specific components go here
+      <br />- data: for inputting json data
+      <br />- context: for different context components
+      <br />- hooks: for our custom hooks
+      <br />- utilities: for useful functions. like maybe formatting text</p>
+    
+<h2><strong>The Component</strong></h2>
+
+    <p>===================================================================</p>
+    <p>Simply create fucntion that return html.</p>
+<pre><code>export default function ComponentName(){
+  return(
+    &lt;div&gt;
+      &lt;h1&gt;Hello World&lt;/h1&gt;
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+
+    <p>Then you import that function where you need that component in the code.</p>
+<pre><code>import ComponentName from  './src/componentName.js';
+//...
+return(
+  &lt;ComponentName/&gt;
+)
+</code></pre>
+
+    
+<h4>Props</h4>
+
+    <p>Allowing attributes to be passed to the component changing how it renders</p>
+<pre><code>export default function ComponentName(propObjectName) {
+  return (
+    &lt;div&gt;
+      {/*this is how you pass prop values to render*/}
+      here is the prop {prop.propName} 
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+
+    <p>Then you set props by creating html attributes of the same name</p>
+<pre><code>&lt;ComponentName propName=value /&gt;
+</code></pre>
+
+    <p>A common shorthand for this is putting an object into fucntion argument</p>
+<pre><code>export default function componentName({propName}) {
+  return (
+    &lt;div&gt;
+      {/*this is how you pass prop values to render*/}
+      here is the prop {propName} 
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+
+    
+<h4>Passing children components</h4>
+
+<pre><code>export default function componentName({childen}) {
+  return (
+    &lt;div&gt;
+      {children}
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+
+    
+<h4>Styling components</h4>
+
+    <p>To use css classes like usual</p>
+<pre><code>&lt;div className="classA classB classC"&gt;&lt;/div&gt;
+</code></pre>
+
+    <p>But you can also create styles in the app. Not recommended though, heard
+      it's not performant</p>
+<pre><code>export default function componentName({childen}) {
+  const styleObject = {backgroundColor: "red"}
+  return (
+    &lt;div style={{styleObject}}&gt;
+      {children}
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+
+    
+<h4>Rendering loops</h4>
+
+    <p>you can loop over a json/array to display a lot of data.</p>
+    
+<h5>the map functions</h5>
+
+<pre><code>return(
+ array.map(obj =&gt; {
+ return &lt;div attribute=obj.value propName=obj.value key=uniqueid/&gt;};
+)
+</code></pre>
+
+    
+<h5>unique keys</h5>
+
+    <p>when using the map array. react needs unique id to all the elements. this
+      lets react know which element has changed so that it can only render that
+      element. it also just prevents weird bugs.</p>
+    <p>simplest way is to just add an index to the arrray object. but this isnt
+      ideal for many situations</p>
+    <p>you can use the <strong>uuid package</strong> from npm to easily solve this
+      issue</p>
+    <ol>
+      <li><strong>first install uuid</strong>
+      </li>
+    </ol>
+<pre><code>npm install uuid --save-dev
+</code></pre>
+
+    <ol>
+      <li><strong>import to the file that creates desired array to be mapped over.</strong>
+      </li>
+    </ol>
+    <p>this will allow you to create new unique ids with a simple func</p>
+<pre><code>import React from 'react';
+import ReactDom from 'react-dom';
+import { v4 as uuidv4 } from 'uuid';
+
+return(
+ array.map(obj =&gt; {
+ return &lt;div attribute=obj.value propName=obj.value key={uuidv4()}/&gt;};
+)
+</code></pre>
+
+    
+<h2><strong>Hooks</strong></h2>
+
+    <p>===================================================================</p>
+    <p>Here comes the main way react handles logic today. Without them you would
+      create a very "non-reactive" site lel</p>
+    
+<h2><strong>useState()</strong></h2>
+
+    <p>dynamic variables for the component. Changing the state signals to react
+      this component has to re-render</p>
+    
+<h5>Creating a state</h5>
+
+<pre><code>const [datas, setData] = useState({initialValue});
+</code></pre>
+
+    
+<h5>The setState() function</h5>
+
+    <p>To change the state you call the state's set function</p>
+<pre><code>setData({new State})
+</code></pre>
+
+    <p>Best to not edit the state variable directly. But use this to replace
+      the current state with a new state.</p>
+    <p>Note that setState is an async function.</p>
+    
+<h5>Passing the setState(functions)</h5>
+
+    <p>you can pass the `setState()` function throughout the app via react context
+      or prop-drilling. This allows other components to trigger a re-render or
+      change state</p>
+    
+<h5>"console.log()-ing" state</h5>
+
+    <p>due to it being an async state. you need the below useEffect to get current
+      state.</p>
+<pre><code>useEffect(()=&gt;{console.log(state)}, [state])
+</code></pre>
+
+    
+<h2><strong>useEffect()</strong></h2>
+
+    <p>Function that will run when something happens. A "side-effect"</p>
+<pre><code>useEffect(()=&gt;{
+  // code of func here
+},[])
+</code></pre>
+
+    <p>It depends on the second argument of the fucntion. the "dependency array".
+      the fucntion runs every time the array changes</p>
+    
+<h5>As an "on Start" fucntion</h5>
+
+    <p>You can use it as an "on-start" function when the dependency array is
+      empty. Since the empty array will never change the func will only run once</p>
+    
+<h5>Loading async data</h5>
+
+    <p>you can use useEffect as to fetch data on start</p>
+<pre><code>useEffect(()=&gt;{
+  const load = async function(){//load async data}
+  load();
+},[])
+</code></pre>
+
+    
+<h2><strong>useContext()</strong></h2>
+
+    <p>Instead of passing one prop from one child to the other. you can set a
+      context where all of children elements gets access to one variable</p>
+    <p><strong>in parent</strong>
+    </p>
+<pre><code>// create a context outside of the function component
+export const ContextData = React.createContext();
+
+export default function ContextProvider ({children}) {
+  // put context handling code here
+  return m
+    &lt;ContextData.Provider value={props to pass down}&gt;
+      {children}
+    &lt;/ContextData.Provider&gt;
+  )
+}
+</code></pre>
+
+    <ul>
+      <li>outside of component fucntion. just create a context object.</li>
+      <li>then create a new element that wraps over the children you want to pass
+        down. which is the context variable name with ".Provider". also pass down
+        the data to the "value" attribute.</li>
+      <li></li>
+    </ul>
+    <p><strong>In child</strong>
+    </p>
+<pre><code>import React, {useContext} from 'react'; // import react and use context hook
+import {ContextData} from '../path/to/contextCreatedFile'; // import context
+
+class ComponentName extends React.Component {
+  const contextData = useContext(ContextData);
+  render() {
+    return (
+      &lt;div&gt;
+        {contextData}
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre>
+
+    
+<h4>Creating a context component</h4>
+
+    <p>This is literally just declutter and streamline how contexts are written</p>
+<pre><code>import React from 'react';
+import ReactDom from 'react-dom';
+import {useContext} from 'react';
+
+export const Context = React.createContext();
+
+export function useCreatedContext(){
+  return useContext(Context);
+}
+
+export default function ContextProvider ({children}) {
+  // put context handling code here
+  return (
+    &lt;Context.Provider value={props to pass down}&gt;
+      {children}
+    &lt;/Context.Provider&gt;
+  )
+}
+</code></pre>
+
+    <ul>
+      <li>create a new component and setup the context.</li>
+      <li>you can use {children to render children}</li>
+      <li>use this component to handle setting/updating the theme</li>
+      <li>create new public/exported function to allow other js files to get context
+        data.</li>
+    </ul>
+    
+<h5>Updating context data</h5>
+
+    <p>use useState and pass the data and setData functions through the context.</p>
+    <ul>
+      <li>in parent component</li>
+    </ul>
+<pre><code>export default function ParentComponent() {
+  const [val, setVal] = useState();
+
+  return (
+    &lt;Context.Provider value={[val, setVal]}&gt;
+      &lt;childComponent/&gt;
+    &lt;/Context.Provider&gt;
+  );
+}
+</code></pre>
+
+    <ul>
+      <li>in child component</li>
+    </ul>
+<pre><code>export default function childComponent(){
+  const [val, setVal] = useContext(Context);
+
+  return (
+    &lt;div&gt;&lt;/div&gt;
+  );
+};
+</code></pre>
+
+    
+<h2><strong>useRef()</strong></h2>
+
+    <p>this is how you reference other elements in the dom
+      <br />in html you would directly reference from the dom.
+      <br />but here you need to use useRef()</p>
+    
+<h5>how to use</h5>
+
+<pre><code>import React from 'react';
+import ReactDom from 'react-dom';
+import {useRef} from 'react';
+
+export default function customReactComponent (prop) {
+  const varForElementName = useRef();
+
+  return (
+    &lt;div ref={varForElementName}&gt;
+      here is the prop {prop.propName} 
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+
+    <ul>
+      <li>you import useRef from react</li>
+      <li>create a var and set it to useRef()</li>
+      <li>in the element you want it to reference
+        <ul>
+          <li>give an attribute ref with the value of the variable name</li>
+        </ul>
+      </li>
+    </ul>
+    
+<h5>useRef() through children</h5>
+
+<pre><code>import React from 'react';
+import ReactDom from 'react-dom';
+import {useRef} from 'react';
+
+export default function customReactComponent (prop) {
+  const varForElementName = useRef();
+
+  return (
+    &lt;div &gt;
+      &lt;parent refHook={varForElementName}/&gt;
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+
+<pre><code>import React from 'react';
+import ReactDom from 'react-dom';
+import {useRef} from 'react';
+
+export default function customReactComponent (prop) {
+  return (
+    &lt;div ref={prop.refHook}&gt;&lt;/div&gt;
+  )
+}
+</code></pre>
+
+    
+<h2><strong>📙 Custom Hooks</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h2><strong>Deploying to github-pages</strong></h2>
+
+    <p>===================================================================</p>
+    <p>Tutorial source: <a href="https://www.youtube.com/watch?v=2hM5viLMJp">https://www.youtube.com/watch?v=2hM5viLMJp</a>A</p>
+    
+<h5>1) install gh-pages</h5>
+
+<pre><code>npm install gh-pages — save-dev
+</code></pre>
+
+    
+<h5>2) edit package.json</h5>
+
+    <p>create homepage string in the top-level json</p>
+<pre><code>"homepage": "https://elbert-git.github.io/{ProjectName}/"
+</code></pre>
+
+    <p>add scripts</p>
+<pre><code>"predeploy": "npm run build",
+"deploy": "gh-pages -d build"
+</code></pre>
+
+    
+<h5>3) run deploy</h5>
+
+<pre><code>npm run deploy
+</code></pre>
+
+    
+<h3>Sources</h3>
+
+    <p>===================================================================</p>
+    <p>A lot of this is from the webdev simplified tutorial.</p>
+    <p><a href="https://www.youtube.com/watch?v=hQAHSlTtcmY">https://www.youtube.com/watch?v=hQAHSlTtcmY</a>
+    </p>
+  </body>
+
+</html>

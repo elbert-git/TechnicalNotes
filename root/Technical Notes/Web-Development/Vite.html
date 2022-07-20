@@ -1,0 +1,51 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>Vite</h1>
+
+    
+<h2>What is this this?<img class="image-style-align-right image_resized" style="width:25%;" src="Vite/logo.svg" alt="Home | Vite"></h2>
+    <p>It's a new javascript bundler replacing web-pack</p>
+    <h2>What does this mean for you</h2>
+    <p>Honestly you can treat it like the new `<code>npm init</code>` or a new <code>create-react-app</code>
+    </p>
+    <h2>Usage</h2><pre><code class="language-text-plain">npm init vite {app-name} </code></pre>
+    <p>&nbsp;The above will start a new project boiler node project boiler plate.
+      Then just pick what you project boiler-plate you wish to start with</p>
+    <h2>Deploying Vite Apps</h2>
+    <blockquote>
+      <p><a href="https://towardsdev.com/deploying-react-application-to-github-pages-with-vite-2d3e32ae97e7">https://towardsdev.com/deploying-react-application-to-github-pages-with-vite-2d3e32ae97e7</a>
+      </p>
+    </blockquote>
+    <ul>
+      <li>remove /dist from .gitignore</li>
+      <li>add sub url to vit.config.js</li>
+    </ul><pre><code class="language-text-plain">export default defineConfig({
+	base: "{git sub url}",        // &lt;- add this line
+	//... rest of config
+})</code></pre>
+    <ul>
+      <li>git add, commit and push everything</li>
+      <li>git push subtree into gh-pages branch</li>
+    </ul><pre><code class="language-text-plain">git subtree push --prefix dist origin gh-pages</code></pre>
+    <h2>Importing assets into JSX</h2>
+    <p>For importing images into react/vue applications</p><pre><code class="language-text-plain">function getImageUrl(name) {
+
+  return new URL(`./dir/${name}.png`, import.meta.url).href
+
+}</code></pre>
+    <hr>
+    <blockquote>
+      <p style="margin-left:0px;">Vite in 100 Seconds &nbsp;- Fireship
+        <br>https://www.youtube.com/watch?v=KCrXgy8qtjM</p>
+    </blockquote>
+  </body>
+
+</html>

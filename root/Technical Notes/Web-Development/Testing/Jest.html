@@ -1,0 +1,117 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>Jest</h1>
+
+    
+<h2><strong>Jest</strong><img class="image-style-align-right image_resized" style="width:272px;" src="Jest/jest-logo-F9901EBBF7-seeklogo." alt="Testing Framework Logo PNG Vectors Free Download"></h2>
+    <p>A javascript testing framework</p>
+    <h2><strong>Installation and Setup</strong></h2>
+    <p>Installing the package</p><pre><code class="language-text-plain">npm install jest -save-dev</code></pre>
+    <p>put this script in the package.json</p><pre><code class="language-text-plain">"test":"jest",</code></pre>
+    <p>You can add the flags</p>
+    <ul>
+      <li><code>--verbose</code> for more detailed errors</li>
+      <li><code>--watchAll</code> To start a shell process, listening for code changes
+        and running the tests again.&nbsp;</li>
+      <li><code>--coverage</code> To see how much of the code is covered by jest</li>
+    </ul>
+    <h2><strong>Basic Usage</strong></h2>
+    <p><strong>Creating jest testing files</strong>
+      <br>You mark jest testing files with the extension <code>.test.js</code>&nbsp;
+      <br>You can create as much as you need.&nbsp;</p>
+    <p><strong>Structure of a test file</strong>
+    </p><pre><code class="language-text-plain">describe('{nameOfTestGroup}', () =&gt; {
+  // define variables here
+
+  beforeEach(() =&gt; {
+    // code to run before each test 
+  });
+  
+  // use todo to mark wip tests
+  it.todo('can pop off'); // use todo to mark wip tests
+  
+  // test example
+  it('{nameOFTest}', () =&gt; {
+  	//... code to run 
+  	
+  	
+// test by using expect matches
+    expect(stack.top).toBe(-1);
+    expect(stack.items).toEqual({});
+  });
+
+});</code></pre>
+    <h2><strong>Matchers</strong></h2>
+    <p><span class="text-big"><strong>Basic</strong></span>
+    </p>
+    <figure class="table">
+      <table>
+        <tbody>
+          <tr>
+            <td>expect({data}).<strong>toBe</strong>({check Data})</td>
+            <td>Check if object matches object</td>
+          </tr>
+          <tr>
+            <td>expect({data}).<strong>toEqual</strong>({check Data})</td>
+            <td>Check if value === value</td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+    <p><code>toEqual</code> is recommended to use most of the time</p>
+    <p><code>not</code> can also be use for false comparisons</p><pre><code class="language-text-plain">expect({data}).not.toEqual({check Data})</code></pre>
+    <p>More matches to be found <a href="https://jestjs.io/docs/using-matchers">here</a>
+    </p>
+    <h2><strong>Setup and Teardown</strong></h2>
+    <p>You can setup &nbsp;setup and teardown function to run before each test.
+      In case you need to setup stuff or clear data after every test.</p><pre><code class="language-text-plain">describe('{nameOfTestGroup}', () =&gt; {
+  // define variables here
+
+	beforeEach(() =&gt; {
+
+  		//code to run before each test
+
+	});
+
+
+	
+	afterEach(() =&gt; {
+
+  		//code to run after each test.
+
+	});
+
+
+  
+  // use todo to mark wip tests
+  it.todo('can pop off'); // use todo to mark wip tests
+  
+  // test example
+  it('{nameOFTest}', () =&gt; {
+  	//... code to run 
+  	
+  	
+// test by using expect matches
+    expect(stack.top).toBe(-1);
+    expect(stack.items).toEqual({});
+  });
+
+});</code></pre>
+    <h2><strong>More stuff</strong></h2>
+    <ul>
+      <li><a href="https://jestjs.io/docs/asynchronous">async tests</a>
+      </li>
+      <li><a href="https://jestjs.io/docs/mock-functions">mock functions</a>
+      </li>
+    </ul>
+  </body>
+
+</html>

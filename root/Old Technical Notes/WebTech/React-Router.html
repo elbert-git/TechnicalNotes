@@ -1,0 +1,255 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>React-Router</h1>
+
+    
+<h2><strong>Routing</strong></h2>
+
+    <p>===================================================================</p>
+    <p>source</p>
+    <p><a href="https://www.youtube.com/watch?v=Jppuj6M1sJ4">https://www.youtube.com/watch?v=Jppuj6M1sJ4</a>
+    </p>
+    
+<h3>installation</h3>
+
+<pre><code>npm install react-router-dom --save-dev
+</code></pre>
+
+    
+<h3>Import</h3>
+
+<pre><code>import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
+</code></pre>
+
+    
+<h3>Basic usage</h3>
+
+<pre><code>import React from 'react';
+import ReactDom from 'react-dom';
+import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
+
+export default function ParentComponent (prop) {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;Link to="/path" &gt;link to path&lt;/Link&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home/&gt;}/&gt;
+        &lt;Route path="/about" element={&lt;About/&gt;}/&gt;
+        &lt;Route path="/contact" element={&lt;Contact/&gt;}/&gt;
+        &lt;Route path="*" element={&lt;MissingPage/&gt;}/&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  )
+}
+</code></pre>
+
+    <ul>
+      <li>
+        <p>3 nested compnentes</p>
+        <ul>
+          <li>BrowserRouter &gt; Routes&gt; Route(your individual route)</li>
+        </ul>
+      </li>
+      <li>
+        <p>Routes go in this format</p>
+<pre><code>&lt;Route path="/" element={&lt;elementName/&gt;}/&gt;
+</code></pre>
+
+      </li>
+      <li>
+        <p>default page for broken/missing routes</p>
+<pre><code>&lt;Route path="*" element={&lt;MissingPage/&gt;}/&gt;
+</code></pre>
+
+      </li>
+      <li>
+        <p>Linking</p>
+<pre><code>&lt;Link to="/path" &gt;link to path&lt;/Link&gt;
+</code></pre>
+
+      </li>
+      <li>
+        <p>do note that only things within the tag update when you change routes</p>
+      </li>
+    </ul>
+    
+<h3>Redirecting</h3>
+
+    <p>many times you will want to switch pages by script</p>
+<pre><code>import {useNavigate} from 'react-router-dom';
+let navigate = useNavigate(); // this returns teh navigate func
+navigate('/path');
+</code></pre>
+
+    
+<h3>Scroll 0</h3>
+
+    <p>when you change routes in react. most of the time you want the scroll
+      to be reset to the top.</p>
+    <p>just put a use effect on the component loaded that resets scroll to the
+      top.</p>
+<pre><code>window.scroll(0,0);
+</code></pre>
+
+    
+<h3>Url Parameters</h3>
+
+    <p>you can encode data in the url</p>
+    <p>in BrowserRouter</p>
+<pre><code>import React from 'react';
+import ReactDom from 'react-dom';
+import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
+
+export default function ParentComponent (prop) {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;Link to="/path" &gt;link to path&lt;/Link&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home/&gt;}/&gt;
+        &lt;Route path="/Profile/:userID" element={&lt;userProfile/&gt;}/
+      &lt;Routes&gt;
+    &lt;BrowserRouter&gt;
+  )
+}
+</code></pre>
+
+    <ul>
+      <li>add a route where the path has a ":" that denotes the variableName for
+        the paramenter</li>
+    </ul>
+    <p>in component</p>
+<pre><code>import React, {useParams} from 'react';
+import ReactDom from 'react-dom';
+
+export default function componentName(){
+  const URLparameters = useParams();
+ 
+  return(
+    &lt;div&gt;
+      &lt;h1&gt;Hello {param.userID}&lt;/h1&gt;
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+
+    <ul>
+      <li>import the useParam() hook</li>
+      <li>use the fucn to return url parameters object.
+        <ul>
+          <li>that object will contain your url parameters</li>
+        </ul>
+      </li>
+    </ul>
+    
+<h3>Nesting Routes</h3>
+
+<pre><code>import React from 'react';
+import ReactDom from 'react-dom';
+import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
+
+export default function ParentComponent (prop) {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;Link to="/path" &gt;link to path&lt;/Link&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home/&gt;}/&gt;
+        &lt;Route path="/books/*" element={&lt;userProfile/&gt;}&gt;
+          &lt;Route path="book-title" element={&lt;bookTitlePage&gt;}/&gt;
+        &lt;/Route&gt;
+      &lt;Routes&gt;
+    &lt;BrowserRouter&gt;
+  )
+}
+</code></pre>
+
+    <ul>
+      <li>add a route tag as child of one of the routes</li>
+      <li>put a '/*' in front of the parent route path attribue</li>
+      <li>the child route tag path is relative to the parent route tag</li>
+    </ul>
+    
+<h4>The  tag</h4>
+
+    <p>controls where the nested routes will inject the children components</p>
+<pre><code>import React from 'react';
+import ReactDom from 'react-dom';
+import {Outlet} from "react-router-dom";
+
+export default function bookTitlePage(){
+  return(
+    &lt;div&gt;
+      {// nested routes children will appear below}
+      &lt;Outlet/&gt;
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+
+    
+<h3>Private Routes</h3>
+
+    <p>essentially creating a new component. where it will conditionally render
+      an outlet or rendersomething else or redirect to somewhere else</p>
+<pre><code>import React from 'react';
+import ReactDom from 'react-dom';
+import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
+
+export default function ParentComponent (prop) {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;Link to="/path" &gt;link to path&lt;/Link&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home/&gt;}/&gt;
+        &lt;Route element={&lt;ProtectedRoutes/&gt;}&gt;
+          &lt;Route path="book-title" element={&lt;bookTitlePage&gt;}/&gt;
+        &lt;/Route&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  )
+}
+</code></pre>
+
+    <ul>
+      <li>create a new route that renders your custom ProtectedRoutes Component</li>
+      <li>the children of this route tag are protected routes</li>
+    </ul>
+<pre><code>import React from 'react';
+import ReactDom from 'react-dom';
+import {Outlet} from "react-router-dom";
+import {useContext} from 'react';
+import {AuthProvider} from '../pathToProvider';j
+import {ErrorPage} from 'ErrorPage';
+
+export default function ProtectedRoutes(){
+  const user = useContext(AuthProvider);
+  return(
+    &lt;div&gt;
+      {user ? return&lt;outlet&gt; : return &lt;ErrorPage/&gt;}
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+
+    <ul>
+      <li>in the protected route component</li>
+      <li>use react context hook to get authorisation parameters</li>
+      <li>use the auth parameters to conditionally render the outlet</li>
+    </ul>
+    
+<h3>❗ Relative resource path issues with routers</h3>
+
+    <p>set a basename for the BrowserRouter element. set it as the domain's subdirectory.</p>
+<pre><code>&lt;BrowserRouter basename="/{subdirectory}/"&gt;&lt;/BrowserRouter&gt;
+</code></pre>
+
+  </body>
+
+</html>

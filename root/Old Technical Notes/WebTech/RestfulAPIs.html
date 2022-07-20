@@ -1,0 +1,96 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>RestfulAPIs</h1>
+
+    
+<h2><strong>-|- Restful APIs</strong></h2>
+
+    <hr />
+    
+<h3><strong>In general</strong></h3>
+
+    <p>===================================================================</p>
+    <p>APIs are application programming interfaces. Allows different programs
+      to talk to each other.</p>
+    <p>Restful apis are a common standard of structuring them.</p>
+    
+<h3><strong>Restful Standard</strong></h3>
+
+    <p>===================================================================</p>
+    <p>Restful short for "representational state transfer".</p>
+    <p>In short it means that it organizes data into URIs. Like a URL.</p>
+<pre><code>https://api.com/v2/datapath
+</code></pre>
+
+    <p><strong>Stateless</strong>
+    </p>
+    <p>Another key aspect is that the whole interaction should be "stateless".
+      client and server shouldn't be tracking each other. only requesting and
+      serving data.</p>
+    
+<h3><strong>Request Structure</strong></h3>
+
+    <p>===================================================================</p>
+    <p><strong>Start Line</strong>
+    </p>
+<pre><code>POST/uriPath
+</code></pre>
+
+    <p>Starts with the verb. the kind of action you are doing. Usually one of
+      the CRUDs</p>
+    <p>then the uriPath linking to the specific resource you need.</p>
+    <ul>
+      <li><strong>Verbs</strong>
+      </li>
+    </ul>
+    <p>Corresponding to all the different CRUD operations are</p>
+    <ul>
+      <li>POST | Create</li>
+      <li>GET | Read</li>
+      <li>PATCH | Update</li>
+      <li>DELETE | delete</li>
+    </ul>
+    <p><strong>Headers</strong>
+    </p>
+    <p>optional flags about the request.</p>
+    <p>like auth-tokens and in what format do you want to return the request</p>
+    <p><strong>Data</strong>
+    </p>
+    <p>Payload of data</p>
+    <ul>
+      <li>[ ] what the hell does this mean.</li>
+    </ul>
+    
+<h3><strong>Response Structure</strong></h3>
+
+    <p>===================================================================</p>
+    <p><strong>Status Code</strong>
+    </p>
+    <p>verify if you had an error, or the server had an error or the request
+      was successful</p>
+    <ul>
+      <li>status codes in:
+        <ul>
+          <li>~200: all a-okay</li>
+          <li>~300: Client error</li>
+          <li>~500: server error</li>
+        </ul>
+      </li>
+    </ul>
+    <p><strong>Headers</strong>
+    </p>
+    <p>Information about the server</p>
+    <p><strong>Data</strong>
+    </p>
+    <p>the actual data</p>
+  </body>
+
+</html>

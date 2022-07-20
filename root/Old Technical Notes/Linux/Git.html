@@ -1,0 +1,266 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>Git</h1>
+
+    
+<h2><strong>-|- Git</strong></h2>
+
+    <p>The premiere version control system</p>
+    <p>This notes only covers the bash CLI. Idk any guis for this</p>
+    <hr />
+    
+<h2><strong>Installation</strong></h2>
+
+    <p>===================================================================</p>
+    <p>Just google this lmao and download git</p>
+    <p><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>
+    </p>
+    
+<h2><strong>Basic Daily Use</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>Setup</h3>
+
+    <ul>
+      <li>Pulling a repo to you device</li>
+    </ul>
+<pre><code>git clone {url to remote repop}
+</code></pre>
+
+    <ul>
+      <li>Starting a new git repo</li>
+    </ul>
+<pre><code>git init
+</code></pre>
+
+    
+<h3>Selecting branches</h3>
+
+    <ul>
+      <li>list all branches</li>
+    </ul>
+<pre><code>git branch -a
+</code></pre>
+
+    <ul>
+      <li>Changing branches</li>
+    </ul>
+<pre><code>git checkout "branchName"
+</code></pre>
+
+    <ul>
+      <li>Creating new branches from an exisiting branch
+        <ul>
+          <li>note best to name your branches branching out from the main branch.</li>
+        </ul>
+      </li>
+    </ul>
+<pre><code>git checkout -b "oldBranchName/NewBranchOffShoot"
+</code></pre>
+
+    
+<h3>Basic Push and Pull</h3>
+
+    <ul>
+      <li>Pulling changes from remote</li>
+    </ul>
+<pre><code>git pull
+</code></pre>
+
+    <ul>
+      <li>Pushing</li>
+    </ul>
+<pre><code>git add . // or add specific directories and files
+git commit -m "commit message"
+git push
+</code></pre>
+
+    
+<h2><strong>Git LFS</strong></h2>
+
+    <p>===================================================================</p>
+    <ul>
+      <li>Why LFS</li>
+    </ul>
+    <p>Cause github doesn't want to track large files. it will just track a url
+      to the files. There won't be a large</p>
+    <ul>
+      <li>setup lfs</li>
+    </ul>
+<pre><code>git lfs install
+</code></pre>
+
+    <ul>
+      <li>choose which file types to track</li>
+    </ul>
+<pre><code>git lfs track "*.psd"
+git lfs track "*.png"
+git lfs track "*.jpg"
+git lfs track "*.blend"
+git lfs track "*.gltf"
+git lfs track "*.obj"
+git lfs track "*.fbx"
+</code></pre>
+
+    <ul>
+      <li>let git track .gitattribures file</li>
+    </ul>
+<pre><code>git add .gitattributes
+</code></pre>
+
+    
+<h2><strong>Git configuration</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>.gitattributes</h3>
+
+    <p>.gitattributes is the configuration file</p>
+    
+<h3>.gitignore</h3>
+
+    <p>there some files that you dont want git to track. like metadata files,
+      node modules, swp files and unity metafiles</p>
+    <ul>
+      <li>create gitignore file</li>
+    </ul>
+<pre><code>/directoryYouWantToIgnore
+/Path/to/directory/you/want/to/ignore
+specificfile.json
+.env
+.fileextension
+</code></pre>
+
+    <p>template below</p>
+<pre><code>.meta
+.blend1
+.env
+/node_modules
+</code></pre>
+
+    
+<h2><strong>Git status checks</strong></h2>
+
+    <p>===================================================================</p>
+    <ul>
+      <li>git log</li>
+    </ul>
+<pre><code>git log
+</code></pre>
+
+    <p>Sees history of commit messages</p>
+    <ul>
+      <li>git log graph</li>
+    </ul>
+<pre><code>git log --graph --oneline --decorate
+</code></pre>
+
+    <p>Sees ascii graph of branches and commit messages</p>
+    
+<h2><strong>Remote Repo Stuff</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>Adding a new remote repo</h3>
+
+<pre><code>git remote add origin {url to repo}
+</code></pre>
+
+    
+<h3>Starting a new remote repo in bash</h3>
+
+<pre><code>git init --bare
+</code></pre>
+
+    <p>This creates an online git repository where other git clients can remote
+      into.</p>
+    
+<h2><strong>Merge Conflicts</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>How to handle it</h3>
+
+    <ul>
+      <li>Abort merge</li>
+    </ul>
+<pre><code>git merge --abort
+</code></pre>
+
+    <ul>
+      <li>Understand where the conflict is in.</li>
+      <li>selectively choose what to commit and remove.</li>
+    </ul>
+    
+<h3>How to avoid it</h3>
+
+    <ul>
+      <li>Communicate and dont work on the same directory/modules</li>
+    </ul>
+    
+<h2><strong>Undoing changes in github</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>Undoing commits (git reset)</h3>
+
+    <p>In short it's using this</p>
+<pre><code>git reset
+</code></pre>
+
+    <p>this undos your previous commit</p>
+    <ul>
+      <li><strong>if you need to commit much further then that</strong>
+      </li>
+    </ul>
+    <ol>
+      <li>Select which commit you want to return to</li>
+    </ol>
+<pre><code>git log
+</code></pre>
+
+    <p>this command will list a history of your commits</p>
+    <ol>
+      <li>copy the commit id</li>
+      <li>reset into the commit</li>
+    </ol>
+<pre><code>git reset "commit id"
+</code></pre>
+
+    
+<h5>Hard and soft resets</h5>
+
+    <p>by default "git reset" only rewrites the git logs. Doesn't change the
+      state of the files</p>
+    <p>If you want your files to time travel back as well (<strong>Possibly overwriting new changes</strong>)</p>
+    <p>use the hard flag</p>
+<pre><code>git reset --hard
+</code></pre>
+
+    
+<h3>Git revert (slightly cleaner than reset)</h3>
+
+<pre><code>git revert "commit id"
+</code></pre>
+
+    
+<h3>Git commit amend</h3>
+
+<pre><code>git commit --amend -m "new message"
+</code></pre>
+
+<pre><code>git commit "commit id" --amend -m "new commit message"
+</code></pre>
+
+  </body>
+
+</html>

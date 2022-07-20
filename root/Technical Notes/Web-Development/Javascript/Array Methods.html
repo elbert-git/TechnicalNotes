@@ -1,0 +1,41 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>Array Methods</h1>
+
+    
+<h2>Filter</h2>
+    <p>Creates a new array filtered by a boolean statement.</p><pre><code class="language-text-plain">const newArray = array.filter((val)=&gt;{return val&gt;0)})</code></pre>
+    <h2>Map</h2>
+    <p>Returns a new array where each value from parent array is processed</p><pre><code class="language-text-plain">const newArray = array.map((val)=&gt;{return val+1})</code></pre>
+    <h2>Find</h2>
+    <p>Similar to filter but only returns the first item it finds</p><pre><code class="language-text-plain">const itemToFind = array.find((val)=&gt;{return val===0)})</code></pre>
+    <h2>ForEach</h2>
+    <p>Loops over each item</p><pre><code class="language-text-plain">array.forEach((val)=&gt;{//do something})</code></pre>
+    <h2>Some</h2>
+    <p>Returns a boolean. Loops over every value in the array if any of the loops
+      returns true. it will return true</p><pre><code class="language-text-plain">const isHaveZero = array.filter((val)=&gt;{val===0})</code></pre>
+    <h2>Every</h2>
+    <p>Similar to some. Will return false if any of the loops return false.</p><pre><code class="language-text-plain">const isNoHaveZero = array.every((val)=&gt;{val===0}) </code></pre>
+    <h2>Reduce</h2>
+    <p>Oh this is complicated. The simplest use case is to sum a total of the
+      value in an array</p><pre><code class="language-text-plain">const total = array.reduce((currentTotal, item)=&gt;{
+	return currentTotal + item
+}, 0)</code></pre>
+    <p>For every loop, &nbsp;it will take 2 arguments. The previous loop's returning
+      value and the current looping value. Then you just iterate with those 2
+      values passed in. You also need to pass in the initial value of the returning
+      value. &nbsp;&nbsp;</p>
+    <h2>Includes</h2>
+    <p>Similar to python's contain. return true if the the item is in array</p><pre><code class="language-text-plain">array.includes(2)</code></pre>
+
+  </body>
+
+</html>

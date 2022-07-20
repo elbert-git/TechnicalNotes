@@ -1,0 +1,151 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>NodeJs</h1>
+
+    
+<h2><strong>-=| Node JS |=-</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>In general</h3>
+
+    <p>A runtime development for javascript. Allows javascript to run on an OS
+      like windows/linux/mac</p>
+    <p>instead of just a browser. Allows server programs to be written in javascript</p>
+    
+<h2><strong>Installation</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>Arch</h3>
+
+<pre><code>sudo pacman -S npm
+</code></pre>
+
+    
+<h3>Ubuntu/Debian</h3>
+
+<pre><code>sudo apt-get install npm
+</code></pre>
+
+    
+<h2><strong>Node Version manager</strong></h2>
+
+    <p>===================================================================</p>
+    <p>Sometimes you just need a particular version of node</p>
+    
+<h5>Install nvm</h5>
+
+<pre><code>sudo apt-get install nvm
+</code></pre>
+
+<pre><code>sudo pacman -S install nvm
+</code></pre>
+
+    
+<h5>Usage</h5>
+
+    <ul>
+      <li>To list down all available version</li>
+    </ul>
+<pre><code>nvm ls-remote
+</code></pre>
+
+    <ul>
+      <li>to install one particular version</li>
+    </ul>
+<pre><code>nvm install [version.number]
+</code></pre>
+
+    
+<h2><strong>Setting up a node project directory</strong></h2>
+
+    <p>===================================================================</p>
+<pre><code>npm init -y
+</code></pre>
+
+    
+<h3>When receiving an exisiting project</h3>
+
+<pre><code>npm install
+</code></pre>
+
+    <p>this will install the dependencies needed to run the project.</p>
+    
+<h2><strong>Project Structure</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>node_modules</h3>
+
+    <p>this is where all the node modules are stored for the project.</p>
+    
+<h3>package.json</h3>
+
+    <p>this is the config file. you can put quick npm scripts here.</p>
+    <p>this also contains a roster of project and development dependencies.</p>
+    
+<h2><strong>Node modules installation</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>Installing project dependencies</h3>
+
+    <p>These are modules that are required for the project work on runtime. Like
+      react, a-frame, threejs, vue, firebase</p>
+<pre><code>npm install {module name} --save
+</code></pre>
+
+    
+<h3>Installing development dependencies</h3>
+
+    <p>These are modules that help develop or compile the project. not needed
+      on the project's runtime. Like webpack, babel, polyfill</p>
+<pre><code>npm install {module name} --save-dev
+</code></pre>
+
+    
+<h2><strong>Custom Node modules</strong></h2>
+
+    <p>===================================================================</p>
+    <p>every js file to node is a module.</p>
+    
+<h3>Exporting stuff in node.</h3>
+
+<pre><code>modules.export = {objects you want to export}
+</code></pre>
+
+    
+<h3>Importing stuff in node.</h3>
+
+<pre><code>import {object} from '/path/to/file';
+// or
+const varName = require('path/to/file'); 
+</code></pre>
+
+    
+<h2><strong>DotEnv</strong></h2>
+
+    <p>===================================================================</p>
+    <p>reading secret varialbes that shouldnt be pushed to git</p>
+<pre><code>// read env
+require('dotenv').config()
+// get env variables
+const token = process.env.TOKEN;
+</code></pre>
+
+    <p>inside the .env</p>
+<pre><code>TOKEN="{secretToken}"
+</code></pre>
+
+  </body>
+
+</html>

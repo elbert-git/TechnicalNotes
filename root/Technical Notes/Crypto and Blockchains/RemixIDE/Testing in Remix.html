@@ -1,0 +1,111 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>Testing in Remix</h1>
+
+    
+<h2><strong>Setting up tests</strong></h2>
+    <ul>
+      <li>Create a test folder</li>
+      <li>click generate tests in the testing panel</li>
+      <li>this should generate some testing boiler plates</li>
+    </ul>
+    <p><strong>Format of a test file</strong>
+    </p><pre><code class="language-text-plain">// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity &gt;=0.7.0 &lt;0.9.0;
+import "remix_tests.sol"; // this import is automatically injected by Remix.
+import "hardhat/console.sol";
+import "remix_accounts.sol";
+import "../contracts/{TestedContractType}.sol";  // &lt;-  please import your contracts
+
+contract {TestName} is {TestedContractType} {
+	// declare variables to:
+	//		- hold the contract instances
+	TestedContractType contractInstance;
+	// 		- references to test accounts
+	address[] addresses = [
+
+        TestsAccounts.getAccount(0),
+
+        TestsAccounts.getAccount(1),
+
+        TestsAccounts.getAccount(2),
+
+        TestsAccounts.getAccount(3),
+
+        TestsAccounts.getAccount(4),
+
+        TestsAccounts.getAccount(5),
+
+        TestsAccounts.getAccount(6)
+
+    ];
+	//		- testing variables
+
+	// tests functions here
+    function checkWinningProposal () public {
+		// test code here
+    }
+}</code></pre>
+    <p><strong>Format of a singular test</strong>
+      <br>You can just use the format below</p><pre><code class="language-text-plain">/// #value: 2000
+/// #sender: account-0 // use test account index 0
+function checkSenderAndValue() public payable{
+	contractInstance.check{value: 2000}()
+}</code></pre>
+    <h2><strong>Set up and Teardowns&nbsp;</strong></h2>
+    <ul>
+      <li><code>beforeEach()</code> - Runs before each test</li>
+      <li><code>beforeAll()</code> - Runs before all tests</li>
+      <li><code>afterEach()</code> - Runs after each test</li>
+      <li><code>afterAll()</code> - Runs after all tests</li>
+    </ul>
+    <h2><strong>Assert Statements</strong></h2>
+    <p><strong>Assert.ok()</strong>
+    </p><pre><code class="language-text-plain">Assert.ok({booleanStatement},"Should return truthy")</code></pre>
+    <p><strong>Assert.equal()</strong>
+    </p><pre><code class="language-text-plain">Assert.equal(val1,val2,"Should return truthy if equal")</code></pre>
+    <p><strong>Assert.notEqual()</strong>
+    </p><pre><code class="language-text-plain">Assert.notEqual(val1,val2,"Should return truthy if not equal")</code></pre>
+    <p><strong>Assert.greatherThan()</strong>
+    </p><pre><code class="language-text-plain">Assert.greaterThan(val1,val2,"Should return truthy if greather than")</code></pre>
+    <p><strong>Assert.lesserThan()</strong>
+    </p><pre><code class="language-text-plain">Assert.lesserThan(val1,val2,"Should return truthy if lesser than")</code></pre>
+    <h2><strong>Testing with </strong><code><strong>msg.sender</strong></code><strong> and </strong><code><strong>msg.value</strong></code></h2>
+    <ul>
+      <li>you need to inherit the contract tested</li>
+      <li>create references to test accounts</li>
+      <li>mark the value and address above the function</li>
+      <li>execute contract function with value options sen</li>
+    </ul><pre><code class="language-text-plain">// reference to test accounts
+address acc0 = TestAccounts.getAccount(0);
+
+/// #value: 2000
+/// #sender: account-0 // use test account index 0
+function checkSenderAndValue() public payable{
+	contractInstance.check{value: 2000}()
+}</code></pre>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  </body>
+
+</html>

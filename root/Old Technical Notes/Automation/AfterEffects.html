@@ -1,0 +1,169 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>AfterEffects</h1>
+
+    
+<h2><strong>-|- After Effects Automation</strong></h2>
+    <p>===================================================================</p>
+    <h4>General Intuition</h4>
+    <p>The main scripting language in after effect is extendScript. Which is
+      essentially javascript with Adobe's added classes. Not moden javascript
+      though. This is like 1990s javascript.</p>
+    <h4>Running scripts</h4>
+    <p>Most straightforward way is just going to After Effects and File &gt;
+      Scripts &gt; Run Script. Then pick you script from the file picker.</p>
+    <p>Ctrl+Alt+Shift+D to run the most recent picked script.</p>
+    <p>There are other ways of running it but I won't bother for now. and it's
+      just so goddamn buggy:</p>
+    <h2><strong>After Effects Object Model</strong></h2>
+    <p>===================================================================</p>
+    <figure
+    class="image image-style-align-center">
+      <img src="AfterEffects/3d-7.png" alt="3D Anime Approaches (and thoughts for myself) – Extra Ordinary, the Series">
+      </figure>
+      <h2><strong>Undo Group</strong></h2>
+      <p>===================================================================</p>
+      <p>This controls at what points of the script, is a task undoable.</p><pre><code class="language-text-plain">function SomeTask(){
+  beginUndoGroup();
+  // your operations here 
+  endUndoGroup();
+}
+</code></pre>
+      <p>Most of the time you don't need the begin undo group</p><pre><code class="language-text-plain">function SomeTask(){
+  // your operations here 
+  endUndoGroup();
+}
+</code></pre>
+      <h2><strong>Navigating After Effects Objects</strong></h2>
+      <p>===================================================================</p>
+      <p>It's a series of nested objects. like from app&gt; project &gt; item &gt;
+        effect &gt; property</p>
+      <p>General structure that you need is</p>
+      <ul>
+        <li>app
+          <ul>
+            <li>project
+              <ul>
+                <li>compItem
+                  <ul>
+                    <li>layers
+                      <ul>
+                        <li>effect
+                          <ul>
+                            <li>property</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h4>General navigation</h4>
+      <p>There will be some times when you don't know the full chain. you can navigate
+        by the propery() function.</p><pre><code class="language-text-plain">// by full property name
+someObject.property("Property Name"); 
+
+// by index
+someObject.property(1); // note indeces start with 1 in AE. Just because
+</code></pre>
+      <p><strong>Gettting the project object</strong>
+      </p><pre><code class="language-text-plain">var project = app.project;
+</code></pre>
+      <p><strong>Getting the a project item like comps/video</strong>
+      </p><pre><code class="language-text-plain">var item = project.item(1) // take by index
+</code></pre>
+      <p>in the AE project panel you will see a column array of items. that's the
+        order of the array</p>
+      <p><strong>Getting layer objects from comps</strong>
+      </p><pre><code class="language-text-plain">var layer = compItem.layer(1) // take by index
+</code></pre>
+      <p>in the AE timeline you will see a column array of items. that's the order
+        of the array</p>
+      <p><strong>Getting an effects object a layer</strong>
+      </p><pre><code class="language-text-plain">var effect = layer.effect(1) // take by index
+</code></pre>
+      <p>in the AE effects panel you will see a column array of items. that's the
+        order of the array</p>
+      <p><strong>Getting and settting an effect property</strong>
+      </p><pre><code class="language-text-plain">property.setValue({value});  //Set property value
+property.value;  //Get property value
+</code></pre>
+      <p><strong>Can't get the full path?</strong>
+      </p>
+      <p>Open the expression Editor then you will see some of the full path. That
+        should be a good pointer.</p>
+      <h2><strong>Render-queue</strong></h2>
+      <p>===================================================================</p>
+      <h4>Sending to render queue</h4><pre><code class="language-text-plain">var itemSentToQueue = app.project.renderQueue.items.add(compName);
+</code></pre>
+      <h4>Changing rendering settings</h4><pre><code class="language-text-plain">// set output module
+var outputModule = item.outputModule(1)
+outputModule.applyTemplate("mov");
+// set output file
+outputModule.file = File("path/to/outputFile.ext");
+// call render
+app.project.renderQueue.render();
+// set callback
+item.onstatus = onRenderFinished();
+</code></pre>
+      <p><strong>what are output modules?</strong>
+      </p>
+      <p>when you look at the render queue panel in after effects. a single line
+        of render settings is one output module. it's basically one render request.</p>
+      <p><strong>Rendering events</strong>
+      </p><pre><code class="language-text-plain">// call render
+app.project.renderQueue.render();
+// set callback event on render event change
+item.onstatus = onRenderFinished();
+</code></pre>
+      <p>this fucntions fires once. so set it just before you expect the change
+        in render status happens</p>
+      <h2><strong>Modules</strong></h2>
+      <p>===================================================================</p>
+      <p>Importing modules (other js files)</p><pre><code class="language-text-plain">#include './path/to/jsFile.js';
+</code></pre>
+      <h2><strong>Newer Javascript features</strong></h2>
+      <p>===================================================================</p>
+      <p>People have made polyfills to access newer functions of javascript</p>
+      <h4>Json</h4>
+      <p>from <a href="https://github.com/NTProductions/inline-json2/blob/main/json-inline.js">https://github.com/NTProductions/inline-json2/blob/main/json-inline.js</a>
+      </p>
+      <p>useful tutorial on this: <a href="https://www.youtube.com/watch?v=gGFjkzX6y6g">https://www.youtube.com/watch?v=gGFjkzX6y6g</a>
+      </p><pre><code class="language-text-plain">"object"!=typeof JSON&amp;&amp;(JSON={}),function(){"use strict";var rx_one=/^[],:{}\s]*$/,rx_two=/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,rx_three=/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,rx_four=/(?:^|:|,)(?:\s*[)+/g,rx_escapable=/[\\"\u0000-\u001f\u007f-\u009f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,rx_dangerous=/[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,gap,indent,meta,rep;function f(t){return t&lt;10?"0"+t:t}function this_value(){return this.valueOf()}function quote(t){return rx_escapable.lastIndex=0,rx_escapable.test(t)?'"'+t.replace(rx_escapable,function(t){var e=meta[t];return"string"==typeof e?e:"\\u"+("0000"+t.charCodeAt(0).toString(16)).slice(-4)})+'"':'"'+t+'"'}function str(t,e){var r,n,o,u,f,a=gap,i=e[t];switch(i&amp;&amp;"object"==typeof i&amp;&amp;"function"==typeof i.toJSON&amp;&amp;(i=i.toJSON(t)),"function"==typeof rep&amp;&amp;(i=rep.call(e,t,i)),typeof i){case"string":return quote(i);case"number":return isFinite(i)?String(i):"null";case"boolean":case"null":return String(i);case"object":if(!i)return"null";if(gap+=indent,f=[],"[object Array]"===Object.prototype.toString.apply(i)){for(u=i.length,r=0;r&lt;u;r+=1)f[r]=str(r,i)||"null";return o=0===f.length?"[]":gap?"[\n"+gap+f.join(",\n"+gap)+"\n"+a+"]":"["+f.join(",")+"]",gap=a,o}if(rep&amp;&amp;"object"==typeof rep)for(u=rep.length,r=0;r&lt;u;r+=1)"string"==typeof rep[r]&amp;&amp;(o=str(n=rep[r],i))&amp;&amp;f.push(quote(n)+(gap?": ":":")+o);else for(n in i)Object.prototype.hasOwnProperty.call(i,n)&amp;&amp;(o=str(n,i))&amp;&amp;f.push(quote(n)+(gap?": ":":")+o);return o=0===f.length?"{}":gap?"{\n"+gap+f.join(",\n"+gap)+"\n"+a+"}":"{"+f.join(",")+"}",gap=a,o}}"function"!=typeof Date.prototype.toJSON&amp;&amp;(Date.prototype.toJSON=function(){return isFinite(this.valueOf())?this.getUTCFullYear()+"-"+f(this.getUTCMonth()+1)+"-"+f(this.getUTCDate())+"T"+f(this.getUTCHours())+":"+f(this.getUTCMinutes())+":"+f(this.getUTCSeconds())+"Z":null},Boolean.prototype.toJSON=this_value,Number.prototype.toJSON=this_value,String.prototype.toJSON=this_value),"function"!=typeof JSON.stringify&amp;&amp;(meta={"\b":"\\b","\t":"\\t","\n":"\\n","\f":"\\f","\r":"\\r",'"':'\\"',"\\":"\\\\"},JSON.stringify=function(t,e,r){var n;if(indent=gap="","number"==typeof r)for(n=0;n&lt;r;n+=1)indent+=" ";else"string"==typeof r&amp;&amp;(indent=r);if((rep=e)&amp;&amp;"function"!=typeof e&amp;&amp;("object"!=typeof e||"number"!=typeof e.length))throw new Error("JSON.stringify");return str("",{"":t})}),"function"!=typeof JSON.parse&amp;&amp;(JSON.parse=function(text,reviver){var j;function walk(t,e){var r,n,o=t[e];if(o&amp;&amp;"object"==typeof o)for(r in o)Object.prototype.hasOwnProperty.call(o,r)&amp;&amp;(void 0!==(n=walk(o,r))?o[r]=n:delete o[r]);return reviver.call(t,e,o)}if(text=String(text),rx_dangerous.lastIndex=0,rx_dangerous.test(text)&amp;&amp;(text=text.replace(rx_dangerous,function(t){return"\\u"+("0000"+t.charCodeAt(0).toString(16)).slice(-4)})),rx_one.test(text.replace(rx_two,"@").replace(rx_three,"]").replace(rx_four,"")))return j=eval("("+text+")"),"function"==typeof reviver?walk({"":j},""):j;throw new SyntaxError("JSON.parse")})}();
+</code></pre>
+      <h3>More Stuff to look into</h3>
+      <p>===================================================================</p>
+      <ul>
+        <li>context pointers
+          <ul>
+            <li>how to get currently selected object/item/property</li>
+          </ul>
+        </li>
+        <li>rendering stuff
+          <ul>
+            <li>adding compositions to render queue</li>
+          </ul>
+        </li>
+        <li>GUI creation
+          <ul>
+            <li>creating windows of buttons and controls to help the scripts</li>
+          </ul>
+        </li>
+      </ul>
+      <h3>&nbsp;</h3>
+
+  </body>
+
+</html>

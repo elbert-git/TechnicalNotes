@@ -1,0 +1,320 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>Webpack</h1>
+
+    
+<h2><strong>-|- Webpack</strong></h2>
+
+    <p>Bundling javascript modules for front end pages. Essentially how you use
+      the npm modules wihtout react. so you don't need to script tag every module
+      in your html</p>
+    <p>sources</p>
+    <p><a href="https://www.youtube.com/watch?v=CZnmKWgmL7s">https://www.youtube.com/watch?v=CZnmKWgmL7s</a>
+    </p>
+    <p><a href="https://www.youtube.com/watch?v=X1nxTjVDYdQ">https://www.youtube.com/watch?v=X1nxTjVDYdQ</a>
+    </p>
+    
+<h2><strong>Setup</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4>Basic node</h4>
+
+    <p>Start by setting your node project</p>
+<pre><code>npm init -y
+</code></pre>
+
+    <p>we put -y just so that you can skip the configuration step</p>
+    <p>then</p>
+    <ol>
+      <li>make a public/index.html</li>
+      <li>make a src/index.js</li>
+    </ol>
+    
+<h4>Webpack setup</h4>
+
+    <p><strong>install webpack and the cli tool</strong>
+    </p>
+<pre><code>npm install --save-dev webpack webpack-cli
+</code></pre>
+
+    <p><strong>Add a build script in the package.json</strong>
+    </p>
+<pre><code>"scripts": {
+  "build": "webpack",
+  "dev": "webpack --mode development",
+  "start": "webpack serve"
+}
+</code></pre>
+
+    
+<h2><strong>Bundling</strong></h2>
+
+    <p>===================================================================<strong>Building for Development</strong>
+    </p>
+<pre><code>npm run dev
+</code></pre>
+
+    <p><strong>Building for Production</strong>
+    </p>
+<pre><code>npm run build
+</code></pre>
+
+    <p>the above will bundle the what you need in to a /dist folder. inside the
+      folder is a main.js file. Development bundle is just a bundle wihtout all
+      the spaces and lines removed.</p>
+    <p>The above is just running the script object in you package.json</p>
+    <p><strong>Make html point to dist/main.js</strong>
+    </p>
+<pre><code>&lt;script src="api/images/E6nNa55elPXu/main.js"/&gt;
+</code></pre>
+
+    
+<h2><strong>Configuration</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4>Creating the config file</h4>
+
+    <p>Create a 'webpack.config.js' file in the node project root folder.</p>
+    <p><strong>Importing path</strong>
+    </p>
+<pre><code>const path = require('path');
+</code></pre>
+
+    
+<h4>Config structure</h4>
+
+    <p>it's all in the object called module.exports.</p>
+    <p>And every category of the settings is an object</p>
+<pre><code>const path = require('path');
+module.exports = {
+  mode: 'development', // switch to 'production' for production build
+  entry:{ // handles entry point javascript
+    main: path.resolve(__dirname, './src/app.js')
+  },
+  output: { // handles final js bundle output settings
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+}
+</code></pre>
+
+    
+<h4>Source-map</h4>
+
+    <p>Allows tracing error and logs to their source js files. instead of pointing
+      everything to the main.js</p>
+    <p>just add this to the webpack config</p>
+<pre><code>module.exports = {
+  devtool: "source-map"
+}
+</code></pre>
+
+    
+<h4>Babel setup</h4>
+
+    <p>Babel helps trans-pile code for older browsers. Allows newer javascript
+      functions to run is most browsers. not just the cutting edge ones</p>
+    <p><strong>Installing</strong>
+    </p>
+<pre><code>npm install --save-dev @babel/core @babel/preset-env babel-loader 
+</code></pre>
+
+    <p><strong>Webpack config</strong>
+    </p>
+<pre><code>module.exports = {
+  // ...
+  module:{
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          // without additional settings this will reference .babelrc
+          loader: 'babel-loader'
+        }
+      }
+    ]
+  }
+}
+</code></pre>
+
+    <p><strong>Babelrc</strong>
+    </p>
+    <p>create a .babelrc file</p>
+<pre><code>{
+  "presets" : ["@babel/preset-env"]
+}
+</code></pre>
+
+    
+<h4>Webpack Server</h4>
+
+    <p>Install the webpack server module</p>
+<pre><code>npm install webpack-dev-server
+</code></pre>
+
+    <p>add dev server configuration to webpack.config</p>
+<pre><code>devServer: {
+  static: {
+    directory: path.join(__dirname, 'public')
+  }
+}
+</code></pre>
+
+    <p>add script to package.json</p>
+    
+<h3>Polyfill issues</h3>
+
+    <p>===================================================================</p>
+    
+<h4>Why it happens</h4>
+
+    <p>Webpack can also transpile (downgrade) javascript to work on older browsers.
+      But this process balloons the project up by a ton. So it's an opt-in feature
+      now rather than turned on by default.</p>
+    
+<h4>Browserlist</h4>
+
+    <p>First add a .browserslistrc file and simply add.</p>
+<pre><code>defaults
+</code></pre>
+
+    <p>that's it.</p>
+    
+<h4>1) Importing and setting core-js</h4>
+
+    <p>these are the core javascript functionalities.</p>
+<pre><code>npm install --save-dev core-js
+</code></pre>
+
+    <p><strong>.babelrc setup</strong>
+    </p>
+    <p>just copy below. Remember the double square brackets. Because... just
+      because</p>
+<pre><code>{
+  "presets" : [
+    [
+      "@babel/preset-env",
+      {"debug": true, "useBuiltIns": "usage", "corejs": 3}
+    ]
+  ]
+}
+</code></pre>
+
+    
+<h4>2) enable polyfill</h4>
+
+    <p>Use this package</p>
+    <p><a href="https://www.npmjs.com/package/node-polyfill-webpack-plugin">https://www.npmjs.com/package/node-polyfill-webpack-plugin</a>
+    </p>
+    <p><strong>Install</strong>
+    </p>
+<pre><code>npm install node-polyfill-webpack-plugin
+</code></pre>
+
+    <p><strong>Usage</strong>
+      <br />Add the following to your <code>webpack.config.js</code>:</p>
+<pre><code>const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+
+module.exports = {
+	// Other rules...
+	plugins: [
+		new NodePolyfillPlugin()
+	]
+}
+</code></pre>
+
+    
+<h3>Quick boilerplate</h3>
+
+    <p>===================================================================</p>
+    
+<h5>node project setup</h5>
+
+<pre><code>npm init -y
+</code></pre>
+
+<pre><code>mkdir src public
+touch src/index.js
+touch public/index.html
+</code></pre>
+
+    
+<h5>Installs</h5>
+
+<pre><code>npm install --save-dev webpack webpack-cli @babel/core @babel/preset-env babel-loader core-js node-polyfill-webpack-plugin
+</code></pre>
+
+    
+<h5>package.json</h5>
+
+    <p>add scripts</p>
+<pre><code>"scripts": {
+  "build": "webpack",
+  "dev": "webpack --mode development",
+  "start": "webpack serve"
+}
+</code></pre>
+
+    
+<h5>webpack.config.js</h5>
+
+<pre><code>const path = require('path');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+module.exports = {
+  mode: 'development', // switch to 'production' for production build
+  entry:{ // handles entry point javascript
+    main: path.resolve(__dirname, './src/index.js')
+  },
+  output: { // handles final js bundle output settings
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'public')
+  },
+  devtool: "source-map",
+module:{
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          // without additional settings this will reference .babelrc
+          loader: 'babel-loader'
+        }
+      }
+    ]
+  },
+	plugins: [
+		new NodePolyfillPlugin()
+	]
+}
+</code></pre>
+
+    
+<h5>.babelrc setup</h5>
+
+    <p>create .babelrc file</p>
+    <p>just copy below. Remember the double square brackets. Because... just
+      because</p>
+<pre><code>{
+  "presets" : [
+    [
+      "@babel/preset-env",
+      {"debug": true, "useBuiltIns": "usage", "corejs": 3}
+    ]
+  ]
+}
+</code></pre>
+
+  </body>
+
+</html>

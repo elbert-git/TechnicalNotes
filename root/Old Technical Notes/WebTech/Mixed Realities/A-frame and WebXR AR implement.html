@@ -1,0 +1,82 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>A-frame and WebXR AR implementaion</h1>
+
+    
+<h2><strong>A-frame and AR Markerless implementaion</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4>in General</h4>
+
+    <p>A markerless web AR implementation used in the hatten CNY AR greeting
+      card</p>
+    
+<h4>limitations</h4>
+
+    <p>Usual webGL restrictions apply. But the biggest one is Apple. WebXR don't
+      work on iphones. Best to use their own reality viewer to let apple users
+      exprience the same AR model.</p>
+    
+<h4>Setup HTML</h4>
+
+    <ul>
+      <li>Import this version of a-frame</li>
+    </ul>
+<pre><code>&lt;script src="https://aframe.io/releases/1.2.0/aframe.min.js"&gt;&lt;/script&gt;
+</code></pre>
+
+    <ul>
+      <li>Import A-frame AR component</li>
+    </ul>
+<pre><code>&lt;script src="https://ada.is/basketball-demo/ar-components.js"&gt;&lt;/script&gt;
+</code></pre>
+
+    <ul>
+      <li>Setup a-frame scene</li>
+    </ul>
+<pre><code>&lt;a-scene 
+ embedded
+ webxr="optionalFeatures: hit-test, dom-overlay; overlayElement:#overlay;"
+ vr-mode-ui="vrEnabled:false; arEnabled: true"
+ background="transparent:true"
+&gt;
+  &lt;!--All your a-frame stuff goes inside.--&gt;
+&lt;a-scene/&gt;
+</code></pre>
+
+    <ul>
+      <li>Create a-entity to be the main anchor point when you tap the model</li>
+    </ul>
+<pre><code>&lt;a-entity id="world"&gt;
+  &lt;!--AR content goes here--&gt;
+&lt;a-entity/&gt;
+</code></pre>
+
+    <ul>
+      <li>create a-entity for the reticle</li>
+    </ul>
+<pre><code>&lt;a-entity ar-hit-test="target:{id of main content a-entity}"&gt;
+  &lt;!--reticle model goes here--&gt;
+&lt;/a-entity&gt;
+</code></pre>
+
+    <hr />
+    <hr />
+    <hr />
+    
+<h3>Important note ❗❗❗</h3>
+
+    <p>Seems like the ar-hit-test component is now in the official a-frame library
+      in version 1.3.0</p>
+  </body>
+
+</html>

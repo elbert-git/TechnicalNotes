@@ -1,0 +1,482 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>Firebase</h1>
+
+    
+<h2><strong>-|- Firebase</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>In General</h3>
+
+    <p>A simple catch-all back-end implementation</p>
+    
+<h3>Source</h3>
+
+    <p><a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb">NetNinja's firebase 9 tutorial</a>
+    </p>
+    
+<h2><strong>Installation</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>Installing the cli</h3>
+
+<pre><code>npm i firebase-cli
+</code></pre>
+
+    
+<h3>Installing firebase</h3>
+
+<pre><code>npm install firebase
+</code></pre>
+
+    
+<h2><strong>General Project setup</strong></h2>
+
+    <p>===================================================================</p>
+    <ul>
+      <li>
+        <p><strong>create project on firebase website</strong>
+        </p>
+        <p>Go to the firebase console website and create a new project</p>
+      </li>
+      <li>
+        <p><strong>get project credentials</strong>
+        </p>
+        <p>Go to the project settings and you will find the project credentials.
+          you will need it to initialised the firebase client</p>
+      </li>
+      <li>
+        <p><strong>initialise firebase app from client</strong>
+        </p>
+        <p>Create firebase.js and put below inside.</p>
+      </li>
+    </ul>
+<pre><code>import {initializeApp} from 'firebase/app';
+
+const firebaseConfig = {// copy from firebase console website};
+
+initializeApp(firebaseConfig)
+</code></pre>
+
+    
+<h2><strong>Firebase Authentication</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3><strong>In general</strong></h3>
+
+    <p>Firebase uses json tokens to verify if a user is logged in. If a valid
+      json token is found in user localstorage, then the user is logged in. Generally
+      firebase auth is just a collections of functions that you call.</p>
+    
+<h3><strong>Setup Auth Methods</strong></h3>
+
+    <p>You need to go to the console to enable various authentication methods
+      like via email/password or via google auth.</p>
+    <p>❗❗❗❗ keep in mind sign out and sign in fucntions are async functions ❗❗❗❗</p>
+    
+<h3><strong>Importing the module</strong></h3>
+
+<pre><code>// import module
+import {getAuth} from 'firebase/auth';
+
+// get object
+const auth = getAuth();
+</code></pre>
+
+    
+<h3><strong>Usage</strong></h3>
+
+    <p>Below will document the usage of using email and password. But will be
+      teh same for all login methods. Just change the method names appropriately
+      according to the docs. 🌐 <a href="https://firebase.google.com/docs/auth">link to docs</a>
+    </p>
+    <ul>
+      <li>
+        <p>enabling the email/pass auth.</p>
+        <p>Go to firebase console and enable email/pass auth</p>
+      </li>
+      <li>
+        <p>registering</p>
+      </li>
+    </ul>
+<pre><code>// import
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+// register
+const auth = getAuth();
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) =&gt; {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) =&gt; {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+</code></pre>
+
+    <ul>
+      <li>signing in</li>
+    </ul>
+<pre><code>import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+const auth = getAuth();
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) =&gt; {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) =&gt; {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+</code></pre>
+
+    <ul>
+      <li>signing out</li>
+    </ul>
+<pre><code>import { getAuth, signOut } from "firebase/auth";
+
+const auth = getAuth();
+signOut(auth).then(() =&gt; {
+  // Sign-out successful.
+}).catch((error) =&gt; {
+  // An error happened.
+});
+</code></pre>
+
+    
+<h3>Auth State Persistance</h3>
+
+    <p>Set whether or not authentication tokens persist from session to session
+      and how.</p>
+<pre><code>import { getAuth, setPersistence, signInWithEmailAndPassword, browserSessionPersistence } from "firebase/auth";
+
+const auth = getAuth();
+setPersistence(auth, browserSessionPersistence)
+  .catch((error) =&gt; {
+    // Handle Errors here.
+  });
+</code></pre>
+
+    
+<h5>List of persistance</h5>
+
+<pre><code>//will sign out when  closed tab
+import {browserSessionPersistence } from 'fireabase/auth';
+
+// inMemoryPersistence - will clear on page reload
+import {inMemoryPersistence} from 'fireabase/auth';
+
+// default is local - only a sign out will clear auth
+// do nothing
+</code></pre>
+
+    
+<h2><strong>Firestore Database</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3><strong>General intuition</strong></h3>
+
+    <p>Firebase database implementation.</p>
+    <p><strong>Structure</strong>
+    </p>
+    <p>Firestore is a giant folder for storing jsons. It is structured with collections
+      and documents. Think collections as folders and documents and files.</p>
+    <p><strong>Document ID</strong>
+    </p>
+    <p>every document has an id so that you can grab them</p>
+    
+<h3>Importing the module</h3>
+
+    <p>import firestore and get firestore object</p>
+<pre><code>// import firestore
+import {getFirestore} from 'firebase/firestore';
+
+// get firestore object
+const db = getFirestore();
+</code></pre>
+
+    
+<h3><strong>Basic Usage (CRUD)</strong></h3>
+
+    <ul>
+      <li>import firestore and get firestore object</li>
+    </ul>
+<pre><code>// import firestore
+import {getFirestore} from 'firebase/firestore';
+
+// get firestore object
+const db = getFirestore();
+</code></pre>
+
+    <ul>
+      <li>reading documents from collection (files from folders)oc</li>
+    </ul>
+<pre><code>// imports
+import {getFirestore, collection, getDocs} from 'firebase/firestore';
+
+// get collection reference
+const collectionReference = collection(db, 'collectionName')
+
+// get documents from collection
+getDocs(collectionReference); //returns whole doc json
+
+// better way of getting data
+getDocs(collectionReference).then((snapshot) =&gt; {
+  let finalArray = [];
+  snapshot.docs.forEach((doc) =&gt; {
+    finalArray.push({...doc.data(), id: doc.id});
+  });
+}).catch(err =&gt; {
+  console.log(err);
+});
+</code></pre>
+
+    <ul>
+      <li>reading a single document</li>
+    </ul>
+<pre><code>// import 
+import {getDoc} from 'firebase/firestore';
+
+// get doc reference
+cosnt docReference = doc(db, 'collectionName', {documentId});
+
+// get doc
+let data = getDoc(db, 'collectionName', {docId});
+</code></pre>
+
+    <ul>
+      <li>adding and deleting documents</li>
+    </ul>
+<pre><code>// import 
+import {addDoc} from 'firebase/firestore';
+
+// use add Docs
+addDoc(collectionReference, {dataJson});
+</code></pre>
+
+    <ul>
+      <li>delete documents</li>
+    </ul>
+<pre><code>// import
+import {docRef, deleteDoc} from 'firebase/firestore';
+
+// get doc reference
+cosnt docReference = doc(db, 'collectionName', {documentId});
+
+// delete doc
+deleteDoc(docRef); // keep in mind this is async. 
+</code></pre>
+
+    <ul>
+      <li>Updating documents</li>
+    </ul>
+<pre><code>//import
+import {updateDoc} from 'firebase/firestore';
+
+// get doc reference
+const docReference = doc(db, 'collectionName', {documentId});
+
+// updateDoc
+updateDoc(docRef, {keyToUpdate: newValue});
+</code></pre>
+
+    
+<h3><strong>Real-time data listener</strong></h3>
+
+<pre><code>// import onSnapshot
+import {onSnapshot} from 'firebase/firestore';
+
+//create event listener
+onSnapshot(collectionReference).then((snapshot) =&gt; {
+  let finalArray = [];
+  snapshot.docs.forEach((doc) =&gt; {
+    finalArray.push({...doc.data(), id: doc.id});
+  });
+}).catch(err =&gt; {
+  console.log(err);
+});
+</code></pre>
+
+    
+<h3><strong>Querying data</strong></h3>
+
+    <ul>
+      <li>import query() and where()</li>
+    </ul>
+<pre><code>//import query and where
+import {query, where} from 'firebase/firestore';
+</code></pre>
+
+    <ul>
+      <li>querying</li>
+    </ul>
+<pre><code>const queryData = query(collectionRef, where("key","comparator","value"));
+
+const queryData = query(collectionRef, where("autho","==","C.S Lewis"));
+</code></pre>
+
+    <ul>
+      <li>Accessing data from query</li>
+    </ul>
+<pre><code>getDocs(queryData).then((snapshot) =&gt; {
+  let finalArray = [];
+  snapshot.docs.forEach((doc) =&gt; {
+    finalArray.push({...doc.data(), id: doc.id});
+  });
+}).catch(err =&gt; {
+  console.log(err);
+});
+</code></pre>
+
+    
+<h3><strong>Sorting Data</strong></h3>
+
+    <ul>
+      <li>Creating an index</li>
+    </ul>
+    <p>You need to create something called an index before you can sort stuff.
+      For now just try the function once then It will give you a an error and
+      a link to create an index automatically. Go to the link and create the
+      index. Wait a few minutes then it should work once the index is enabled.</p>
+    <ul>
+      <li>import orderBy</li>
+    </ul>
+<pre><code>// import
+import {orderBy} from 'firebase/firestore';
+</code></pre>
+
+    <ul>
+      <li>create a query</li>
+    </ul>
+<pre><code>const queryData = query(collectionRef, where("key","comparator","value"));
+
+const queryData = query(collectionRef, orderBy('key', 'desc/asc'));
+</code></pre>
+
+    <ul>
+      <li>read query data</li>
+    </ul>
+<pre><code>getDocs(queryData).then((snapshot) =&gt; {
+  let finalArray = [];
+  snapshot.docs.forEach((doc) =&gt; {
+    finalArray.push({...doc.data(), id: doc.id});
+  });
+}).catch(err =&gt; {
+  console.log(err);
+});
+</code></pre>
+
+    
+<h3><strong>TimeStamps</strong></h3>
+
+    <ul>
+      <li>import server timestamp</li>
+    </ul>
+<pre><code>import {serverTimestamp} from 'firebase/firestore';
+</code></pre>
+
+    <ul>
+      <li>use fucntion</li>
+    </ul>
+<pre><code>let time = serverTimestamp();
+</code></pre>
+
+    
+<h2><strong>Firebase Functions</strong></h2>
+
+    <p>===================================================================</p>
+    <p>source: <a href="https://firebase.google.com/docs/functions/local-emulator">https://firebase.google.com/docs/functions/local-emulator</a>
+    </p>
+    
+<h3>What is this</h3>
+
+    <p>Basically creating restAPI with firebase.</p>
+    
+<h3>Setup</h3>
+
+    <p>install dependencies</p>
+<pre><code>npm install -g firebase-tools
+</code></pre>
+
+    <p>using the firebase tools</p>
+    <ul>
+      <li>
+        <p>login: <code>firebase login</code>
+        </p>
+      </li>
+      <li>
+        <p>init functions: <code>firebase init functions</code>
+        </p>
+        <p>the above will start a firebase fucntion boilerplate</p>
+      </li>
+      <li>
+        <p>Deploying functions: <code>firebase deploy --only functions</code>
+        </p>
+      </li>
+    </ul>
+    
+<h3>Boilerplate</h3>
+
+<pre><code>// Firestore under the path /messages/:documentId/original
+exports.addMessage = functions.https.onRequest(async (req, res) =&gt; {
+  // Grab the text parameter.
+  const original = req.query.text;
+
+  res.json({result: `Message with ID: ${writeResult.id} added.`});
+});
+</code></pre>
+
+    <p>Handle url parameters with by appending <code>?=parameterName=value</code>
+    </p>
+    
+<h3>Testing</h3>
+
+    <p>Start a local firebase server emulator here</p>
+<pre><code>firebase emulators:start
+</code></pre>
+
+    <p>It will provide you a link to test your url functions.</p>
+    
+<h3>Working with Express and CORS</h3>
+
+<pre><code>const functions = require('firebase-functions');
+const express = require('express');
+const cors = require('cors')({origin: true});
+const app = express();
+
+app.use(cors);
+app.use(cookieParser);
+app.use(validateFirebaseIdToken);
+app.get('/hello', (req, res) =&gt; {
+  // response code goes here.
+  res.send(`Hello`);
+});
+</code></pre>
+
+    
+<h3></h3>
+
+    
+<h2><strong>Firebase rules and security</strong></h2>
+
+    <p>===================================================================</p>
+  </body>
+
+</html>

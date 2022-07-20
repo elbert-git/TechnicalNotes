@@ -1,0 +1,412 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>NFTs</h1>
+
+    
+<h2><strong><em>-|-</em> NFTs</strong></h2>
+
+    <p><a href="https://www.youtube.com/playlist?list=PLlr2FnHljEjH7zmcE7PZfLJTLw5XogqQg">https://www.youtube.com/playlist?list=PLlr2FnHljEjH7zmcE7PZfLJTLw5XogqQg</a>
+    </p>
+    <p>===================================================================</p>
+    <p>An nft is just a token in a contract that abides by the ERC-721 standard.</p>
+    <p>Basically picture a smart contract. that contract has a mapping of tokens
+      to users.</p>
+    <p>when you mint an nft. the smart contract stores your ownership status.</p>
+    <p>It can also have other functionalities like transferring ownerships to
+      others.</p>
+    <p>Tokens can be associated with:</p>
+    <ul>
+      <li>wallet address, to indicate ownership</li>
+      <li>uri(universal resource indicator), to point to other forms of data</li>
+    </ul>
+    
+<h3>Workflow</h3>
+
+    <p>===================================================================</p>
+    <ol>
+      <li>You start with a base template first</li>
+      <li>then add in the features one by one.</li>
+    </ol>
+    
+<h2><strong>ERC-721</strong></h2>
+
+    <p>===================================================================</p>
+    <p>Is a smart contract standardization that generates and store tokens. has
+      functions to for other wallets to manage these tokens.</p>
+    <p><strong><a href="https://docs.openzeppelin.com/contracts/2.x/api/token/erc721">Open Zeppelin ERC-721 doc Link</a></strong>
+    </p>
+    <p><strong><a href="https://eips.ethereum.org/EIPS/eip-721">ERC-721 official specifications</a></strong>
+    </p>
+    
+<h4>Functions</h4>
+
+    <ul>
+      <li>balanceOf(owner)
+        <ul>
+          <li>find out how many tokens a wallet has</li>
+        </ul>
+      </li>
+      <li>ownerOf(tokenId)
+        <ul>
+          <li>returns token's owner address</li>
+        </ul>
+      </li>
+      <li>safeTransferFrom(from, to, tokenId) *</li>
+      <li>transferFrom(from, to, tokenId)</li>
+      <li>approve(to, tokenId)</li>
+      <li>getApproved(tokenId)</li>
+      <li>setApprovalForAll(operator, _approved)</li>
+      <li>isApprovedForAll(owner, operator)</li>
+      <li>safeTransferFrom(from, to, tokenId, data)</li>
+    </ul>
+    
+<h4>Events</h4>
+
+    <ul>
+      <li>Transfer(from, to, tokenId)</li>
+      <li>Approval(owner, approved, tokenId)</li>
+      <li>ApprovalForAll(owner, operator, approved)</li>
+    </ul>
+    
+<h4>URI JSON Metadata Standards</h4>
+
+    <p>URIs should return Jsons structured as so</p>
+<pre><code>{
+  "name": ""
+  "description": "" 
+  "image": ""
+}
+</code></pre>
+
+    <ul>
+      <li>json
+        <ul>
+          <li>title: "Object title"</li>
+          <li>type: object type</li>
+          <li>properties: traits and other fluff go here</li>
+        </ul>
+      </li>
+    </ul>
+    
+<h2><strong>Creating NFT smart contract</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4>The open zeppelin Wizard</h4>
+
+    <p>Simplest way is to use the <a href="https://docs.openzeppelin.com/contracts/4.x/wizard">open zeppelin wizard</a>.</p>
+    <p>You can customize a boiler plate to create your smart contracts</p>
+    
+<h2><strong>Token URIs</strong></h2>
+
+    <p>===================================================================</p>
+    <p>How to map other data to tokens.</p>
+    <p>It's just the using the ``<code>setTokenURI()</code>`` method in erc-721.</p>
+<pre><code>setTokenURI(tokenID, {uri link});
+</code></pre>
+
+    <p>you can put this function in the safeMint function to associate the uri
+      during minting.</p>
+    
+<h4>Steps to create URI</h4>
+
+    <ol>
+      <li>upload content to ipfs or internet in general</li>
+      <li>create metadata json according to opensea and open zepellin standards</li>
+      <li>upload json to ipfs(use pinata)</li>
+      <li>mint token and set uri to the link of json ipfs url.</li>
+    </ol>
+    
+<h5>metadata example</h5>
+
+    <p><a href="https://docs.opensea.io/docs/metadata-standards">sauce</a>
+    </p>
+<pre><code>{
+  "description": "Friendly OpenSea Creature that enjoys long swims in the ocean.", 
+  "external_url": "https://openseacreatures.io/3", 
+  "image": "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png", 
+  "name": "Dave Starbelly",
+  "attributes": [ ... ], 
+}
+</code></pre>
+
+    
+<h5>Exact URL to mint</h5>
+
+    <p>when linking the uri in setURI() method. put the full https link found
+      in pinata</p>
+<pre><code>setTokenURI({tokenIndex}, "gateway.pinata.cloud/ipfs/QmTHeo5mVRpREWvTAE7oen9oxcrtRLp5iP6iGTa3yCWQiW");
+</code></pre>
+
+    <ul>
+      <li>note that we excluded the https:// header becasue that is set in the contract's
+        base URI variable</li>
+    </ul>
+    
+<h2><strong>Money Matters</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4>Paying to smart contract</h4>
+
+    <p>to add payment requirements to the different nft functions</p>
+    <ul>
+      <li>add payable modifier to function</li>
+      <li>add ``<code>require((msg.value &gt;= {priceAmount}), "error message")</code>```</li>
+    </ul>
+    <p>This will make the function require ether to be sent to the smart contract.</p>
+    
+<h4>Withdrawing Ether from smart contract</h4>
+
+    <p>you can put an operation to send ether automatically on paid function
+      calls.</p>
+    <p>or create a withdraw() function that requires owner</p>
+    
+<h2><strong>ERC-721A</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h4>In general</h4>
+
+    <p>An improved implementation of the ERC-721 standard. Saves gas on minting
+      multiple nfts. Doesn't save gas on an individual nft creation though</p>
+    
+<h5>How is this achieved?</h5>
+
+    <p>Instead of mapping every token to owner. They assign sequential IDs into
+      owners. Effectively only writing to the mapping once per n number of tokens.</p>
+    
+<h4>Contract Template</h4>
+
+<pre><code>// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.4;
+
+import "erc721a/contracts/ERC721A.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract inverted_mfers is ERC721A, Ownable {
+    uint256 MAX_MINTS = 69;
+    uint256 MAX_SUPPLY = 10021;
+    uint256 public mintRate = 0.0069 ether;
+
+    string public baseURI = "ipfs://{hash}/";
+
+    constructor() ERC721A("CollectionName", "SYMBOL") {}
+
+    function mint(uint256 quantity) external payable {
+        // _safeMint's second argument now takes in a quantity, not a tokenId.
+        require(quantity + _numberMinted(msg.sender) &lt;= MAX_MINTS, "Exceeded the limit");
+        require(totalSupply() + quantity &lt;= MAX_SUPPLY, "Not enough tokens left");
+        require(msg.value &gt;= (mintRate * quantity), "Not enough ether sent");
+        _safeMint(msg.sender, quantity);
+    }
+
+    function withdraw() external onlyOwner {
+        payable(owner()).transfer(address(this).balance);
+    }
+
+    function _baseURI() internal view override returns (string memory) {
+        return baseURI;
+    }
+
+    function setMintRate(uint256 _mintRate) public onlyOwner {
+        mintRate = _mintRate;
+    }
+}
+</code></pre>
+
+    
+<h2><strong>Adding Reveal Feature</strong></h2>
+
+    <p>===================================================================</p>
+    <p>Add ipfs hash variables</p>
+<pre><code>// uri vars
+string private baseURI = "{ipfshash}";
+string private hiddenURI ="{ipfshash}";
+</code></pre>
+
+    <p>Overrride tokenURI fucntion</p>
+<pre><code>function setURI(string memory _uri) external onlyOwner{
+  baseURI = _uri;
+}
+</code></pre>
+
+    
+<h2><strong>White-listing via merkle trees</strong></h2>
+
+    <p>===================================================================</p>
+    <p>source: <a href="https://www.youtube.com/watch?v=67vkL8XkoJ0">https://www.youtube.com/watch?v=67vkL8XkoJ0</a>
+      <br
+      />
+<a href="https://www.youtube.com/watch?v=YDWYrVtqLRU">https://www.youtube.com/watch?v=YDWYrVtqLRU</a>
+      <br
+      />
+<a href="https://medium.com/@ItsCuzzo/using-merkle-trees-for-nft-whitelists-523b58ada3f9">https://medium.com/@ItsCuzzo/using-merkle-trees-for-nft-whitelists-523b58ada3f9</a>
+    </p>
+    
+<h4>What is this?</h4>
+
+    <p>This allows white-listed address to mint. Basically allows you to verify
+      whether or not if an address is in an approved address list</p>
+    
+<h4>Understanding merkle trees</h4>
+
+    <p><strong>Understanding Hashing</strong>
+    </p>
+    <p>Hashing is converting an arbitrary size of text into an array of text
+      of fixed size.</p>
+    <p>like: <code>loooooooong text</code> into <code>38easdf734osxdf7923</code>
+    </p>
+    <p><strong>Understanding Merkle Trees</strong>
+    </p>
+    <p>Take a collection of values. Divide into pairs. Then hash it's pair. Repeat
+      this into one final hash value. That's producing a merkle tree. The whole
+      graph of hashes.</p>
+    <p><strong>Why is this useful?</strong>
+    </p>
+    <p>Allows one final has value to verify and an arbitrary number of values.
+      Since the final hash value is dependent on all the values it is derived
+      from.</p>
+    <p><strong>Some important terminologies</strong>
+    </p>
+    <ul>
+      <li>tree: the whole graph</li>
+      <li>nodes/branch: are the inbetween has values</li>
+      <li>Leaves: are the first set of inputs</li>
+      <li>proof: Idk lel but it's the other argument requiremetn to verify the leaf
+        node in tree.</li>
+    </ul>
+    
+<h4>Prep: creating the merkle tree (in JS)</h4>
+
+    <p>Producing the merkle tree from the inputted list of addresses.</p>
+<pre><code>const functions = require("firebase-functions");
+const { MerkleTree } = require('merkletreejs');
+const fs = require('fs');
+const keccak256 = require('keccak256');
+
+class AddressMerkleTree{
+  constructor(arrayOfAddress){
+    // create tree
+    this.leafNodes = arrayOfAddress.map(addr =&gt; keccak256(addr));
+    this.merkleTree = new MerkleTree(this.leafNodes, keccak256, { sortPairs: true});
+  }
+   
+  // get root hash for contract
+  getRootHashForContract(){
+    const rootHash = this.merkleTree.getRoot();
+    const tree = this.merkleTree.toString();
+    const firstLine = tree.split('\n')[0];
+    const root = firstLine.split(' ')[1];
+    return ('0x'+root)
+  }
+  getRootHash(){
+    return this.merkleTree.getRoot();
+  }
+   
+  getAddressProof(address){
+    const hexProof = this.merkleTree.getHexProof(keccak256(address));
+    return hexProof;
+  }
+   
+  verify(address){
+    const bool = this.merkleTree.verify(this.getAddressProof(address), keccak256(address), this.getRootHash());
+    console.log("tree verify: ", bool);
+    return bool;
+  }
+}
+</code></pre>
+
+    
+<h4>Getting the merkle proof (server side)</h4>
+
+    <p>This is the code to put on the server side to get the merkle proof. Just
+      make sure to create the tree above this code snippet</p>
+<pre><code>const tree = {create tree object};
+
+exports.getProof = functions.https.onRequest((request, response) =&gt; {
+  const address = request.query.address; 
+  response.send(tree.getAddressProof(address));
+});
+</code></pre>
+
+    
+<h4>Adding function to contract</h4>
+
+    <p>Add merkle proof library</p>
+<pre><code>import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
+</code></pre>
+
+    <p>Add whitelisting vars</p>
+<pre><code>bytes32 merkleRoot = {root};
+bool whitelistMode = true; 
+</code></pre>
+
+    <p>create set merkle root fucntion</p>
+<pre><code>function setMerkleTreeRoot(bytes32 _root) public onlyOwner {
+  merkleRoot = _root;
+}
+</code></pre>
+
+    <p>create verify function</p>
+<pre><code>// whitelist verify
+function verify(bytes32[] memory proof, address senderAddress) internal view returns (bool){
+  // create leaf from msg.sender address
+  bytes32 leaf = keccak256(abi.encodePacked(senderAddress));                                                        
+  //check if node has is in merckle tree
+  return MerkleProof.verify(proof, merkleRoot, leaf);
+}
+</code></pre>
+
+    <p>add verify requirement before minting</p>
+<pre><code>if(whitelistMode){require(verify(proof, msg.sender), "not in whitelist");}
+</code></pre>
+
+    <p>create set whitelist mode fucntion</p>
+<pre><code>function setWhitelistMode(bool _mode) public onlyOwner {
+  whitelistMode = _mode;
+}
+</code></pre>
+
+    
+<h4>Changing minting phases</h4>
+
+    <p>Could be for ending free-mint/whitelist minting phases after a certain
+      number mints happen</p>
+    <p>Create vars</p>
+<pre><code>bool triggerHasFired = false;
+uint256 triggerNumber = 1000; // put number to transition here
+</code></pre>
+
+    <p>Create Mint trigger</p>
+<pre><code>function Trigger() internal {
+  if(totalSupply() &gt;= triggerNumber &amp;&amp; !triggerHasFired){
+  // save trigger fire
+  triggerHasFired = true;
+  // ... ... trigger code runs below
+  }
+}
+</code></pre>
+
+    
+<h2><strong>Dev-mint</strong></h2>
+
+    <p>===================================================================</p>
+<pre><code>function devMint(uint num) public onlyOwner {
+  require(totalSupply() + num &lt;= MAX_SUPPLY, "Not enough tokens left");
+  _safeMint(msg.sender, num);
+  // Trigger(); // if you have trigger
+}
+</code></pre>
+
+  </body>
+
+</html>

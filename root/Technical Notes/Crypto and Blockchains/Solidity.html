@@ -1,0 +1,331 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+  </head>
+  
+  <body class="ck-content">
+     <h1>Solidity</h1>
+
+    <hr />
+    
+<h2><strong>In General</strong></h2>
+
+    <p>===================================================================</p>
+    <p>It's a high level language to code smart contracts on the ethereum blockchain.
+      Not only for Ethereum but most commonly associated with it.</p>
+    <p><strong>Smart Contracts</strong>
+    </p>
+    <p>think of them as a public public javascript object in the blockchain(or
+      the cloud). they have properties and functions that users can call</p>
+    
+<h2><strong>Basic Structure</strong></h2>
+
+    <p>===================================================================</p>
+<pre><code>pragma solidity ^0.8.4;
+
+contract BasicContract{
+  address owner;
+
+  constructor(){
+    owner = msg.sender;
+  }
+}
+</code></pre>
+
+    <ul>
+      <li><strong>Version number</strong>: every solidity file needs a version number
+        to tell what compiler to use</li>
+      <li><strong>contract object:</strong> the contract itself. behaves like a public
+        and cloud javascript object</li>
+      <li><strong>constructor</strong>: a fucntion that is called at the the deployment
+        of the contract. and only then. effectively a fucntion that runs on start();</li>
+    </ul>
+    
+<h3><strong>Variable visibilty/scoping</strong></h3>
+
+<pre><code>pragma solidity ^0.8.4;
+
+contract BasicContract{
+  address public owner;
+  function SetOwner(address newOwner) public {
+    owner = newOwner;
+  }
+}
+</code></pre>
+
+    <p>by default variables and functions are private. used only in the class
+      privately. but you can expose them by the <strong>public</strong> keyword.</p>
+    
+<h2><strong>Variables</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3><strong>Ints</strong></h3>
+
+    <p><strong>unsigned vs normal integers</strong>
+    </p>
+    <p>normal integers are normal. unsigned just mean they can't be negative.
+      it is an always positive number.</p>
+<pre><code>uint alwaysPositive = 22254;
+int canBeNegative = -902314;
+</code></pre>
+
+    <p><strong>integer bits</strong>
+    </p>
+    <p>you can also set how many bits to hold the integer. This is most likely
+      a cost saving measure.</p>
+    <p>by default it ints and uints are 256 bits</p>
+<pre><code>int8
+int16
+.
+.
+.
+int256
+
+uint8
+uint16
+.
+.
+.
+uint256
+</code></pre>
+
+    
+<h3><strong>Strings</strong></h3>
+
+    <p>just a normal string.</p>
+<pre><code>string basicString = "hello world";
+</code></pre>
+
+    
+<h3><strong>Addresses</strong></h3>
+
+    <p>every ethereum wallet and smart contract has an address.</p>
+    <p>an address is just a hyperlink/reference to a wallet or smart contract
+      in the blockchain</p>
+<pre><code>address smartContractOwner = 0xpowie0923sdfg23;
+</code></pre>
+
+    
+<h3><strong>Arrays</strong></h3>
+
+    <p>like c# arrays. just an array that can dynamically resize. but accepts
+      one type of object</p>
+<pre><code>int[] numberArray = [1,2,3]
+</code></pre>
+
+    
+<h3><strong>Mapping</strong></h3>
+
+    <p>basically python dictionaries but weirder</p>
+<pre><code>mapping(address =&gt; uint) dictionaryOfBalances;
+dictionaryOfBalances[johnAccount] = 222;
+</code></pre>
+
+    <p>This dict doesn't only hold strings as keys. it can by any data type.
+      just denote what is the key value data types to create a dictionary.</p>
+    <p>then use it like a python dictionary</p>
+    
+<h3><strong>Structs</strong></h3>
+
+    <p>basically javascript objects</p>
+    <ul>
+      <li>[ ] not sure if this can hold functions</li>
+    </ul>
+    <p>Though most likely not, it's a python dictionary of sorts.</p>
+<pre><code>struct Person {
+        string name = "hello";
+        string favouritWoreds[] = ["Fungi", "Moist"];
+    }
+</code></pre>
+
+    
+<h3><strong>Events</strong></h3>
+
+<pre><code>event LogDepositMade(address accountAddress, uint amount);
+</code></pre>
+
+    <p>Make logs that other programs can listen for.</p>
+    
+<h3><strong>Memory Vs Storage</strong></h3>
+
+    <p>You can mark a variable as memory or storage. whether it only exists in
+      the run time of the function or persists throughout the life time of the
+      contract.</p>
+    <p>This helps you save on gas fees by denoting what to save and what to keep.</p>
+<pre><code>string memory tempString public = "temp";
+string storage permanentString public = "permanent";
+</code></pre>
+
+    
+<h3><strong>MSG object</strong></h3>
+
+    <p>This is is how you identify who is interacting with the smart contract.</p>
+    <p>at the start it will always be the deployer.</p>
+    <p>but other people can also interact with this contract. so when they call
+      the fucntion. the msg object will be associated with them.</p>
+<pre><code>address currentUser = msg.sender;
+</code></pre>
+
+    
+<h2><strong>Functions</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h3>Basics</h3>
+
+<pre><code>    function BasicFunction (string stringArgument){
+        // do things
+    }
+
+    function BasicPublicFunction (string stringArgument) public {
+        // do things
+    }
+</code></pre>
+
+    
+<h3>Structure</h3>
+
+<pre><code>function FunctionName(datatype varName) [public, pure, view] returns(datatype, datatype) 
+</code></pre>
+
+    <ul>
+      <li>declare the function keyword</li>
+      <li>followed by arguments it requires</li>
+      <li>then public, pure, view permissions</li>
+      <li>then declare the returning data type</li>
+    </ul>
+    
+<h3>Fucntion permissions</h3>
+
+    <p>The one that goes in square brackets above. They label and enable what
+      a functionc can do</p>
+    <ul>
+      <li>public: accessable to everyone. Inside of contract and outside. <strong>default for functions</strong>
+      </li>
+      <li>private: accessible to be called within contract only. not accessible
+        to children derivative contracts</li>
+      <li>external: accessible to called outside of contract only</li>
+      <li>internal: accessible to be called in contract and it's derivative children
+        contracts</li>
+      <li>view: read only. Doesn't require gas. Can't change state/write variables</li>
+      <li>pure: does not read and write. almost useless</li>
+      <li>Payable: allow to fucntion to receive ether</li>
+    </ul>
+    
+<h3>Error Handling</h3>
+
+    
+<h5>Revert</h5>
+
+<pre><code>if({boolean statement}){
+  revert('error message string');
+}
+</code></pre>
+
+    <p>basically a function that cancels the entire blockchain call while returning
+      a message error</p>
+    
+<h5>Require</h5>
+
+<pre><code>require({bool statement}, 'error message string');
+</code></pre>
+
+    <p>similar to revert. just more concise</p>
+    
+<h5>Assert</h5>
+
+    <p>don't bother</p>
+    
+<h3>Modifiers</h3>
+
+    <p>are like attachable operations to functions at the</p>
+<pre><code>modifier onlyOwner() {
+  require(msg.sender == owner, "not owner"); // throw error if not owner
+  _; // &lt;-- function runs here. 
+  // code here runs after function.
+}
+</code></pre>
+
+    <p>then attach to a function like this</p>
+<pre><code>function ChangeOwner (address newOwner) public onlyOwner {
+  //
+}
+</code></pre>
+
+    
+<h5>Preventing re-occuring function calls</h5>
+
+    <p>A common use case modifiers.</p>
+    <p>like preventing double overlapping functions getting called.</p>
+<pre><code>modifier preventOverlappingCalls (){
+ require(!locked, "Locked");
+ locked = true;
+ _;
+ locked = false;
+}
+</code></pre>
+
+    
+<h2><strong>Events</strong></h2>
+
+    <p>===================================================================</p>
+    <p>A way to to set up a signal that other contracts, objects, fucntions etc.
+      can subscribe to. But can also function like a console.log into the blockchain
+      log</p>
+    
+<h5>Creating an event</h5>
+
+<pre><code>event EventName(dataType varName, datatype varname);
+</code></pre>
+
+    <p>they look like structs. this is so that events can also carry data to
+      further describe the event.</p>
+    
+<h5>Emitting an event</h5>
+
+<pre><code>emit eventName(argName, argName);
+</code></pre>
+
+    <p>just call emit, then event name followed by the variables to make up that
+      data.</p>
+    
+<h2><strong>Time</strong></h2>
+
+    <p>===================================================================</p>
+    
+<h5>Epoch time: timing standard of solidity</h5>
+
+    <p>Solidity uses epoch time to track time. Which is the number of seconds
+      that have elapsed from 1970/01/01. Which is just a large uint.</p>
+    
+<h5>Keywords</h5>
+
+<pre><code>now;                        // current epoch uint
+uint min  = 1 minutes       // num of seconds in a minute
+uint hour = 1 hour          // num of seconds in an hour
+uint week = 1 weeks         // num of seconds in a week
+</code></pre>
+
+    
+<h5>Useful tool :</h5>
+
+    <p><a href="https://www.epochconverter.com/">epoch time converter</a>
+    </p>
+    
+<h5>Some notes on usage</h5>
+
+    <ul>
+      <li>you can handle minting phases by simply checking if <code>now &gt; mintingPhaseTime</code>
+      </li>
+      <li>while this can help schedule 'contract modes'</li>
+      <li>this can't do 'real cron jobs'. Can't call a function on schedul. The
+        fucntion must be called to check the time then it runs some logic.</li>
+    </ul>
+  </body>
+
+</html>
